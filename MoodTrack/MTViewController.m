@@ -16,6 +16,7 @@
 - (IBAction)buttonPressed:(id)sender
 {
     NSLog(@"Button pressed");
+    NSLog(@"Slider value: %f", slider.value);
 }
 
 - (void)didReceiveMemoryWarning

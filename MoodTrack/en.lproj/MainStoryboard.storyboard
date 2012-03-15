@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="4VB-7D-5Fj">
-                                <rect key="frame" x="55" y="179" width="211" height="23"/>
+                                <rect key="frame" x="41" y="156" width="211" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="What's your mood?" lineBreakMode="tailTruncation" minimumFontSize="10" id="mif-If-Ycd">
@@ -25,7 +25,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="88r-El-uah">
-                                <rect key="frame" x="75" y="257" width="159" height="50"/>
+                                <rect key="frame" x="64" y="230" width="159" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Track!">
@@ -36,15 +36,19 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonPressed:" destination="2" eventType="touchUpInside" id="Dxq-Dv-mGg"/>
+                                    <action selector="buttonPressed:" destination="2" eventType="touchUpInside" id="LhU-Vf-9mn"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="88r-El-uah" id="cwn-MK-ALx"/>
+                        <outlet property="slider" destination="4VB-7D-5Fj" id="CCO-Rc-AiG"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="693" y="22"/>
+            <point key="canvasLocation" x="355" y="156"/>
         </scene>
     </scenes>
     <classes>
