@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *button;
 
 - (IBAction)buttonPressed:(id)sender;
+- (void)execSQL:(NSString *)s;
 
 @end

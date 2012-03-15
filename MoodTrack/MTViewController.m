@@ -33,6 +33,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self execSQL:@"CREATE TABLE IF NOT EXISTS mood ( \
+     id INTEGER NOT NULL PRIMARY KEY, \
+     mood_value DOUBLE PRECISION, \
+     ts DATETIME DEFAULT CURRENT_TIMESTAMP, \
+     lat DOUBLE PRECISION, \
+     lon DOUBLE PRECISION, \
+     accuracy DOUBLE PRECISION \
+     );"];
 }
 
 - (void)viewDidUnload
@@ -68,7 +77,7 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-+ (void) execSQL:(NSString *)s
+- (void) execSQL:(NSString *)s
 {
     // Get the documents directory
     NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
