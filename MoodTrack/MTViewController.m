@@ -17,8 +17,17 @@
 
 - (IBAction)buttonPressed:(id)sender
 {
+    double lat=0,lon=0,accuracy=0;
+    
     NSLog(@"Button pressed");
     NSLog(@"Slider value: %f", slider.value);
+    
+    NSString *s = [NSString stringWithFormat:@"INSERT INTO mood \
+                   (mood_value, lat, lon, accuracy) \
+                   VALUES \
+                   (%f, %f, %f, %f);", slider.value, lat, lon, accuracy];
+    NSLog(@"%@", s);               
+    [self execSQL:s];
 }
 
 - (void)didReceiveMemoryWarning
