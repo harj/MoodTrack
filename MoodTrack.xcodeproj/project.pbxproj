@@ -15,6 +15,7 @@
 		C7CC977B1511D1AC005C44C1 /* MTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */; };
 		C7CC977E1511D1AC005C44C1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */; };
 		C7CC97811511D1AC005C44C1 /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CC97801511D1AC005C44C1 /* MTViewController.m */; };
+		C7CC978C1511DA65005C44C1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		C7CC977D1511D1AC005C44C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C7CC977F1511D1AC005C44C1 /* MTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTViewController.h; sourceTree = "<group>"; };
 		C7CC97801511D1AC005C44C1 /* MTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTViewController.m; sourceTree = "<group>"; };
+		C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7CC978C1511DA65005C44C1 /* libsqlite3.0.dylib in Frameworks */,
 				C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */,
 				C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */,
 				C7CC976F1511D1AC005C44C1 /* CoreGraphics.framework in Frameworks */,
@@ -50,6 +53,7 @@
 		C7CC975B1511D1AC005C44C1 = {
 			isa = PBXGroup;
 			children = (
+				C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */,
 				C7CC97701511D1AC005C44C1 /* MoodTrack */,
 				C7CC97691511D1AC005C44C1 /* Frameworks */,
 				C7CC97671511D1AC005C44C1 /* Products */,

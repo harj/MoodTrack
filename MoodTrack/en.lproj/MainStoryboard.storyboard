@@ -48,19 +48,9 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="355" y="156"/>
+            <point key="canvasLocation" x="448" y="134"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="MTViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MTViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonPressed:"/>
-                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
