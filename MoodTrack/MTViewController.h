@@ -10,4 +10,9 @@
 
 @interface MTViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UISlider *slider; 
+@property (strong, nonatomic) IBOutlet UIButton *button;
+
+- (IBAction)buttonPressed:(id)sender;
+
 @end

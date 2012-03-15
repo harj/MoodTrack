@@ -10,6 +10,14 @@
 
 @implementation MTViewController
 
+@synthesize slider;
+@synthesize button;
+
+- (IBAction)buttonPressed:(id)sender
+{
+    NSLog(@"Button pressed");
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
