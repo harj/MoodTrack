@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976A1511D1AC005C44C1 /* UIKit.framework */; };
+		C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976C1511D1AC005C44C1 /* Foundation.framework */; };
+		C7CC976F1511D1AC005C44C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */; };
+		C7CC97751511D1AC005C44C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7CC97731511D1AC005C44C1 /* InfoPlist.strings */; };
+		C7CC97771511D1AC005C44C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CC97761511D1AC005C44C1 /* main.m */; };
+		C7CC977B1511D1AC005C44C1 /* MTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */; };
+		C7CC977E1511D1AC005C44C1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */; };
+		C7CC97811511D1AC005C44C1 /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CC97801511D1AC005C44C1 /* MTViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C7CC97661511D1AC005C44C1 /* MoodTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CC976A1511D1AC005C44C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C7CC976C1511D1AC005C44C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C7CC97721511D1AC005C44C1 /* MoodTrack-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MoodTrack-Info.plist"; sourceTree = "<group>"; };
+		C7CC97741511D1AC005C44C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C7CC97761511D1AC005C44C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C7CC97781511D1AC005C44C1 /* MoodTrack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoodTrack-Prefix.pch"; sourceTree = "<group>"; };
+		C7CC97791511D1AC005C44C1 /* MTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTAppDelegate.h; sourceTree = "<group>"; };
+		C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTAppDelegate.m; sourceTree = "<group>"; };
+		C7CC977D1511D1AC005C44C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C7CC977F1511D1AC005C44C1 /* MTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTViewController.h; sourceTree = "<group>"; };
+		C7CC97801511D1AC005C44C1 /* MTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7CC97631511D1AC005C44C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */,
+				C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */,
+				C7CC976F1511D1AC005C44C1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C7CC975B1511D1AC005C44C1 = {
+			isa = PBXGroup;
+			children = (
+				C7CC97701511D1AC005C44C1 /* MoodTrack */,
+				C7CC97691511D1AC005C44C1 /* Frameworks */,
+				C7CC97671511D1AC005C44C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C7CC97671511D1AC005C44C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC97661511D1AC005C44C1 /* MoodTrack.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7CC97691511D1AC005C44C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC976A1511D1AC005C44C1 /* UIKit.framework */,
+				C7CC976C1511D1AC005C44C1 /* Foundation.framework */,
+				C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7CC97701511D1AC005C44C1 /* MoodTrack */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC97791511D1AC005C44C1 /* MTAppDelegate.h */,
+				C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */,
+				C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */,
+				C7CC977F1511D1AC005C44C1 /* MTViewController.h */,
+				C7CC97801511D1AC005C44C1 /* MTViewController.m */,
+				C7CC97711511D1AC005C44C1 /* Supporting Files */,
+			);
+			path = MoodTrack;
+			sourceTree = "<group>";
+		};
+		C7CC97711511D1AC005C44C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C7CC97721511D1AC005C44C1 /* MoodTrack-Info.plist */,
+				C7CC97731511D1AC005C44C1 /* InfoPlist.strings */,
+				C7CC97761511D1AC005C44C1 /* main.m */,
+				C7CC97781511D1AC005C44C1 /* MoodTrack-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7CC97651511D1AC005C44C1 /* MoodTrack */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7CC97841511D1AC005C44C1 /* Build configuration list for PBXNativeTarget "MoodTrack" */;
+			buildPhases = (
+				C7CC97621511D1AC005C44C1 /* Sources */,
+				C7CC97631511D1AC005C44C1 /* Frameworks */,
+				C7CC97641511D1AC005C44C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoodTrack;
+			productName = MoodTrack;
+			productReference = C7CC97661511D1AC005C44C1 /* MoodTrack.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7CC975D1511D1AC005C44C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = C7CC97601511D1AC005C44C1 /* Build configuration list for PBXProject "MoodTrack" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C7CC975B1511D1AC005C44C1;
+			productRefGroup = C7CC97671511D1AC005C44C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7CC97651511D1AC005C44C1 /* MoodTrack */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7CC97641511D1AC005C44C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CC97751511D1AC005C44C1 /* InfoPlist.strings in Resources */,
+				C7CC977E1511D1AC005C44C1 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7CC97621511D1AC005C44C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C7CC97771511D1AC005C44C1 /* main.m in Sources */,
+				C7CC977B1511D1AC005C44C1 /* MTAppDelegate.m in Sources */,
+				C7CC97811511D1AC005C44C1 /* MTViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C7CC97731511D1AC005C44C1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7CC97741511D1AC005C44C1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7CC977D1511D1AC005C44C1 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7CC97821511D1AC005C44C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C7CC97831511D1AC005C44C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7CC97851511D1AC005C44C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoodTrack/MoodTrack-Prefix.pch";
+				INFOPLIST_FILE = "MoodTrack/MoodTrack-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C7CC97861511D1AC005C44C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MoodTrack/MoodTrack-Prefix.pch";
+				INFOPLIST_FILE = "MoodTrack/MoodTrack-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7CC97601511D1AC005C44C1 /* Build configuration list for PBXProject "MoodTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7CC97821511D1AC005C44C1 /* Debug */,
+				C7CC97831511D1AC005C44C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7CC97841511D1AC005C44C1 /* Build configuration list for PBXNativeTarget "MoodTrack" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7CC97851511D1AC005C44C1 /* Debug */,
+				C7CC97861511D1AC005C44C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C7CC975D1511D1AC005C44C1 /* Project object */;
+}
