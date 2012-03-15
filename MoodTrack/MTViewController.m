@@ -19,8 +19,13 @@
 
 - (IBAction)buttonPressed:(id)sender
 {
-    double lat,lon,accuracy;
     CLLocation *l = locmgr.location;
+    double lat = l.coordinate.latitude;
+    double lon = l.coordinate.longitude;
+    double h = l.horizontalAccuracy;
+    double v = l.verticalAccuracy;
+    double accuracy = sqrt(h*h+v*v);
+    
     NSLog(@"loc: %@", l);
     NSLog(@"Button pressed");
     NSLog(@"Slider value: %f", slider.value);
