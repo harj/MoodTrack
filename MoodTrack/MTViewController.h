@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MTViewController : UIViewController
+@interface MTViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UISlider *slider; 
 @property (strong, nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) CLLocationManager *locmgr;
 
 - (IBAction)buttonPressed:(id)sender;
 - (void)execSQL:(NSString *)s;
+
 
 @end

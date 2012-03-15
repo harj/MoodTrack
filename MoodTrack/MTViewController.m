@@ -8,17 +8,20 @@
 
 #import "MTViewController.h"
 #import <sqlite3.h>
+#import <CoreLocation/CoreLocation.h>
 
 @implementation MTViewController
 
 @synthesize slider;
 @synthesize button;
+@synthesize locmgr;
 
 
 - (IBAction)buttonPressed:(id)sender
 {
-    double lat=0,lon=0,accuracy=0;
-    
+    double lat,lon,accuracy;
+    CLLocation *l = locmgr.location;
+    NSLog(@"loc: %@", l);
     NSLog(@"Button pressed");
     NSLog(@"Slider value: %f", slider.value);
     
@@ -29,6 +32,8 @@
     NSLog(@"%@", s);               
     [self execSQL:s];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -42,6 +47,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    locmgr = [[CLLocationManager alloc] init];
+    locmgr.delegate = self; 
+    locmgr.desiredAccuracy = kCLLocationAccuracyBest; 
+    locmgr.distanceFilter = kCLDistanceFilterNone; 
+    [locmgr startUpdatingLocation];
     
     [self execSQL:@"CREATE TABLE IF NOT EXISTS mood ( \
      id INTEGER NOT NULL PRIMARY KEY, \
