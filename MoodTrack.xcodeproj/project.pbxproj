@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00771518806C00C034FD /* Face-Smile-128.png */; };
+		C75F007A1518807A00C034FD /* Face-Sad-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00791518807A00C034FD /* Face-Sad-128.png */; };
 		C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976A1511D1AC005C44C1 /* UIKit.framework */; };
 		C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976C1511D1AC005C44C1 /* Foundation.framework */; };
 		C7CC976F1511D1AC005C44C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C75F00771518806C00C034FD /* Face-Smile-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face-Smile-128.png"; sourceTree = "<group>"; };
+		C75F00791518807A00C034FD /* Face-Sad-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face-Sad-128.png"; sourceTree = "<group>"; };
 		C7CC97661511D1AC005C44C1 /* MoodTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CC976A1511D1AC005C44C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C7CC976C1511D1AC005C44C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -53,9 +57,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C75F007315187E8600C034FD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C75F00791518807A00C034FD /* Face-Sad-128.png */,
+				C75F00771518806C00C034FD /* Face-Smile-128.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		C7CC975B1511D1AC005C44C1 = {
 			isa = PBXGroup;
 			children = (
+				C75F007315187E8600C034FD /* Images */,
 				C7CC978D1511E51A005C44C1 /* CoreLocation.framework */,
 				C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */,
 				C7CC97701511D1AC005C44C1 /* MoodTrack */,
@@ -158,6 +172,8 @@
 			files = (
 				C7CC97751511D1AC005C44C1 /* InfoPlist.strings in Resources */,
 				C7CC977E1511D1AC005C44C1 /* MainStoryboard.storyboard in Resources */,
+				C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */,
+				C75F007A1518807A00C034FD /* Face-Sad-128.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +298,7 @@
 				C7CC97861511D1AC005C44C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
