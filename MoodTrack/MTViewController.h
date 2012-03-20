@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UISlider *slider; 
 @property (strong, nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) CLLocationManager *locmgr;
 
 - (IBAction)buttonPressed:(id)sender;

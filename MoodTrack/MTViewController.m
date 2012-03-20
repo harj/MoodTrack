@@ -15,7 +15,7 @@
 @synthesize slider;
 @synthesize button;
 @synthesize locmgr;
-
+@synthesize spinner;
 
 - (void) saveMood:(CLLocation *)l {
     
@@ -33,6 +33,9 @@
                    (%f, %f, %f, %f);", slider.value, lat, lon, accuracy];
     NSLog(@"%@", s);               
     [self execSQL:s];
+    
+    [self.spinner stopAnimating];
+    [self.button setEnabled:YES];
 }
 
 
@@ -58,6 +61,10 @@
         NSLog(@"5 iterations passed.  Giving up...");
         [self saveMood:l];
     } else {
+        
+        [self.spinner startAnimating];
+        [self.button setEnabled:NO];
+        
         [self performSelector:@selector(waitForGoodLocation:)
                    withObject:[NSNumber numberWithInt:[n intValue] + 1]
                    afterDelay:1.0];
