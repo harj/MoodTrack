@@ -17,17 +17,14 @@
 @synthesize locmgr;
 
 
-- (IBAction)buttonPressed:(id)sender
-{
-    CLLocation *l = locmgr.location;
+- (void) saveMood:(CLLocation *)l {
+    
     double lat = l.coordinate.latitude;
     double lon = l.coordinate.longitude;
     double h = l.horizontalAccuracy;
     double v = l.verticalAccuracy;
     double accuracy = sqrt(h*h+v*v);
     
-    NSLog(@"loc: %@", l);
-    NSLog(@"Button pressed");
     NSLog(@"Slider value: %f", slider.value);
     
     NSString *s = [NSString stringWithFormat:@"INSERT INTO mood \
@@ -39,6 +36,40 @@
 }
 
 
+- (void) waitForGoodLocation:(NSNumber *)n {
+    CLLocation *l = locmgr.location;
+    
+    NSLog(@"Checking for good location...");
+    
+    if (l != NULL) {
+        NSTimeInterval locAgeSeconds = -1 * [l.timestamp timeIntervalSinceNow];
+        NSLog(@"Location is %f seconds old.", locAgeSeconds);
+        
+        if (locAgeSeconds < 30.0) {
+            // This location is good, proceed storing in database.
+            [self saveMood:l];            
+            return;
+        }
+    }
+    
+    NSLog(@"No good location.");
+    
+    if ([n intValue] >= 5) {
+        NSLog(@"5 iterations passed.  Giving up...");
+        [self saveMood:l];
+    } else {
+        [self performSelector:@selector(waitForGoodLocation:)
+                   withObject:[NSNumber numberWithInt:[n intValue] + 1]
+                   afterDelay:1.0];
+    }
+    
+}
+
+- (IBAction)buttonPressed:(id)sender
+{
+    NSLog(@"Button pressed");    
+    [self waitForGoodLocation:[NSNumber numberWithInt:0]];
+}
 
 - (void)didReceiveMemoryWarning
 {
