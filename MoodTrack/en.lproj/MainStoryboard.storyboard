@@ -15,14 +15,18 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="groovepaper.png" id="MNK-XZ-caG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="477"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="4VB-7D-5Fj">
                                 <rect key="frame" x="53" y="152" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="MoodTrack" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="mif-If-Ycd">
-                                <rect key="frame" x="34" y="20" width="253" height="40"/>
+                                <rect key="frame" x="34" y="10" width="253" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-CondensedBold" family="American Typewriter" pointSize="35"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -113,12 +117,13 @@
                     <tabBarItem key="tabBarItem" title="Item" id="d8m-Oa-1Dt"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="314" y="576"/>
+            <point key="canvasLocation" x="399" y="564"/>
         </scene>
     </scenes>
     <resources>
         <image name="Face-Sad-128.png" width="128" height="128"/>
         <image name="Face-Smile-128.png" width="128" height="128"/>
+        <image name="groovepaper.png" width="300" height="300"/>
     </resources>
     <classes>
         <class className="MTViewController" superclassName="UIViewController">

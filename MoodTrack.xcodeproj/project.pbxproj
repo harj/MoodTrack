@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C70C7D811518A0D1006EA53C /* MoodData.m in Sources */ = {isa = PBXBuildFile; fileRef = C70C7D801518A0D1006EA53C /* MoodData.m */; };
+		C74963971519C04D0043E67D /* groovepaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C74963961519C04D0043E67D /* groovepaper.png */; };
 		C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00771518806C00C034FD /* Face-Smile-128.png */; };
 		C75F007A1518807A00C034FD /* Face-Sad-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00791518807A00C034FD /* Face-Sad-128.png */; };
 		C75F008215188B8200C034FD /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F008115188B8200C034FD /* DataViewController.m */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		C70C7D7F1518A0D1006EA53C /* MoodData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodData.h; sourceTree = "<group>"; };
 		C70C7D801518A0D1006EA53C /* MoodData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodData.m; sourceTree = "<group>"; };
+		C74963961519C04D0043E67D /* groovepaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = groovepaper.png; path = MoodTrack/groovepaper.png; sourceTree = "<group>"; };
 		C75F00771518806C00C034FD /* Face-Smile-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face-Smile-128.png"; sourceTree = "<group>"; };
 		C75F00791518807A00C034FD /* Face-Sad-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face-Sad-128.png"; sourceTree = "<group>"; };
 		C75F008015188B8200C034FD /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C74963961519C04D0043E67D /* groovepaper.png */,
 				C75F00791518807A00C034FD /* Face-Sad-128.png */,
 				C75F00771518806C00C034FD /* Face-Smile-128.png */,
 			);
@@ -184,6 +187,7 @@
 				C7CC977E1511D1AC005C44C1 /* MainStoryboard.storyboard in Resources */,
 				C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */,
 				C75F007A1518807A00C034FD /* Face-Sad-128.png in Resources */,
+				C74963971519C04D0043E67D /* groovepaper.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
