@@ -34,6 +34,16 @@
     NSLog(@"%@", s);               
     [self execSQL:s];
     
+    //Should probably check if SQL statement was executed before displaying this
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved!"
+                                                      message:@"Your mood has been saved to a sqlite3 database."
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    
+    [message show];
+
+    
     [self.spinner stopAnimating];
     [self.button setEnabled:YES];
 }
@@ -160,21 +170,6 @@
     const char *sql_stmt = [s UTF8String];
     if (sqlite3_exec(db, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
         NSLog(@"Error executing sqlite statement");
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Sorry there's a problem :("
-                                                          message:@"Your mood has NOT been saved to a sqlite3 database."
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        
-        [message show];
-    } else {
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved!"
-                                                          message:@"Your mood has been saved to a sqlite3 database."
-                                                         delegate:nil
-                                                cancelButtonTitle:@"OK"
-                                                otherButtonTitles:nil];
-        
-        [message show];
     }
     
     sqlite3_close(db);
