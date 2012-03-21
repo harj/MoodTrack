@@ -170,6 +170,8 @@
     const char *sql_stmt = [s UTF8String];
     if (sqlite3_exec(db, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
         NSLog(@"Error executing sqlite statement");
+    } else {
+        NSLog(@"Statement executed");
     }
     
     sqlite3_close(db);
