@@ -7,6 +7,7 @@
 //
 
 #import "MTAppDelegate.h"
+#import "MoodData.h"
 
 @implementation MTAppDelegate
 
@@ -47,9 +48,7 @@
     NSDate *currentTime = [[NSDate alloc] init];
     NSDate *d = [[NSDate alloc] initWithTimeInterval:15 sinceDate:currentTime];
     [self scheduleAlarmForDate:d];
-    
-    
-    
+
     return YES;
 }
 

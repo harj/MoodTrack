@@ -2,24 +2,22 @@
 //  MoodData.h
 //  MoodTrack
 //
-//  Created by Harjeet Taggar on 3/20/12.
+//  Created by Harjeet Taggar on 3/30/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface MoodData : NSObject{
-    NSString *mood_value;
-    NSDate *ts;
-    NSNumber *lat;
-    NSNumber *lon;
-    NSNumber *accuracy;
+    int _uniqueId;
+    NSString *_value;
+    NSString *_time;
 }
 
-@property(nonatomic,strong) NSString *mood_value;
-@property(nonatomic,strong) NSDate *ts;
-@property(nonatomic,strong) NSNumber *lat;
-@property(nonatomic,strong) NSNumber *lon;
-@property(nonatomic,strong) NSNumber *accuracy;
+@property (nonatomic, assign) int uniqueId;
+@property(nonatomic,copy) NSString *value;
+@property(nonatomic,copy) NSString *time;
+
+-(id)initWithUniqueId:(int)uniqueId value:(NSString *)value time:(NSString *)time;
 
 @end
