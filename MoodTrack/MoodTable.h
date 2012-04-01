@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MoodTableViewController : UITableViewController
+@interface MoodTable : UITableViewController
+
+@property (nonatomic, retain) NSMutableArray *moods;
 
 @end

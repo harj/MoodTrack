@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C718713D151FA6A0005B936B /* worn_dots.png in Resources */ = {isa = PBXBuildFile; fileRef = C718713C151FA6A0005B936B /* worn_dots.png */; };
 		C7187140151FA836005B936B /* light_wool.png in Resources */ = {isa = PBXBuildFile; fileRef = C718713F151FA836005B936B /* light_wool.png */; };
-		C7187143152590A6005B936B /* MoodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7187142152590A6005B936B /* MoodTableViewController.m */; };
+		C7187143152590A6005B936B /* MoodTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C7187142152590A6005B936B /* MoodTable.m */; };
 		C718714615259198005B936B /* MoodData.m in Sources */ = {isa = PBXBuildFile; fileRef = C718714515259198005B936B /* MoodData.m */; };
 		C74963971519C04D0043E67D /* groovepaper.png in Resources */ = {isa = PBXBuildFile; fileRef = C74963961519C04D0043E67D /* groovepaper.png */; };
 		C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00771518806C00C034FD /* Face-Smile-128.png */; };
@@ -29,8 +29,8 @@
 /* Begin PBXFileReference section */
 		C718713C151FA6A0005B936B /* worn_dots.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = worn_dots.png; path = MoodTrack/worn_dots.png; sourceTree = "<group>"; };
 		C718713F151FA836005B936B /* light_wool.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = light_wool.png; path = MoodTrack/light_wool.png; sourceTree = "<group>"; };
-		C7187141152590A6005B936B /* MoodTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodTableViewController.h; sourceTree = "<group>"; };
-		C7187142152590A6005B936B /* MoodTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodTableViewController.m; sourceTree = "<group>"; };
+		C7187141152590A6005B936B /* MoodTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodTable.h; sourceTree = "<group>"; };
+		C7187142152590A6005B936B /* MoodTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodTable.m; sourceTree = "<group>"; };
 		C718714415259198005B936B /* MoodData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodData.h; sourceTree = "<group>"; };
 		C718714515259198005B936B /* MoodData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodData.m; sourceTree = "<group>"; };
 		C74963961519C04D0043E67D /* groovepaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = groovepaper.png; path = MoodTrack/groovepaper.png; sourceTree = "<group>"; };
@@ -115,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				C7CC97791511D1AC005C44C1 /* MTAppDelegate.h */,
-				C7187141152590A6005B936B /* MoodTableViewController.h */,
-				C7187142152590A6005B936B /* MoodTableViewController.m */,
+				C7187141152590A6005B936B /* MoodTable.h */,
+				C7187142152590A6005B936B /* MoodTable.m */,
 				C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */,
 				C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */,
 				C718714415259198005B936B /* MoodData.h */,
@@ -165,7 +165,7 @@
 		C7CC975D1511D1AC005C44C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = C7CC97601511D1AC005C44C1 /* Build configuration list for PBXProject "MoodTrack" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -209,7 +209,7 @@
 				C7CC97771511D1AC005C44C1 /* main.m in Sources */,
 				C7CC977B1511D1AC005C44C1 /* MTAppDelegate.m in Sources */,
 				C7CC97811511D1AC005C44C1 /* MTViewController.m in Sources */,
-				C7187143152590A6005B936B /* MoodTableViewController.m in Sources */,
+				C7187143152590A6005B936B /* MoodTable.m in Sources */,
 				C718714615259198005B936B /* MoodData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

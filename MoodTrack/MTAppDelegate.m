@@ -8,6 +8,7 @@
 
 #import "MTAppDelegate.h"
 #import "MoodData.h"
+#import "MoodTable.h"
 
 @implementation MTAppDelegate
 
