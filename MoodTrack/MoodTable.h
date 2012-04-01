@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PullToRefreshView.h"
 
 @interface MoodTable : UITableViewController
 
-@property (nonatomic, retain) NSMutableArray *moods;
+@property (nonatomic) NSMutableArray *moods;
+-(void) reloadTableData;
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
 
 @end

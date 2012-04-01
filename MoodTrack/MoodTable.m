@@ -9,6 +9,7 @@
 #import "MoodTable.h"
 #import "MoodData.h"
 #import <sqlite3.h>
+#import "PullToRefreshView.h"
 
 @interface MoodTable ()
 
@@ -16,7 +17,23 @@
 
 @implementation MoodTable
 
+{
+    PullToRefreshView *pull;
+}
+
 @synthesize moods = _moods;
+
+-(void) reloadTableData
+{
+    [self.tableView reloadData];
+    [pull finishedLoading];
+}
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+{
+    [self reloadTableData];
+}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,6 +48,10 @@
 {
     [super viewDidLoad];
     self.title = @"Moods";
+    
+    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+    [pull setDelegate:self];
+    [self.tableView addSubview:pull];
     
     _moods = [[NSMutableArray alloc] init];
     
@@ -49,7 +70,7 @@
         NSLog(@"Error opening sqlite KVDB.");
     }
     
-    NSString *s = @"SELECT id, mood_value, ts FROM mood";
+    NSString *s = @"SELECT id, mood_value, ts FROM mood ORDER BY ts DESC";
     
     sqlite3_stmt *statement;
     if (sqlite3_prepare_v2(db, [s UTF8String], -1, &statement, nil) == SQLITE_OK) {
@@ -177,5 +198,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
 
 @end
