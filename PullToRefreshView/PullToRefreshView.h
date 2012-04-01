@@ -39,7 +39,7 @@ typedef enum {
 
 @interface PullToRefreshView : UIView {
 	id<PullToRefreshViewDelegate> delegate;
-    UIScrollView *scrollView;
+    UIScrollView *__weak scrollView;
 	PullToRefreshViewState state;
 
 	UILabel *lastUpdatedLabel;
@@ -48,8 +48,8 @@ typedef enum {
 	UIActivityIndicatorView *activityView;
 }
 
-@property (nonatomic, readonly) UIScrollView *scrollView;
-@property (nonatomic, assign) id<PullToRefreshViewDelegate> delegate;
+@property (weak, nonatomic, readonly) UIScrollView *scrollView;
+@property (nonatomic, strong) id<PullToRefreshViewDelegate> delegate;
 
 - (void)refreshLastUpdatedDate;
 - (void)finishedLoading;

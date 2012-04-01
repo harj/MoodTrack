@@ -52,7 +52,7 @@
     pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
     [pull setDelegate:self];
     [self.tableView addSubview:pull];
-    
+        
     _moods = [[NSMutableArray alloc] init];
     
     // Get the documents directory

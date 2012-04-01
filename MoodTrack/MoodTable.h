@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "PullToRefreshView.h"
 
-@interface MoodTable : UITableViewController
+@interface MoodTable : UITableViewController <PullToRefreshViewDelegate>
 
-@property (nonatomic) NSMutableArray *moods;
+@property (nonatomic, strong) NSMutableArray *moods;
 -(void) reloadTableData;
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
 
