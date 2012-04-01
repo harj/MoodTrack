@@ -27,11 +27,12 @@
 {
     [self.tableView reloadData];
     [pull finishedLoading];
+    NSLog(@"refresh");
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
 {
-    [self reloadTableData];
+    [self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
 }
 
 
