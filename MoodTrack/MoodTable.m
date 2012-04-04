@@ -23,37 +23,8 @@
 
 @synthesize moods = _moods;
 
--(void) reloadTableData
+- (void)selectMoods
 {
-    [self.tableView reloadData];
-    [pull finishedLoading];
-    NSLog(@"refresh");
-}
-
-- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
-{
-    [self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
-}
-
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.title = @"Moods";
-    
-    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
-    [pull setDelegate:self];
-    [self.tableView addSubview:pull];
-        
     _moods = [[NSMutableArray alloc] init];
     
     // Get the documents directory
@@ -85,19 +56,50 @@
             MoodData *data = [[MoodData alloc] 
                               initWithUniqueId:uniqueId value:value time:time];  
             [_moods addObject:data];
-            NSLog(@"%@", _moods);
-            
-            for (MoodData *data in _moods) {        
-                NSLog(@"%i: %@, %@ YAY", data.uniqueId, data.value, data.time);
-            }
         }
         sqlite3_finalize(statement);
         
     }
     
-    
     sqlite3_close(db);
+}
+
+- (void) reloadTableData
+{
+    [self selectMoods];
+    NSLog(@"%d", _moods.count);
     
+    [self.tableView reloadData];
+    [pull finishedLoading];
+    NSLog(@"refresh");
+}
+
+- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+{
+    [self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
+}
+
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.title = @"Moods";
+    
+    pull = [[PullToRefreshView alloc] initWithScrollView:(UIScrollView *) self.tableView];
+    [pull setDelegate:self];
+    [self.tableView addSubview:pull];
+    
+    [self selectMoods];
+    NSLog(@"%d", _moods.count);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -199,6 +201,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 
 
 

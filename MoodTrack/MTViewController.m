@@ -117,47 +117,6 @@
      lon DOUBLE PRECISION, \
      accuracy DOUBLE PRECISION \
      );"];
-    
-    NSMutableArray *moods = [[NSMutableArray alloc] init];
-    
-    // Get the documents directory
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
-    // Build the path to the database file
-    NSString *databasePath = [[NSString alloc] initWithString:
-                              [docsDir stringByAppendingPathComponent: @"moodtrack.db"]];
-    
-    
-    const char *dbpath = [databasePath UTF8String];
-    sqlite3 *db;
-    
-    if (sqlite3_open(dbpath, &db) != SQLITE_OK) {
-        NSLog(@"Error opening sqlite KVDB.");
-    }
-    
-    NSString *s = @"SELECT id, mood_value, ts FROM mood";
-    
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(db, [s UTF8String], -1, &statement, nil) == SQLITE_OK) {
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            int uniqueId = sqlite3_column_int(statement, 0);
-            char *valueChars = (char *) sqlite3_column_text(statement, 1);
-            char *timeChars = (char *) sqlite3_column_text(statement, 2);
-            NSString *value = [[NSString alloc] initWithUTF8String:valueChars];
-            NSString *time = [[NSString alloc] initWithUTF8String:timeChars];
-
-            MoodData *data = [[MoodData alloc] 
-                                    initWithUniqueId:uniqueId value:value time:time];                        
-            [moods addObject:data];
-        }
-        sqlite3_finalize(statement);
-    }
-    
-    for (MoodData *data in moods) {        
-        NSLog(@"%i: %@, %@", data.uniqueId, data.value, data.time);
-    }
-    sqlite3_close(db);
-    
 }
 
 - (void)viewDidUnload

@@ -12,7 +12,8 @@
 @interface MoodTable : UITableViewController <PullToRefreshViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *moods;
--(void) reloadTableData;
+- (void) reloadTableData;
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
+- (void)selectMoods;
 
 @end
