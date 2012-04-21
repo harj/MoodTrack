@@ -49,12 +49,11 @@
         while (sqlite3_step(statement) == SQLITE_ROW) {
             int uniqueId = sqlite3_column_int(statement, 0);
             char *valueChars = (char *) sqlite3_column_text(statement, 1);
-            char *timeChars = (char *) sqlite3_column_text(statement, 2);
+            NSDate *timeChars = (NSDate *) sqlite3_column_text(statement, 2);
             NSString *value = [[NSString alloc] initWithUTF8String:valueChars];
-            NSString *time = [[NSString alloc] initWithUTF8String:timeChars];
             
             MoodData *data = [[MoodData alloc] 
-                              initWithUniqueId:uniqueId value:value time:time];  
+                              initWithUniqueId:uniqueId value:value time:timeChars];  
             [_moods addObject:data];
         }
         sqlite3_finalize(statement);
@@ -144,7 +143,10 @@
     }
     
     MoodData *data = [_moods objectAtIndex:indexPath.row];
-    cell.textLabel.text = data.time;
+    NSDateFormatter *df = [NSDateFormatter new];
+    [df setDateFormat:@"EEEE dd MMMM, yyyy"];
+    
+    cell.textLabel.text = [df stringFromDate:data.time];
     cell.detailTextLabel.text = data.value;
     
     return cell;

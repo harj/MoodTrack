@@ -11,13 +11,13 @@
 @interface MoodData : NSObject{
     int _uniqueId;
     NSString *_value;
-    NSString *_time;
+    NSDate *_time;
 }
 
 @property (nonatomic, assign) int uniqueId;
 @property(nonatomic,copy) NSString *value;
-@property(nonatomic,copy) NSString *time;
+@property(nonatomic,copy) NSDate *time;
 
--(id)initWithUniqueId:(int)uniqueId value:(NSString *)value time:(NSString *)time;
+-(id)initWithUniqueId:(int)uniqueId value:(NSString *)value time:(NSDate *)time;
 
 @end
