@@ -14,7 +14,7 @@
 @synthesize value = _value;
 @synthesize time = _time;
 
-- (id)initWithUniqueId:(int)uniqueId value:(NSString *)value time:(NSDate *)time {
+- (id)initWithUniqueId:(int)uniqueId value:(NSNumber *)value time:(NSString *)time {
     if ((self = [super init])) {
         self.uniqueId = uniqueId;
         self.value = value;
