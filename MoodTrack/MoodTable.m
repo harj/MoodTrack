@@ -155,18 +155,13 @@
     cell.textLabel.text = [formatter stringFromNumber:data.value];
     
     //Format mood time to display nicely
-    
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"EEE MMM d hh:mm ZZZ YYYY"];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    
     NSString *date = data.time;
-    NSLog(@"%@ - YI", date);
-    
     NSDate *dateString = [dateFormat dateFromString:date];
+    
     NSString *time = [dateFormat stringFromDate:dateString];
-    
-    NSLog(@"%@", dateString);
-    NSLog(@"he");
-    
     cell.detailTextLabel.text = time;
     
     return cell;
