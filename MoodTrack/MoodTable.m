@@ -147,15 +147,27 @@
     }
     
     MoodData *data = [_moods objectAtIndex:indexPath.row];
-        
-    //cell.textLabel.text = [data.value stringValue];
     
+    //Format mood value to display with two decimal places
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.maximumFractionDigits = 2;
     cell.textLabel.text = [formatter stringFromNumber:data.value];
     
-    cell.detailTextLabel.text = data.time;
+    //Format mood time to display nicely
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EEE MMM d hh:mm ZZZ YYYY"];
+    NSString *date = data.time;
+    NSLog(@"%@ - YI", date);
+    
+    NSDate *dateString = [dateFormat dateFromString:date];
+    NSString *time = [dateFormat stringFromDate:dateString];
+    
+    NSLog(@"%@", dateString);
+    NSLog(@"he");
+    
+    cell.detailTextLabel.text = time;
     
     return cell;
 }
