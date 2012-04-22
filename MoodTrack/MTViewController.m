@@ -32,7 +32,7 @@
                    (mood_value, lat, lon, accuracy) \
                    VALUES \
                    (%f, %f, %f, %f);", slider.value, lat, lon, accuracy];
-    NSLog(@"%@", s);               
+    NSLog(@"%@", s); 
     [self execSQL:s];
     
     //Should probably check if SQL statement was executed before displaying this
@@ -48,7 +48,6 @@
     [self.spinner stopAnimating];
     [self.button setEnabled:YES];
 }
-
 
 - (void) waitForGoodLocation:(NSNumber *)n {
     CLLocation *l = locmgr.location;

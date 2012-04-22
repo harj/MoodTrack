@@ -141,20 +141,6 @@
         <image name="Face-Sad-128.png" width="128" height="128"/>
         <image name="Face-Smile-128.png" width="128" height="128"/>
     </resources>
-    <classes>
-        <class className="MTViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MTViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonPressed:"/>
-                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="MoodTable" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodTable.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

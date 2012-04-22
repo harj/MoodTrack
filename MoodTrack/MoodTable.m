@@ -160,6 +160,7 @@
     
     NSString *date = data.time;
     NSDate *dateString = [dateFormat dateFromString:date];
+
     
     NSString *time = [dateFormat stringFromDate:dateString];
     cell.detailTextLabel.text = time;
