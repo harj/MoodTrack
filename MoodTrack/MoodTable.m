@@ -161,7 +161,7 @@
     NSDate *dateString = [dateFormat dateFromString:date];
     
     //Format the date object and convert back to a string
-    [dateFormat setDateFormat:@"EE d LLLL yyyy, h:mm a"];
+    [dateFormat setDateFormat:@"EE d LLLL, h:mm a"];
     NSString *time = [dateFormat stringFromDate:dateString];
     cell.detailTextLabel.text = time;
     
