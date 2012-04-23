@@ -154,14 +154,14 @@
     formatter.maximumFractionDigits = 2;
     cell.textLabel.text = [formatter stringFromNumber:data.value];
     
-    //Format mood time to display nicely
+    //Parse the date from string
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    
     NSString *date = data.time;
     NSDate *dateString = [dateFormat dateFromString:date];
-
     
+    //Format the date object and convert back to a string
+    [dateFormat setDateFormat:@"EE d LLLL yyyy, h:mm a"];
     NSString *time = [dateFormat stringFromDate:dateString];
     cell.detailTextLabel.text = time;
     
