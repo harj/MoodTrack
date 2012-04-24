@@ -156,12 +156,16 @@
     
     //Parse the date from string
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss -0700"];
+    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+    [dateFormat setTimeZone:gmt];
     NSString *date = data.time;
     NSDate *dateString = [dateFormat dateFromString:date];
     
-    //Format the date object and convert back to a string
+    //Format the date object and convert back to a string with correct timezone
     [dateFormat setDateFormat:@"EE d LLLL, h:mm a"];
+    NSTimeZone *pst = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
+    [dateFormat setTimeZone:pst];
     NSString *time = [dateFormat stringFromDate:dateString];
     cell.detailTextLabel.text = time;
     
