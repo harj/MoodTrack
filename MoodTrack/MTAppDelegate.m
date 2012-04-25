@@ -9,6 +9,7 @@
 #import "MTAppDelegate.h"
 #import "MoodData.h"
 #import "MoodTable.h"
+#import <Parse/Parse.h>
 
 @implementation MTAppDelegate
 
@@ -49,6 +50,9 @@
     NSDate *currentTime = [[NSDate alloc] init];
     NSDate *d = [[NSDate alloc] initWithTimeInterval:15 sinceDate:currentTime];
     [self scheduleAlarmForDate:d];
+    
+    [Parse setApplicationId:@"pNRcpH7eSXGzWGXhejabGFeyJEAhcdBLSe0Ft7XH" 
+                  clientKey:@"FIkw3oKAycqaL3MLiSw862gAEMxywhIHdoxsuuHM"];
 
     return YES;
 }

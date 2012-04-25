@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import <CoreLocation/CoreLocation.h>
 #import "MoodData.h"
+#import <Parse/Parse.h>
 
 @implementation MTViewController
 
@@ -25,9 +26,20 @@
     double h = l.horizontalAccuracy;
     double v = l.verticalAccuracy;
     double accuracy = sqrt(h*h+v*v);
+    double mood_value = slider.value;
     
     NSLog(@"Slider value: %f", slider.value);
     
+    //Parse code
+    PFObject *mood = [PFObject objectWithClassName:@"Mood"];
+    [mood setObject:[NSNumber numberWithDouble:mood_value] forKey:@"mood_value"];
+    [mood setObject:[NSNumber numberWithDouble:lat] forKey:@"lat"];
+    [mood setObject:[NSNumber numberWithDouble:lon] forKey:@"lon"];
+    [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
+    [mood saveEventually];
+    
+    
+    //Sqlite3 code
     NSString *s = [NSString stringWithFormat:@"INSERT INTO mood \
                    (mood_value, lat, lon, accuracy) \
                    VALUES \
@@ -98,8 +110,13 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
     
 	// Do any additional setup after loading the view, typically from a nib.
     locmgr = [[CLLocationManager alloc] init];
