@@ -10,6 +10,7 @@
 #import "MoodData.h"
 #import <sqlite3.h>
 #import "PullToRefreshView.h"
+#import <Parse/Parse.h>
 
 @interface MoodTable ()
 
@@ -27,50 +28,30 @@
 {
     _moods = [[NSMutableArray alloc] init];
     
-    // Get the documents directory
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
-    // Build the path to the database file
-    NSString *databasePath = [[NSString alloc] initWithString:
-                              [docsDir stringByAppendingPathComponent: @"moodtrack.db"]];
-    
-    
-    const char *dbpath = [databasePath UTF8String];
-    sqlite3 *db;
-    
-    if (sqlite3_open(dbpath, &db) != SQLITE_OK) {
-        NSLog(@"Error opening sqlite KVDB.");
-    }
-    
-    NSString *s = @"SELECT id, mood_value, ts FROM mood ORDER BY ts DESC";
-    
-    sqlite3_stmt *statement;
-    if (sqlite3_prepare_v2(db, [s UTF8String], -1, &statement, nil) == SQLITE_OK) {
-        while (sqlite3_step(statement) == SQLITE_ROW) {
-            int uniqueId = sqlite3_column_int(statement, 0);
-            //char *valueChars = (char *) sqlite3_column_text(statement, 1);
-            double value = (double) sqlite3_column_double(statement, 1);
-            char *timeChars = (char *) sqlite3_column_text(statement, 2);
+    PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                [_moods addObject:object];
+            }
             
-            // NSString *value = [[NSString alloc] initWithUTF8String:valueChars];
-            NSNumber *val = [[NSNumber alloc] initWithDouble:value];
-            NSString *time = [[NSString alloc] initWithUTF8String:timeChars];
+            NSLog(@"success with parse! %d objects, %d mood objects", objects.count, _moods.count);
+            [self.tableView reloadData];
             
-            MoodData *data = [[MoodData alloc] 
-                              initWithUniqueId:uniqueId value:val time:time];  
-            [_moods addObject:data];
+            // NSLog(@"%@", _moods);
+                    
+        } else {
+            NSLog(@"parse has failed me!");
         }
-        sqlite3_finalize(statement);
-        
-    }
+    }];
     
-    sqlite3_close(db);
 }
 
 - (void) reloadTableData
 {
     [self selectMoods];
-    NSLog(@"%d", _moods.count);
+    NSLog(@"%d - reload", _moods.count);
     
     [self.tableView reloadData];
     [pull finishedLoading];
@@ -102,7 +83,7 @@
     [self.tableView addSubview:pull];
     
     [self selectMoods];
-    NSLog(@"%d", _moods.count);
+    NSLog(@"%d - didLoad", _moods.count);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -146,23 +127,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    MoodData *data = [_moods objectAtIndex:indexPath.row];
+    PFObject *data = [_moods objectAtIndex:indexPath.row];
     
-    //Format mood value to display with two decimal places
+    // Retrieve mood value and format to two decimal places
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
     formatter.maximumFractionDigits = 2;
-    cell.textLabel.text = [formatter stringFromNumber:data.value];
+    cell.textLabel.text = [formatter stringFromNumber:[data objectForKey:@"mood_value"]];
     
-    //Parse the date from string
+    // Retrieve timestamp and format
+    NSDate *dateString = data.createdAt;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss -0700"];
-    NSTimeZone *gmt = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-    [dateFormat setTimeZone:gmt];
-    NSString *date = data.time;
-    NSDate *dateString = [dateFormat dateFromString:date];
-    
-    //Format the date object and convert back to a string with correct timezone
     [dateFormat setDateFormat:@"EE d LLLL, h:mm a"];
     NSTimeZone *pst = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
     [dateFormat setTimeZone:pst];

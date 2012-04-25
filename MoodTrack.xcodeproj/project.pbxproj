@@ -118,15 +118,8 @@
 		C7CC975B1511D1AC005C44C1 = {
 			isa = PBXGroup;
 			children = (
-				C79A3D401547547100AE9E1A /* Security.framework */,
 				C79A3D3E1547546900AE9E1A /* libz.1.1.3.dylib */,
-				C79A3D3C1547545900AE9E1A /* MobileCoreServices.framework */,
-				C79A3D3A1547545000AE9E1A /* SystemConfiguration.framework */,
-				C79A3D381547544500AE9E1A /* CFNetwork.framework */,
-				C79A3D361547543C00AE9E1A /* AudioToolbox.framework */,
-				C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */,
 				C75F007315187E8600C034FD /* Images */,
-				C7CC978D1511E51A005C44C1 /* CoreLocation.framework */,
 				C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */,
 				C7CC97701511D1AC005C44C1 /* MoodTrack */,
 				C7CC97691511D1AC005C44C1 /* Frameworks */,
@@ -146,6 +139,13 @@
 		C7CC97691511D1AC005C44C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C79A3D401547547100AE9E1A /* Security.framework */,
+				C79A3D3C1547545900AE9E1A /* MobileCoreServices.framework */,
+				C79A3D3A1547545000AE9E1A /* SystemConfiguration.framework */,
+				C79A3D381547544500AE9E1A /* CFNetwork.framework */,
+				C79A3D361547543C00AE9E1A /* AudioToolbox.framework */,
+				C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */,
+				C7CC978D1511E51A005C44C1 /* CoreLocation.framework */,
 				C79A3D331547541700AE9E1A /* Parse.framework */,
 				C7CC976A1511D1AC005C44C1 /* UIKit.framework */,
 				C7CC976C1511D1AC005C44C1 /* Foundation.framework */,
