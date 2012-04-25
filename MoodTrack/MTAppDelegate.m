@@ -7,7 +7,6 @@
 //
 
 #import "MTAppDelegate.h"
-#import "MoodData.h"
 #import "MoodTable.h"
 #import <Parse/Parse.h>
 

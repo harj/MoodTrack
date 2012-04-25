@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C711CA4415436461000162EA /* furley_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C711CA4315436461000162EA /* furley_bg.png */; };
 		C7187143152590A6005B936B /* MoodTable.m in Sources */ = {isa = PBXBuildFile; fileRef = C7187142152590A6005B936B /* MoodTable.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C71F3DC41547CB7A001F9B62 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71F3DC31547CB7A001F9B62 /* StatsViewController.m */; };
 		C73F3F4215291D1800AAC3F9 /* PullToRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = C73F3F4115291D1800AAC3F9 /* PullToRefreshView.m */; };
 		C73F3F4415291DCE00AAC3F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */; };
 		C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00771518806C00C034FD /* Face-Smile-128.png */; };
@@ -36,6 +37,8 @@
 		C711CA4315436461000162EA /* furley_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = furley_bg.png; sourceTree = "<group>"; };
 		C7187141152590A6005B936B /* MoodTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodTable.h; sourceTree = "<group>"; };
 		C7187142152590A6005B936B /* MoodTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodTable.m; sourceTree = "<group>"; };
+		C71F3DC21547CB7A001F9B62 /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
+		C71F3DC31547CB7A001F9B62 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		C73F3F4015291D1800AAC3F9 /* PullToRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullToRefreshView.h; sourceTree = "<group>"; };
 		C73F3F4115291D1800AAC3F9 /* PullToRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullToRefreshView.m; sourceTree = "<group>"; };
 		C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 				C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */,
 				C7CC977F1511D1AC005C44C1 /* MTViewController.h */,
 				C7CC97801511D1AC005C44C1 /* MTViewController.m */,
+				C71F3DC21547CB7A001F9B62 /* StatsViewController.h */,
+				C71F3DC31547CB7A001F9B62 /* StatsViewController.m */,
 				C7CC97711511D1AC005C44C1 /* Supporting Files */,
 			);
 			path = MoodTrack;
@@ -247,6 +252,7 @@
 				C7CC97811511D1AC005C44C1 /* MTViewController.m in Sources */,
 				C7187143152590A6005B936B /* MoodTable.m in Sources */,
 				C73F3F4215291D1800AAC3F9 /* PullToRefreshView.m in Sources */,
+				C71F3DC41547CB7A001F9B62 /* StatsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 #import "MoodTable.h"
-#import "MoodData.h"
 #import <sqlite3.h>
 #import "PullToRefreshView.h"
 #import <Parse/Parse.h>

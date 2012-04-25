@@ -9,7 +9,6 @@
 #import "MTViewController.h"
 #import <sqlite3.h>
 #import <CoreLocation/CoreLocation.h>
-#import "MoodData.h"
 #import <Parse/Parse.h>
 
 @implementation MTViewController
