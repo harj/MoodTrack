@@ -17,7 +17,5 @@
 @property (strong, nonatomic) CLLocationManager *locmgr;
 
 - (IBAction)buttonPressed:(id)sender;
-- (void)execSQL:(NSString *)s;
-
 
 @end

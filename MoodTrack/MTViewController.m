@@ -30,7 +30,6 @@
     
     NSLog(@"Slider value: %f", slider.value);
     
-    //Parse code
     PFObject *mood = [PFObject objectWithClassName:@"Mood"];
     [mood setObject:[NSNumber numberWithDouble:mood_value] forKey:@"mood_value"];
     [mood setObject:[NSNumber numberWithDouble:lat] forKey:@"lat"];
@@ -38,25 +37,14 @@
     [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
     [mood saveEventually];
     
-    
-    //Sqlite3 code
-    NSString *s = [NSString stringWithFormat:@"INSERT INTO mood \
-                   (mood_value, lat, lon, accuracy) \
-                   VALUES \
-                   (%f, %f, %f, %f);", slider.value, lat, lon, accuracy];
-    NSLog(@"%@", s); 
-    [self execSQL:s];
-    
-    //Should probably check if SQL statement was executed before displaying this
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved!"
-                                                      message:@"Your mood has been saved to a sqlite3 database."
+                                                      message:@"Your mood has been saved to parse"
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
     
     [message show];
 
-    
     [self.spinner stopAnimating];
     [self.button setEnabled:YES];
 }
@@ -121,14 +109,6 @@
     locmgr.distanceFilter = kCLDistanceFilterNone; 
     [locmgr startUpdatingLocation];
     
-    [self execSQL:@"CREATE TABLE IF NOT EXISTS mood ( \
-     id INTEGER NOT NULL PRIMARY KEY, \
-     mood_value DOUBLE PRECISION, \
-     ts DATETIME DEFAULT CURRENT_TIMESTAMP, \
-     lat DOUBLE PRECISION, \
-     lon DOUBLE PRECISION, \
-     accuracy DOUBLE PRECISION \
-     );"];
 }
 
 - (void)viewDidUnload
@@ -162,34 +142,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
-
-- (void) execSQL:(NSString *)s
-{
-    // Get the documents directory
-    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [dirPaths objectAtIndex:0];
-    // Build the path to the database file
-    NSString *databasePath = [[NSString alloc] initWithString:
-                              [docsDir stringByAppendingPathComponent: @"moodtrack.db"]];
-    
-    
-    const char *dbpath = [databasePath UTF8String];
-    sqlite3 *db;
-    
-    if (sqlite3_open(dbpath, &db) != SQLITE_OK) {
-        NSLog(@"Error opening sqlite KVDB.");
-    }
-
-    char *errMsg;
-    const char *sql_stmt = [s UTF8String];
-    if (sqlite3_exec(db, sql_stmt, NULL, NULL, &errMsg) != SQLITE_OK) {
-        NSLog(@"Error executing sqlite statement");
-    } else {
-        NSLog(@"Statement executed");
-    }
-    
-    sqlite3_close(db);
 }
 
 @end
