@@ -17,6 +17,7 @@
 		C788D5021550B2800012BBC1 /* graph_bar_trend.png in Resources */ = {isa = PBXBuildFile; fileRef = C788D5011550B2800012BBC1 /* graph_bar_trend.png */; };
 		C788D5041550B2AB0012BBC1 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = C788D5031550B2AB0012BBC1 /* pencil.png */; };
 		C788D5061550B31D0012BBC1 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = C788D5051550B31D0012BBC1 /* folder.png */; };
+		C788D50D1550BD180012BBC1 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C788D50C1550BD180012BBC1 /* GradientButton.m */; };
 		C79A3D341547541700AE9E1A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D331547541700AE9E1A /* Parse.framework */; };
 		C79A3D371547543C00AE9E1A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D361547543C00AE9E1A /* AudioToolbox.framework */; };
 		C79A3D391547544500AE9E1A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D381547544500AE9E1A /* CFNetwork.framework */; };
@@ -51,6 +52,8 @@
 		C788D5011550B2800012BBC1 /* graph_bar_trend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph_bar_trend.png; sourceTree = "<group>"; };
 		C788D5031550B2AB0012BBC1 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		C788D5051550B31D0012BBC1 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
+		C788D50B1550BD180012BBC1 /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
+		C788D50C1550BD180012BBC1 /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		C79A3D331547541700AE9E1A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = MoodTrack/Parse.framework; sourceTree = "<group>"; };
 		C79A3D361547543C00AE9E1A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C79A3D381547544500AE9E1A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		C788D50E1550C55B0012BBC1 /* GradientButton */ = {
+			isa = PBXGroup;
+			children = (
+				C788D50B1550BD180012BBC1 /* GradientButton.h */,
+				C788D50C1550BD180012BBC1 /* GradientButton.m */,
+			);
+			name = GradientButton;
+			sourceTree = "<group>";
+		};
 		C7CC975B1511D1AC005C44C1 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +174,7 @@
 		C7CC97701511D1AC005C44C1 /* MoodTrack */ = {
 			isa = PBXGroup;
 			children = (
+				C788D50E1550C55B0012BBC1 /* GradientButton */,
 				C75F007315187E8600C034FD /* Images */,
 				C7CC97791511D1AC005C44C1 /* MTAppDelegate.h */,
 				C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */,
@@ -264,6 +277,7 @@
 				C7187143152590A6005B936B /* MoodTable.m in Sources */,
 				C73F3F4215291D1800AAC3F9 /* PullToRefreshView.m in Sources */,
 				C71F3DC41547CB7A001F9B62 /* StatsViewController.m in Sources */,
+				C788D50D1550BD180012BBC1 /* GradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

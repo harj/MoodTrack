@@ -100,6 +100,7 @@
     
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    [button useGreenConfirmStyle];
     
 	// Do any additional setup after loading the view, typically from a nib.
     locmgr = [[CLLocationManager alloc] init];

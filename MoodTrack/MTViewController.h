@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "GradientButton.h"
 
-@interface MTViewController : UIViewController <CLLocationManagerDelegate>
+@interface MTViewController : UIViewController <CLLocationManagerDelegate> 
+{
+    GradientButton *button;
+}
 
 @property (strong, nonatomic) IBOutlet UISlider *slider; 
-@property (strong, nonatomic) IBOutlet UIButton *button;
+@property (strong, nonatomic) IBOutlet GradientButton *button;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) CLLocationManager *locmgr;
 
