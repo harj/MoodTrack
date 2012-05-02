@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lTM-6x-ZbK">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
@@ -10,7 +11,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController title="Tracke" id="2" customClass="MTViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3">
+                    <view key="view" contentMode="scaleToFill" id="3" customClass="YmsGradientButton">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -18,7 +19,7 @@
                                 <rect key="frame" x="53" y="152" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="88r-El-uah">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="88r-El-uah" customClass="GradientButton">
                                 <rect key="frame" x="81" y="230" width="159" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -55,7 +56,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Track" id="rt1-Zq-Y3c"/>
+                    <tabBarItem key="tabBarItem" title="Track" image="pencil.png" id="rt1-Zq-Y3c"/>
                     <connections>
                         <outlet property="button" destination="88r-El-uah" id="cwn-MK-ALx"/>
                         <outlet property="slider" destination="4VB-7D-5Fj" id="CCO-Rc-AiG"/>
@@ -118,7 +119,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Stats" id="XlI-Ym-q2P"/>
+                    <tabBarItem key="tabBarItem" title="Stats" image="graph_bar_trend.png" id="XlI-Ym-q2P"/>
                     <connections>
                         <outlet property="AverageScore" destination="oF1-fh-Csn" id="NVQ-Vp-pUM"/>
                     </connections>
@@ -181,7 +182,7 @@
                             <outlet property="delegate" destination="z7X-ba-vUN" id="ulc-Vh-7Sc"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Mood Log" id="cf0-l6-tGi"/>
+                    <tabBarItem key="tabBarItem" title="Mood Log" image="folder.png" id="cf0-l6-tGi"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
@@ -191,6 +192,9 @@
     <resources>
         <image name="Face-Sad-128.png" width="128" height="128"/>
         <image name="Face-Smile-128.png" width="128" height="128"/>
+        <image name="folder.png" width="26" height="26"/>
+        <image name="graph_bar_trend.png" width="26" height="26"/>
+        <image name="pencil.png" width="26" height="26"/>
     </resources>
     <classes>
         <class className="MTViewController" superclassName="UIViewController">
