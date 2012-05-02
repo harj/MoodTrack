@@ -551,7 +551,7 @@
         [self setNormalGradientLocations:[decoder decodeObjectForKey:@"normalGradientLocations"]];
         [self setHighlightGradientColors:[decoder decodeObjectForKey:@"highlightGradientColors"]];
         [self setHighlightGradientLocations:[decoder decodeObjectForKey:@"highlightGradientLocations"]];
-        self.strokeColor = [UIColor colorWithRed:0.076 green:0.103 blue:0.195 alpha:1.0];
+        self.strokeColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0];
         self.strokeWeight = 1.0;
     
         if (self.normalGradientColors == nil)
