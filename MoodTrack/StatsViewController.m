@@ -22,7 +22,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
     
+    // Finding average mood score
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSMutableArray *moodvals = [[NSMutableArray alloc] init];
@@ -32,11 +34,14 @@
             NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
             float avg = [sum floatValue] / moodvals.count;
                         
-            self.AverageScore.text = [NSString stringWithFormat:@"%f", avg];            
+            self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg];            
         } else {
             NSLog(@"parse has failed me!");
         }
     }];
+    
+    //Finding average mood score in past week
+    
 
 	// Do any additional setup after loading the view.
 }

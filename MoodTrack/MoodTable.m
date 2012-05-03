@@ -28,6 +28,7 @@
     _moods = [[NSMutableArray alloc] init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
+    query.cachePolicy = kPFCachePolicyNetworkElseCache; 
     [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -37,9 +38,6 @@
             
             NSLog(@"success with parse! %d objects, %d mood objects", objects.count, _moods.count);
             [self.tableView reloadData];
-            
-            // NSLog(@"%@", _moods);
-                    
         } else {
             NSLog(@"parse has failed me!");
         }
