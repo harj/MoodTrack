@@ -25,6 +25,7 @@
 		C79A3D3D1547545900AE9E1A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D3C1547545900AE9E1A /* MobileCoreServices.framework */; };
 		C79A3D3F1547546900AE9E1A /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D3E1547546900AE9E1A /* libz.1.1.3.dylib */; };
 		C79A3D411547547100AE9E1A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D401547547100AE9E1A /* Security.framework */; };
+		C7B71298155215780052DAD3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B71297155215780052DAD3 /* icon.png */; };
 		C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976A1511D1AC005C44C1 /* UIKit.framework */; };
 		C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976C1511D1AC005C44C1 /* Foundation.framework */; };
 		C7CC976F1511D1AC005C44C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */; };
@@ -61,6 +62,7 @@
 		C79A3D3C1547545900AE9E1A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C79A3D3E1547546900AE9E1A /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		C79A3D401547547100AE9E1A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C7B71297155215780052DAD3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = MoodTrack/icon.png; sourceTree = "<group>"; };
 		C7CC97661511D1AC005C44C1 /* MoodTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CC976A1511D1AC005C44C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C7CC976C1511D1AC005C44C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +116,7 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7B71297155215780052DAD3 /* icon.png */,
 				C788D5051550B31D0012BBC1 /* folder.png */,
 				C788D5031550B2AB0012BBC1 /* pencil.png */,
 				C788D5011550B2800012BBC1 /* graph_bar_trend.png */,
@@ -261,6 +264,7 @@
 				C788D5021550B2800012BBC1 /* graph_bar_trend.png in Resources */,
 				C788D5041550B2AB0012BBC1 /* pencil.png in Resources */,
 				C788D5061550B31D0012BBC1 /* folder.png in Resources */,
+				C7B71298155215780052DAD3 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
