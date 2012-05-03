@@ -11,5 +11,7 @@
 
 @interface StatsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *AverageScore;
+@property (strong, nonatomic) IBOutlet UILabel *Average3Days;
+@property (strong, nonatomic) IBOutlet UILabel *Average7Days;
 
 @end

@@ -15,7 +15,8 @@
 
 @implementation StatsViewController
 @synthesize AverageScore;
-
+@synthesize Average3Days;
+@synthesize Average7Days;
 
 - (void)viewDidLoad
 {
@@ -39,9 +40,46 @@
             NSLog(@"parse has failed me!");
         }
     }];
+        
+    //Finding average mood in past 3 days
+    NSDate *threeDaysAgo  = [[NSDate date] dateByAddingTimeInterval: -259200.0];
+    PFQuery *query3D = [PFQuery queryWithClassName:@"Mood"];
+    query3D.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [query3D whereKey:@"createdAt" greaterThan:threeDaysAgo];
+    [query3D findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSMutableArray *moodvals = [[NSMutableArray alloc] init];
+            for (PFObject *object in objects) {
+                [moodvals addObject:[object objectForKey:@"mood_value"]];
+            }
+            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
+            float avg = [sum floatValue] / moodvals.count;
+            
+            self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg];            
+        } else {
+            NSLog(@"parse has failed me!");
+        }
+    }];
     
     //Finding average mood score in past week
-    
+    NSDate *lastWeek  = [[NSDate date] dateByAddingTimeInterval: -604800.0];
+    PFQuery *queryW = [PFQuery queryWithClassName:@"Mood"];
+    queryW.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [queryW whereKey:@"createdAt" greaterThan:lastWeek];
+    [queryW findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            NSMutableArray *moodvals = [[NSMutableArray alloc] init];
+            for (PFObject *object in objects) {
+                [moodvals addObject:[object objectForKey:@"mood_value"]];
+            }
+            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
+            float avg = [sum floatValue] / moodvals.count;
+            
+            self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avg];          
+        } else {
+            NSLog(@"parse has failed me!");
+        }
+    }];
 
 	// Do any additional setup after loading the view.
 }
@@ -49,6 +87,8 @@
 - (void)viewDidUnload
 {
     [self setAverageScore:nil];
+    [self setAverage3Days:nil];
+    [self setAverage7Days:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
