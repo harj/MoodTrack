@@ -212,7 +212,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="uql-89-I9d" kind="modal" id="1Iq-qI-lYw"/>
+                                    <segue destination="uql-89-I9d" kind="modal" identifier="cellToLocation" id="1Iq-qI-lYw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

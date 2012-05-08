@@ -7,6 +7,7 @@
 //
 
 #import "MoodTable.h"
+#import "MoodLocationViewController.h"
 #import <sqlite3.h>
 #import "PullToRefreshView.h"
 #import <Parse/Parse.h>
@@ -68,6 +69,37 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"cellToLocation"])
+    {
+        MoodLocationViewController *mlvc = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSLog(@"indexpath: %d", indexPath.row);
+        
+        PFObject *data = [_moods objectAtIndex:indexPath.row];
+        
+        // Retrieve mood value and format to two decimal places
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        formatter.numberStyle = NSNumberFormatterDecimalStyle;
+        formatter.maximumFractionDigits = 2;
+        mlvc.moodScore = [formatter stringFromNumber:[data objectForKey:@"mood_value"]];
+        
+        // Retrieve timestamp and format
+        NSDate *dateString = data.createdAt;
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"EE d LLLL, h:mm a"];
+        NSTimeZone *pst = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
+        [dateFormat setTimeZone:pst];
+        mlvc.moodTime = [dateFormat stringFromDate:dateString];
+        
+        //Set co-ordinates
+        mlvc.lat = [data objectForKey:@"lat"];
+        mlvc.lon = [data objectForKey:@"lon"];
+
+    }
 }
 
 - (void)viewDidLoad
@@ -187,6 +219,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

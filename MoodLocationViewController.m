@@ -14,13 +14,18 @@
 
 @implementation MoodLocationViewController
 @synthesize _mapView;
+@synthesize moodScore;
+@synthesize moodTime;
+@synthesize lat;
+@synthesize lon;
+
 
 - (void)viewDidLoad
 {
     // 1
     CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 37.3866968;
-    zoomLocation.longitude= -122.067976;
+    zoomLocation.latitude = [lat doubleValue];
+    zoomLocation.longitude= [lon doubleValue];
     // 2
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 800, 800);
     // 3
@@ -30,8 +35,8 @@
     
     MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
     annotationPoint.coordinate = zoomLocation;
-    annotationPoint.title = @"10.0";
-    annotationPoint.subtitle = @"June 8th, 3:04pm";
+    annotationPoint.title = moodScore;    
+    annotationPoint.subtitle = moodTime;
     [_mapView addAnnotation:annotationPoint];
     
     [super viewDidLoad];
