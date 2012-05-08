@@ -32,6 +32,6 @@
 }
 
 - (IBAction)closeMoodLocation:(id)sender {
-    [self.presentingViewController dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
 }
 @end
