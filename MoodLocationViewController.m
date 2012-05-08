@@ -28,6 +28,12 @@
     // 4
     [_mapView setRegion:adjustedRegion animated:YES];   
     
+    MKPointAnnotation *annotationPoint = [[MKPointAnnotation alloc] init];
+    annotationPoint.coordinate = zoomLocation;
+    annotationPoint.title = @"10.0";
+    annotationPoint.subtitle = @"June 8th, 3:04pm";
+    [_mapView addAnnotation:annotationPoint];
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
