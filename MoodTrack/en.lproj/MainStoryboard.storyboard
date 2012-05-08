@@ -256,6 +256,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="_mapView" destination="Mig-nl-FrE" id="CIT-qB-eq5"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="823" y="464"/>
@@ -281,8 +284,12 @@
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
-        <class className="MoodLocationViewController" superclassName="UITableViewController">
+        <class className="MoodLocationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeMoodLocation:"/>
+                <relationship kind="outlet" name="_mapView" candidateClass="MKMapView"/>
+            </relationships>
         </class>
         <class className="MoodTable" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodTable.h"/>

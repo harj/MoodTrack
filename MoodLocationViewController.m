@@ -13,15 +13,28 @@
 @end
 
 @implementation MoodLocationViewController
+@synthesize _mapView;
 
 - (void)viewDidLoad
 {
+    // 1
+    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 37.3866968;
+    zoomLocation.longitude= -122.067976;
+    // 2
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 800, 800);
+    // 3
+    MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];                
+    // 4
+    [_mapView setRegion:adjustedRegion animated:YES];   
+    
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
 {
+    [self set_mapView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
