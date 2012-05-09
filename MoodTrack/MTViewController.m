@@ -10,6 +10,7 @@
 #import <sqlite3.h>
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
+#import "LogInViewController.h"
 
 @implementation MTViewController
 
@@ -133,7 +134,7 @@
     NSLog(@"%@", currentuser);
     
     if (!currentuser) {
-        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        LogInViewController *logInController = [[LogInViewController alloc] init];
         logInController.fields = PFLogInFieldsUsernameAndPassword 
         | PFLogInFieldsLogInButton
         | PFLogInFieldsSignUpButton 

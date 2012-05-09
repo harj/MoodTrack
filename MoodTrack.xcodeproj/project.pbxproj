@@ -18,6 +18,8 @@
 		C788D5041550B2AB0012BBC1 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = C788D5031550B2AB0012BBC1 /* pencil.png */; };
 		C788D5061550B31D0012BBC1 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = C788D5051550B31D0012BBC1 /* folder.png */; };
 		C788D50D1550BD180012BBC1 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C788D50C1550BD180012BBC1 /* GradientButton.m */; };
+		C7913FC3155A536700C3F722 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7913FC2155A536700C3F722 /* LogInViewController.m */; };
+		C7913FC8155A582000C3F722 /* black_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = C7913FC7155A582000C3F722 /* black_tile.png */; };
 		C79A3D341547541700AE9E1A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D331547541700AE9E1A /* Parse.framework */; };
 		C79A3D371547543C00AE9E1A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D361547543C00AE9E1A /* AudioToolbox.framework */; };
 		C79A3D391547544500AE9E1A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D381547544500AE9E1A /* CFNetwork.framework */; };
@@ -57,6 +59,9 @@
 		C788D5051550B31D0012BBC1 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		C788D50B1550BD180012BBC1 /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
 		C788D50C1550BD180012BBC1 /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
+		C7913FC1155A536700C3F722 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
+		C7913FC2155A536700C3F722 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		C7913FC7155A582000C3F722 /* black_tile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black_tile.png; path = MoodTrack/black_tile.png; sourceTree = "<group>"; };
 		C79A3D331547541700AE9E1A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = MoodTrack/Parse.framework; sourceTree = "<group>"; };
 		C79A3D361547543C00AE9E1A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C79A3D381547544500AE9E1A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -122,6 +127,7 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7913FC7155A582000C3F722 /* black_tile.png */,
 				C7B7129915523D770052DAD3 /* icon.png */,
 				C788D5051550B31D0012BBC1 /* folder.png */,
 				C788D5031550B2AB0012BBC1 /* pencil.png */,
@@ -188,6 +194,8 @@
 				C75F007315187E8600C034FD /* Images */,
 				C7CC97791511D1AC005C44C1 /* MTAppDelegate.h */,
 				C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */,
+				C7913FC1155A536700C3F722 /* LogInViewController.h */,
+				C7913FC2155A536700C3F722 /* LogInViewController.m */,
 				C7187141152590A6005B936B /* MoodTable.h */,
 				C7187142152590A6005B936B /* MoodTable.m */,
 				C7D1382B1558D381002E4894 /* MoodLocationViewController.h */,
@@ -274,6 +282,7 @@
 				C788D5041550B2AB0012BBC1 /* pencil.png in Resources */,
 				C788D5061550B31D0012BBC1 /* folder.png in Resources */,
 				C7B7129A15523D770052DAD3 /* icon.png in Resources */,
+				C7913FC8155A582000C3F722 /* black_tile.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +301,7 @@
 				C71F3DC41547CB7A001F9B62 /* StatsViewController.m in Sources */,
 				C788D50D1550BD180012BBC1 /* GradientButton.m in Sources */,
 				C7D1382D1558D381002E4894 /* MoodLocationViewController.m in Sources */,
+				C7913FC3155A536700C3F722 /* LogInViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
