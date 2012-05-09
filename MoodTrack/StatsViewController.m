@@ -22,10 +22,12 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    PFUser *currentuser = [PFUser currentUser];
     
     // Finding average mood score
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
+    [query whereKey:@"user" equalTo:currentuser];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSMutableArray *moodvals = [[NSMutableArray alloc] init];
@@ -46,6 +48,7 @@
     PFQuery *query3D = [PFQuery queryWithClassName:@"Mood"];
     query3D.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query3D whereKey:@"createdAt" greaterThan:threeDaysAgo];
+    [query3D whereKey:@"user" equalTo:currentuser];
     [query3D findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSMutableArray *moodvals = [[NSMutableArray alloc] init];
@@ -66,6 +69,7 @@
     PFQuery *queryW = [PFQuery queryWithClassName:@"Mood"];
     queryW.cachePolicy = kPFCachePolicyNetworkElseCache;
     [queryW whereKey:@"createdAt" greaterThan:lastWeek];
+    [queryW whereKey:@"user" equalTo:currentuser];
     [queryW findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             NSMutableArray *moodvals = [[NSMutableArray alloc] init];

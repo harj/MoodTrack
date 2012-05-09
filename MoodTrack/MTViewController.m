@@ -29,11 +29,13 @@
     
     NSLog(@"Slider value: %f", slider.value);
     
+    PFUser *user = [PFUser currentUser];
     PFObject *mood = [PFObject objectWithClassName:@"Mood"];
     [mood setObject:[NSNumber numberWithDouble:mood_value] forKey:@"mood_value"];
     [mood setObject:[NSNumber numberWithDouble:lat] forKey:@"lat"];
     [mood setObject:[NSNumber numberWithDouble:lon] forKey:@"lon"];
     [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
+    [mood setObject:user forKey:@"user"];
     [mood saveEventually];
     
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved!"
@@ -126,6 +128,20 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    PFUser *currentuser = [PFUser currentUser];
+    NSLog(@"%@", currentuser);
+    
+    if (!currentuser) {
+        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+        logInController.fields = PFLogInFieldsUsernameAndPassword 
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton 
+        | PFLogInFieldsPasswordForgotten;
+        logInController.delegate = self;
+        [self presentModalViewController:logInController animated:YES];
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -136,6 +152,11 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
+}
+
+- (void)logInViewController:(PFLogInViewController *)controller
+               didLogInUser:(PFUser *)user {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

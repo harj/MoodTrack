@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "GradientButton.h"
+#import <Parse/Parse.h>
 
-@interface MTViewController : UIViewController <CLLocationManagerDelegate> 
+@interface MTViewController : UIViewController <CLLocationManagerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> 
 {
     GradientButton *button;
 }

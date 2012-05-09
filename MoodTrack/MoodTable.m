@@ -28,9 +28,11 @@
 {
     _moods = [[NSMutableArray alloc] init];
     
+    PFUser *currentuser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache; 
     [query orderByDescending:@"createdAt"];
+    [query whereKey:@"user" equalTo:currentuser];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
