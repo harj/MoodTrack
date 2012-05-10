@@ -11,6 +11,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
+#import "SignUpViewController.h"
 
 @implementation MTViewController
 
@@ -135,7 +136,7 @@
     
     if (!currentuser) {
         LogInViewController *logInController = [[LogInViewController alloc] init];
-        PFSignUpViewController *signUpController = logInController.signUpController;
+        logInController.signUpController = [[SignUpViewController alloc] init];
     
         //Customize login screen fields
         logInController.fields = PFLogInFieldsUsernameAndPassword 
@@ -144,7 +145,7 @@
         | PFLogInFieldsPasswordForgotten;
         
         logInController.delegate = self;
-        signUpController.delegate = self;
+        logInController.signUpController.delegate = self;
         
         [self presentModalViewController:logInController animated:YES];
     }

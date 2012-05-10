@@ -1,37 +1,34 @@
 //
-//  LogInViewController.m
+//  SignUpViewController.m
 //  MoodTrack
 //
 //  Created by Harjeet Taggar on 5/9/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "LogInViewController.h"
+#import "SignUpViewController.h"
 
-@interface LogInViewController ()
+@interface SignUpViewController ()
 
 @end
 
-@implementation LogInViewController
+@implementation SignUpViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
     self.view.backgroundColor = [UIColor colorWithPatternImage:
-                                 [UIImage imageNamed:@"blu_stripes.png"]];
+                                 [UIImage imageNamed:@"weave.png"]];
     
     UILabel *label = [[UILabel alloc] init];
     label.text = @"MoodTrack";
     [label sizeToFit];
-    self.logInView.logo = label;
+    self.signUpView.logo = label; 
     
-    self.logInView.usernameField.backgroundColor = [UIColor grayColor];
-    self.logInView.passwordField.backgroundColor = [UIColor grayColor];
-    
-    self.logInView.usernameField.textColor = [UIColor blackColor];
-    self.logInView.passwordField.textColor = [UIColor blackColor];
-        
+    self.signUpView.usernameField.backgroundColor = [UIColor grayColor];
+    self.signUpView.passwordField.backgroundColor = [UIColor grayColor];
+    self.signUpView.emailField.backgroundColor = [UIColor grayColor];
 }
 
 - (void)viewDidUnload
