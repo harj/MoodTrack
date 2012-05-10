@@ -18,7 +18,7 @@
 @synthesize Average3Days;
 @synthesize Average7Days;
 
-- (void)viewDidLoad
+- (void)viewDidLoad:(NSString *)text
 {
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
@@ -26,31 +26,40 @@
 	// Do any additional setup after loading the view.
 }
 
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     PFUser *currentuser = [PFUser currentUser];
+    NSMutableArray *moodvals = [[NSMutableArray alloc] init];
     
-    // Finding average mood score
+    // Finding average mood
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
     query.cachePolicy = kPFCachePolicyNetworkElseCache;
     [query whereKey:@"user" equalTo:currentuser];
+
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSMutableArray *moodvals = [[NSMutableArray alloc] init];
             for (PFObject *object in objects) {
                 [moodvals addObject:[object objectForKey:@"mood_value"]];
             }
-            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
-            float avg = [sum floatValue] / moodvals.count;
             
-            self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg];            
+            //Display average mood score
+            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
+            double avg = [sum doubleValue] / moodvals.count;
+
+            if (moodvals.count) {
+                self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg]; 
+            } else {
+                self.AverageScore.text = @"0";
+            }
         } else {
             NSLog(@"parse has failed me!");
         }
-    }];
+    }];  
     
+
     //Finding average mood in past 3 days
     NSDate *threeDaysAgo  = [[NSDate date] dateByAddingTimeInterval: -259200.0];
     PFQuery *query3D = [PFQuery queryWithClassName:@"Mood"];
@@ -66,7 +75,12 @@
             NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
             float avg = [sum floatValue] / moodvals.count;
             
-            self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg];            
+            if (moodvals.count) {
+                self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg]; 
+            } else {
+                self.Average3Days.text = @"0";
+            }
+                       
         } else {
             NSLog(@"parse has failed me!");
         }
@@ -87,7 +101,11 @@
             NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
             float avg = [sum floatValue] / moodvals.count;
             
-            self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avg];          
+            if (moodvals.count) {
+                self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avg]; 
+            } else {
+                self.Average7Days.text = @"0";
+            }         
         } else {
             NSLog(@"parse has failed me!");
         }
