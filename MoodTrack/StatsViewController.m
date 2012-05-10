@@ -22,6 +22,14 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    
+	// Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
     PFUser *currentuser = [PFUser currentUser];
     
     // Finding average mood score
@@ -36,13 +44,13 @@
             }
             NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
             float avg = [sum floatValue] / moodvals.count;
-                        
+            
             self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg];            
         } else {
             NSLog(@"parse has failed me!");
         }
     }];
-        
+    
     //Finding average mood in past 3 days
     NSDate *threeDaysAgo  = [[NSDate date] dateByAddingTimeInterval: -259200.0];
     PFQuery *query3D = [PFQuery queryWithClassName:@"Mood"];
@@ -84,15 +92,11 @@
             NSLog(@"parse has failed me!");
         }
     }];
-
-	// Do any additional setup after loading the view.
+    
 }
 
 - (void)viewDidUnload
 {
-    [self setAverageScore:nil];
-    [self setAverage3Days:nil];
-    [self setAverage7Days:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
