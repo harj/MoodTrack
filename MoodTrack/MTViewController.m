@@ -39,8 +39,8 @@
     [mood setObject:user forKey:@"user"];
     [mood saveEventually];
     
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved!"
-                                                      message:@"Your mood has been saved to parse"
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved"
+                                                      message:@"Your mood has been saved"
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
@@ -135,11 +135,17 @@
     
     if (!currentuser) {
         LogInViewController *logInController = [[LogInViewController alloc] init];
+        PFSignUpViewController *signUpController = logInController.signUpController;
+    
+        //Customize login screen fields
         logInController.fields = PFLogInFieldsUsernameAndPassword 
         | PFLogInFieldsLogInButton
         | PFLogInFieldsSignUpButton 
         | PFLogInFieldsPasswordForgotten;
+        
         logInController.delegate = self;
+        signUpController.delegate = self;
+        
         [self presentModalViewController:logInController animated:YES];
     }
     
@@ -157,6 +163,11 @@
 
 - (void)logInViewController:(PFLogInViewController *)controller
                didLogInUser:(PFUser *)user {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)signUpViewController:(PFSignUpViewController *)signUpController 
+               didSignUpUser:(PFUser *)user {
     [self dismissModalViewControllerAnimated:YES];
 }
 
