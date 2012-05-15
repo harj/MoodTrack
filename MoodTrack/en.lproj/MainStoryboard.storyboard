@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lTM-6x-ZbK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4ST-4S-fCu">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
@@ -66,6 +66,20 @@
             </objects>
             <point key="canvasLocation" x="413" y="-169"/>
         </scene>
+        <!--Mood Graph View Controller-->
+        <scene sceneID="v32-MR-Dal">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v8e-8A-Ec5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="4ST-4S-fCu" customClass="MoodGraphViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wYJ-bg-bCY">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-76" y="-169"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kUS-wT-iDN">
             <objects>
@@ -84,7 +98,7 @@
                     </connections>
                 </tabBarController>
             </objects>
-            <point key="canvasLocation" x="-129" y="265"/>
+            <point key="canvasLocation" x="-76" y="415"/>
         </scene>
         <!--Stats View Controller - Stats-->
         <scene sceneID="DIc-yx-Kjc">
@@ -150,6 +164,11 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" id="mFX-bY-ckL">
+                                <rect key="frame" x="60" y="185" width="160" height="206"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -161,7 +180,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="406" y="1097"/>
+            <point key="canvasLocation" x="426" y="1102"/>
         </scene>
         <!--Mood Table - Mood Log-->
         <scene sceneID="IjD-8u-1IM">
@@ -283,6 +302,9 @@
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
+        </class>
+        <class className="MoodGraphViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodGraphViewController.h"/>
         </class>
         <class className="MoodLocationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>
