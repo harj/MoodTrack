@@ -18,16 +18,18 @@
 @synthesize dataForPlot;
 @synthesize hostingView;
 
-- (void)viewDidLoad
+
+-(void)plotData
 {
-    [super viewDidLoad];
+    NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1987200];
+	NSTimeInterval oneDay = 24 * 60 * 60;
     
     // Create graph from theme
 	graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
 	CPTTheme *theme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
 	[graph applyTheme:theme];
 	
-
+    
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
                         initWithFrame:[[UIScreen mainScreen]bounds]];
@@ -42,28 +44,34 @@
 	graph.paddingBottom = 10.0;
     
 	// Setup plot space
-    float xAxisMin = 0;
-    float xAxisMax = 50;
+    // float xAxisMin = 0;
+    // float xAxisMax = 50;
     float yAxisMin = 0;
     float yAxisMax = 10;
     
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xAxisMin) length:CPTDecimalFromFloat(xAxisMax - xAxisMin)];
+    NSTimeInterval xLow = 0.0f;
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(oneDay * 23)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yAxisMin) length:CPTDecimalFromFloat(yAxisMax - yAxisMin)];
     
 	// Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
 	CPTXYAxis *x		  = axisSet.xAxis;
-	x.majorIntervalLength		  = CPTDecimalFromString(@"0.5");
+	x.majorIntervalLength		  = CPTDecimalFromFloat(oneDay);
 	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.5");
-	x.minorTicksPerInterval		  = 1;
-	    
+	x.minorTicksPerInterval		  = 0;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	dateFormatter.dateStyle = kCFDateFormatterShortStyle;
+	CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:dateFormatter];
+	timeFormatter.referenceDate = refDate;
+	x.labelFormatter			= timeFormatter;
+    
 	CPTXYAxis *y = axisSet.yAxis;
 	y.majorIntervalLength		  = CPTDecimalFromString(@"0.5");
 	y.minorTicksPerInterval		  = 1;
 	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.5");
-	    
+    
 	// Create a blue plot area
 	CPTScatterPlot *boundLinePlot  = [[CPTScatterPlot alloc] init];
 	CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
@@ -91,36 +99,52 @@
 	plotSymbol.lineStyle	 = symbolLineStyle;
 	plotSymbol.size			 = CGSizeMake(10.0, 10.0);
 	boundLinePlot.plotSymbol = plotSymbol;
+}
+
+-(void)queryData
+{
+    // Add some initial data
+	NSMutableArray *queryArray = [[NSMutableArray alloc] init];
     
-	// Add some initial data
-	NSMutableArray *dataArray = [[NSMutableArray alloc] init];
-    
-    // PFUser *currentuser = [PFUser currentUser];
+    PFUser *currentuser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    query.cachePolicy = kPFCachePolicyNetworkElseCache; 
-    // [query whereKey:@"user" equalTo:currentuser];
+    [query whereKey:@"user" equalTo:currentuser];
+    [query orderByAscending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            
             for (PFObject *object in objects) {
-                [dataArray addObject:object];
+                [queryArray addObject:object];
             }
+            
+            NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+            for ( int i = 0; i < queryArray.count; i ++) {
+                PFObject *data = [queryArray objectAtIndex:i];
+                
+                //repeated line in plot function
+                NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1987200];
+                
+                NSTimeInterval d = [data.createdAt timeIntervalSinceDate:refDate];
+                id x = [NSDecimalNumber numberWithFloat:d];
+                id y = [data objectForKey:@"mood_value"];
+                [dataArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys: x, @"x", y, @"y", nil]];
+            }
+            self.dataForPlot = dataArray;
+            [self plotData];
+            NSLog(@"out of block - %@", dataArray);
         } else {
             NSLog(@"parse has failed me!");
         }
-        NSLog(@"inblock, %d mood objects", dataArray.count);
     }];
+
     
-    NSLog(@"out of block, %d mood objects", dataArray.count);
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self queryData];
     
-	NSUInteger i;
-	for ( i = 0; i < dataArray.count; i++ ) {
-        PFObject *data = [dataArray objectAtIndex:i];
-		id x = [data objectForKey:@"lat"];
-		id y = [data objectForKey:@"mood_value"];
-		[dataArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:x, @"x", y, @"y", nil]];
-	}
-    
-	self.dataForPlot = dataArray;
 }
 
 #pragma mark -
@@ -133,6 +157,7 @@
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index
 {
+    
 	NSString *key = (fieldEnum == CPTScatterPlotFieldX ? @"x" : @"y");
 	NSNumber *num = [[dataForPlot objectAtIndex:index] valueForKey:key];
     

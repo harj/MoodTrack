@@ -23,6 +23,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
     
+    UISwipeGestureRecognizer *sgr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
+    [self.view addGestureRecognizer:sgr];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -111,6 +114,10 @@
         }
     }];
     
+}
+
+- (void)swipeRight:(UISwipeGestureRecognizer *)recognizer {
+    [self performSegueWithIdentifier:@"MoodGraphViewController" sender:nil];
 }
 
 - (void)viewDidUnload
