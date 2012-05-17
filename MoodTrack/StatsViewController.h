@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *AverageScore;
 @property (strong, nonatomic) IBOutlet UILabel *Average3Days;
 @property (strong, nonatomic) IBOutlet UILabel *Average7Days;
+@property (strong, nonatomic) IBOutlet UILabel *AverageAM;
+@property (strong, nonatomic) IBOutlet UILabel *AveragePM;
 
 @end

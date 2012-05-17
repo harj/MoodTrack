@@ -17,15 +17,14 @@
 @synthesize AverageScore;
 @synthesize Average3Days;
 @synthesize Average7Days;
+@synthesize AverageAM;
+@synthesize AveragePM;
 
 - (void)viewDidLoad:(NSString *)text
 {
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
-    
-    UISwipeGestureRecognizer *sgr = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeRight:)];
-    [self.view addGestureRecognizer:sgr];
-    
+
 	// Do any additional setup after loading the view.
 }
 
@@ -33,6 +32,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
     
     PFUser *currentuser = [PFUser currentUser];
     NSMutableArray *data = [[NSMutableArray alloc] init];
@@ -48,10 +48,12 @@
                 [data addObject:object];
             }
             
-            // Average mood
+            // Arrays for storing mood values from queries
             NSMutableArray *moodVals = [[NSMutableArray alloc] init];
             NSMutableArray *moodVals3Days = [[NSMutableArray alloc] init];
             NSMutableArray *moodValsWeek = [[NSMutableArray alloc] init];
+            NSMutableArray *moodValsAM = [[NSMutableArray alloc] init];
+            NSMutableArray *moodValsPM = [[NSMutableArray alloc] init];
             
             for (PFObject *object in data) {
                 
@@ -59,46 +61,63 @@
                 id mood_value = [object objectForKey:@"mood_value"];
                 [moodVals addObject:mood_value];
                 
-                //Set up times for queries
-                NSDate *time = object.createdAt;
+                //Set up times conditions for queries
+                NSDate *moodTime = object.createdAt;
                 NSDate *threeDaysAgo = [[NSDate date] dateByAddingTimeInterval: -259200.0];
                 NSDate *weekAgo = [[NSDate date] dateByAddingTimeInterval: -604800.0];
                 
+                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:moodTime];
+                NSInteger hour = [components hour];
+                
                 // Get moods values past 3 days
-                if ([time laterDate:threeDaysAgo] == time) {
+                if ([moodTime laterDate:threeDaysAgo] == moodTime) {
                     [moodVals3Days addObject:mood_value];
                 }
                 
                 //Get mood values past week
-                if ([time laterDate:weekAgo] == time) {
+                if ([moodTime laterDate:weekAgo] == moodTime) {
                     [moodValsWeek addObject:mood_value];
-                    NSLog(@"%@", mood_value);
+                }
+                
+                //Get am and pm mood values
+                if (hour >= 0 && hour < 12) {
+                    [moodValsAM addObject:mood_value];
+                    NSLog(@"%@", moodTime);
+                } else {
+                    [moodValsPM addObject:mood_value];
                 }
                 
             }
             
-            NSLog(@"%i, %i, %i", moodVals.count, moodVals3Days.count, moodValsWeek.count);
-
+            NSLog(@"%i, %i, %i, %i, %i", moodVals.count, moodVals3Days.count, moodValsWeek.count, moodValsAM.count, moodValsPM.count);
     
             //Find totals
             NSNumber *sum = [moodVals valueForKeyPath:@"@sum.self"];
             NSNumber *sum3Days = [moodVals3Days valueForKeyPath:@"@sum.self"];
             NSNumber *sumWeek = [moodValsWeek valueForKeyPath:@"@sum.self"];
+            NSNumber *sumAM = [moodValsAM valueForKeyPath:@"@sum.self"];
+            NSNumber *sumPM = [moodValsPM valueForKeyPath:@"@sum.self"];
             
             //Get averages
             double avg = [sum doubleValue] / moodVals.count;
             double avg3Days = [sum3Days doubleValue] / moodVals3Days.count;
             double avgWeek = [sumWeek doubleValue] / moodValsWeek.count;
+            double avgAM = [sumAM doubleValue] / moodValsAM.count;
+            double avgPM = [sumPM doubleValue] / moodValsPM.count;
             
             //Display averages
             if (moodVals.count) {
                 self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg];
                 self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg3Days];
                 self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avgWeek];
+                self.AverageAM.text = [NSString stringWithFormat:@"%.02f", avgAM];
+                self.AveragePM.text = [NSString stringWithFormat:@"%.02f", avgPM];
             } else {
                 self.AverageScore.text = @"0";
                 self.Average3Days.text = @"0";
                 self.Average7Days.text = @"0";
+                self.AverageAM.text = @"0";
+                self.AveragePM.text = @"0";
             }
              
         } else {
@@ -106,9 +125,7 @@
         }
              
     }];  
-   
-
-        
+           
 }
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)recognizer {
@@ -117,6 +134,8 @@
 
 - (void)viewDidUnload
 {
+    [self setAverageAM:nil];
+    [self setAveragePM:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
