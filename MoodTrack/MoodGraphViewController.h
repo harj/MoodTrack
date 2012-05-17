@@ -21,4 +21,5 @@
 @property (nonatomic, retain) NSMutableArray *dataForPlot;
 @property (nonatomic, retain) CPTGraphHostingView *hostingView;
 
+- (IBAction)closeMoodGraph:(id)sender;
 @end

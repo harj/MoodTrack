@@ -35,7 +35,7 @@
     [super viewDidAppear:animated];
     
     PFUser *currentuser = [PFUser currentUser];
-    NSMutableArray *moodvals = [[NSMutableArray alloc] init];
+    NSMutableArray *data = [[NSMutableArray alloc] init];
     
     // Finding average mood
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
@@ -45,75 +45,70 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
-                [moodvals addObject:[object objectForKey:@"mood_value"]];
+                [data addObject:object];
             }
             
-            //Display average mood score
-            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
-            double avg = [sum doubleValue] / moodvals.count;
+            // Average mood
+            NSMutableArray *moodVals = [[NSMutableArray alloc] init];
+            NSMutableArray *moodVals3Days = [[NSMutableArray alloc] init];
+            NSMutableArray *moodValsWeek = [[NSMutableArray alloc] init];
+            
+            for (PFObject *object in data) {
+                
+                //Get all mood values
+                id mood_value = [object objectForKey:@"mood_value"];
+                [moodVals addObject:mood_value];
+                
+                //Set up times for queries
+                NSDate *time = object.createdAt;
+                NSDate *threeDaysAgo = [[NSDate date] dateByAddingTimeInterval: -259200.0];
+                NSDate *weekAgo = [[NSDate date] dateByAddingTimeInterval: -604800.0];
+                
+                // Get moods values past 3 days
+                if ([time laterDate:threeDaysAgo] == time) {
+                    [moodVals3Days addObject:mood_value];
+                }
+                
+                //Get mood values past week
+                if ([time laterDate:weekAgo] == time) {
+                    [moodValsWeek addObject:mood_value];
+                    NSLog(@"%@", mood_value);
+                }
+                
+            }
+            
+            NSLog(@"%i, %i, %i", moodVals.count, moodVals3Days.count, moodValsWeek.count);
 
-            if (moodvals.count) {
-                self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg]; 
+    
+            //Find totals
+            NSNumber *sum = [moodVals valueForKeyPath:@"@sum.self"];
+            NSNumber *sum3Days = [moodVals3Days valueForKeyPath:@"@sum.self"];
+            NSNumber *sumWeek = [moodValsWeek valueForKeyPath:@"@sum.self"];
+            
+            //Get averages
+            double avg = [sum doubleValue] / moodVals.count;
+            double avg3Days = [sum3Days doubleValue] / moodVals3Days.count;
+            double avgWeek = [sumWeek doubleValue] / moodValsWeek.count;
+            
+            //Display averages
+            if (moodVals.count) {
+                self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg];
+                self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg3Days];
+                self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avgWeek];
             } else {
                 self.AverageScore.text = @"0";
-            }
-        } else {
-            NSLog(@"parse has failed me!");
-        }
-    }];  
-    
-
-    //Finding average mood in past 3 days
-    NSDate *threeDaysAgo  = [[NSDate date] dateByAddingTimeInterval: -259200.0];
-    PFQuery *query3D = [PFQuery queryWithClassName:@"Mood"];
-    query3D.cachePolicy = kPFCachePolicyNetworkElseCache;
-    [query3D whereKey:@"createdAt" greaterThan:threeDaysAgo];
-    [query3D whereKey:@"user" equalTo:currentuser];
-    [query3D findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSMutableArray *moodvals = [[NSMutableArray alloc] init];
-            for (PFObject *object in objects) {
-                [moodvals addObject:[object objectForKey:@"mood_value"]];
-            }
-            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
-            float avg = [sum floatValue] / moodvals.count;
-            
-            if (moodvals.count) {
-                self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg]; 
-            } else {
                 self.Average3Days.text = @"0";
-            }
-                       
-        } else {
-            NSLog(@"parse has failed me!");
-        }
-    }];
-    
-    //Finding average mood score in past week
-    NSDate *lastWeek  = [[NSDate date] dateByAddingTimeInterval: -604800.0];
-    PFQuery *queryW = [PFQuery queryWithClassName:@"Mood"];
-    queryW.cachePolicy = kPFCachePolicyNetworkElseCache;
-    [queryW whereKey:@"createdAt" greaterThan:lastWeek];
-    [queryW whereKey:@"user" equalTo:currentuser];
-    [queryW findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            NSMutableArray *moodvals = [[NSMutableArray alloc] init];
-            for (PFObject *object in objects) {
-                [moodvals addObject:[object objectForKey:@"mood_value"]];
-            }
-            NSNumber *sum = [moodvals valueForKeyPath:@"@sum.self"];
-            float avg = [sum floatValue] / moodvals.count;
-            
-            if (moodvals.count) {
-                self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avg]; 
-            } else {
                 self.Average7Days.text = @"0";
-            }         
+            }
+             
         } else {
             NSLog(@"parse has failed me!");
         }
-    }];
-    
+             
+    }];  
+   
+
+        
 }
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)recognizer {

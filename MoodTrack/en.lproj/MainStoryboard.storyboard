@@ -78,17 +78,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="tqg-Ji-1ZV" appends="YES" id="yfS-0g-fBY"/>
-                            <outletCollection property="gestureRecognizers" destination="tqg-Ji-1ZV" appends="YES" id="cDj-j7-sK7"/>
-                        </connections>
                     </view>
                 </viewController>
-                <swipeGestureRecognizer direction="up" id="tqg-Ji-1ZV">
-                    <connections>
-                        <segue destination="fIX-CE-r4o" kind="modal" id="uTk-xS-laZ"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="823" y="1103"/>
         </scene>
@@ -197,6 +188,7 @@
                         <gestureRecognizers/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Stats" image="graph_bar_trend.png" id="XlI-Ym-q2P"/>
+                    <navigationItem key="navigationItem" id="ucT-YT-3hF"/>
                     <connections>
                         <outlet property="Average3Days" destination="W2Q-TT-K9w" id="pzV-7D-H6U"/>
                         <outlet property="Average7Days" destination="owH-iq-UO2" id="6jH-FK-856"/>
@@ -331,6 +323,9 @@
         </class>
         <class className="MoodGraphViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodGraphViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeMoodGraph:"/>
+            </relationships>
         </class>
         <class className="MoodLocationViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>

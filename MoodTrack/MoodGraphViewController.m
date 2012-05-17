@@ -26,7 +26,7 @@
     
     // Create graph from theme
 	graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-	CPTTheme *theme = [CPTTheme themeNamed:kCPTDarkGradientTheme];
+	CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
 	[graph applyTheme:theme];
 	
     
@@ -41,7 +41,7 @@
 	graph.paddingLeft	= 10.0;
 	graph.paddingTop	= 10.0;
 	graph.paddingRight	= 10.0;
-	graph.paddingBottom = 10.0;
+	graph.paddingBottom = 30.0;
     
 	// Setup plot space
     // float xAxisMin = 0;
@@ -147,9 +147,6 @@
     
 }
 
-#pragma mark -
-#pragma mark Plot Data Source Methods
-
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot
 {
 	return [dataForPlot count];
@@ -163,9 +160,6 @@
     
 	return num;
 }
-
-#pragma mark -
-#pragma mark Axis Delegate Methods
 
 -(BOOL)axis:(CPTAxis *)axis shouldUpdateAxisLabelsAtLocations:(NSSet *)locations
 {
@@ -221,9 +215,12 @@
     // Release any retained subviews of the main view.
 }
 
+- (IBAction)closeMoodGraph:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
 @end
