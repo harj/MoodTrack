@@ -14,15 +14,33 @@
 
 @synthesize window = _window;
 
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    NSLog(@"Received UILocalNotification!!!!!!!!!!");
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken
+{
+    // Tell Parse about the device token.
+    [PFPush storeDeviceToken:newDeviceToken];
+    // Subscribe to the global broadcast channel.
+    [PFPush subscribeToChannelInBackground:@""];
 }
 
+- (void)application:(UIApplication *)application 
+didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    if ([error code] == 3010) {
+        NSLog(@"Push notifications don't work in the simulator!");
+    } else {
+        NSLog(@"didFailToRegisterForRemoteNotificationsWithError: %@", error);
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     [Parse setApplicationId:@"pNRcpH7eSXGzWGXhejabGFeyJEAhcdBLSe0Ft7XH" 
                   clientKey:@"FIkw3oKAycqaL3MLiSw862gAEMxywhIHdoxsuuHM"];
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
 
     return YES;
 }
