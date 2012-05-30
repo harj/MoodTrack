@@ -14,42 +14,13 @@
 
 @synthesize window = _window;
 
-- (void)scheduleAlarmForDate:(NSDate*)theDate
-{
-    UIApplication* app = [UIApplication sharedApplication];
-    NSArray*    oldNotifications = [app scheduledLocalNotifications];
-    
-    // Clear out the old notification before scheduling a new one.
-    if ([oldNotifications count] > 0)
-        [app cancelAllLocalNotifications];
-    
-    // Create a new notification.
-    UILocalNotification* alarm = [[UILocalNotification alloc] init];
-    if (alarm) {
-        alarm.fireDate = theDate;
-        alarm.timeZone = [NSTimeZone defaultTimeZone];
-        alarm.repeatInterval = 0;
-        // alarm.soundName = @"alarmsound.caf";
-        alarm.alertBody = @"How are you feeling?";
-        
-        [app scheduleLocalNotification:alarm];
-        NSLog(@"scheduling notification...");
-    } else {
-        NSLog(@"COULD NOT ALLOCATE UILocalNotification!");
-    }
-}
-
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"Received UILocalNotification!!!!!!!!!!");
 }
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    NSDate *currentTime = [[NSDate alloc] init];
-    NSDate *d = [[NSDate alloc] initWithTimeInterval:15 sinceDate:currentTime];
-    [self scheduleAlarmForDate:d];
-    
+{    
     [Parse setApplicationId:@"pNRcpH7eSXGzWGXhejabGFeyJEAhcdBLSe0Ft7XH" 
                   clientKey:@"FIkw3oKAycqaL3MLiSw862gAEMxywhIHdoxsuuHM"];
 
