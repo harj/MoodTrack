@@ -21,6 +21,11 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken
     [PFPush storeDeviceToken:newDeviceToken];
     // Subscribe to the global broadcast channel.
     [PFPush subscribeToChannelInBackground:@""];
+    
+    [PFPush getSubscribedChannelsInBackgroundWithBlock:^(NSSet *channels, NSError *error) {
+        // channels is an NSSet with all the subscribed channels
+        NSLog(@"%@", channels);
+    }];
 }
 
 - (void)application:(UIApplication *)application 
