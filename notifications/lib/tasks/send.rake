@@ -10,7 +10,7 @@ task :send => [:environment] do
   } 
   params = { 
     "channel" => "", 
-    "data" => { "alert" => "from rest api via rails" }
+    "data" => { "alert" => "How are you feeling?" }
   }
 
   RestClient.post(url, params.to_json, headers)
