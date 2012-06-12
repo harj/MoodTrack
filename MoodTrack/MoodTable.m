@@ -24,16 +24,18 @@
 
 @synthesize moods = _moods;
 
-- (void)selectMoods
+- (void)selectMoods:(float)type
 {
     _moods = [[NSMutableArray alloc] init];
     
     PFUser *currentuser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    query.cachePolicy = kPFCachePolicyCacheOnly; 
     [query orderByDescending:@"createdAt"];
     [query whereKey:@"user" equalTo:currentuser];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    
+    if (type == 0) {
+        query.cachePolicy = kPFCachePolicyCacheOnly; 
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
                 [_moods addObject:object];
@@ -45,48 +47,19 @@
             NSLog(@"parse has failed me!");
         }
     }];
-    
-}
-
-- (void)refreshMoods
-{
-    _moods = [[NSMutableArray alloc] init];
-    
-    PFUser *currentuser = [PFUser currentUser];
-    PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    query.cachePolicy = kPFCachePolicyNetworkElseCache; 
-    [query orderByDescending:@"createdAt"];
-    [query whereKey:@"user" equalTo:currentuser];
-    
-    /* removed performing query in background as the _moods variable becomes empty
-     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            for (PFObject *object in objects) {
-                [_moods addObject:object];
-            }
-            
-            NSLog(@"success with parse refresh! %d objects, %d mood objects", objects.count, _moods.count);
-            // [self.tableView reloadData];
-        } else {
-            NSLog(@"parse has failed me!");
+    } else {
+        query.cachePolicy = kPFCachePolicyNetworkElseCache; 
+        NSArray *objects = [query findObjects];
+        for (PFObject *object in objects) {
+            [_moods addObject:object];
         }
-    }];
-    */
-    
-    
-    NSArray *objects = [query findObjects];
-    for (PFObject *object in objects) {
-        [_moods addObject:object];
     }
     
 }
 
-
-
 - (void) reloadTableData
 {
-    [self refreshMoods];    
+    [self selectMoods:1];    
     [self.tableView reloadData];
     [pull finishedLoading];
 }
@@ -146,7 +119,7 @@
     [pull setDelegate:self];
     [self.tableView addSubview:pull];
     
-    [self selectMoods];
+    [self selectMoods:0];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -15,6 +15,6 @@
 
 - (void) reloadTableData;
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
-- (void)selectMoods;
+- (void)selectMoods:(float)type;
 
 @end

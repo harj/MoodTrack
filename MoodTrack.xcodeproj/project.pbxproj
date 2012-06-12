@@ -385,6 +385,7 @@
 			children = (
 				C788D50E1550C55B0012BBC1 /* GradientButton */,
 				C75F007315187E8600C034FD /* Images */,
+				C7CC97711511D1AC005C44C1 /* Supporting Files */,
 				C7CC97791511D1AC005C44C1 /* MTAppDelegate.h */,
 				C7CC977A1511D1AC005C44C1 /* MTAppDelegate.m */,
 				C7913FC1155A536700C3F722 /* LogInViewController.h */,
@@ -400,7 +401,6 @@
 				C7CC97801511D1AC005C44C1 /* MTViewController.m */,
 				C71F3DC21547CB7A001F9B62 /* StatsViewController.h */,
 				C71F3DC31547CB7A001F9B62 /* StatsViewController.m */,
-				C7CC97711511D1AC005C44C1 /* Supporting Files */,
 				C791402A15622EA900C3F722 /* MoodGraphViewController.h */,
 				C791402B15622EA900C3F722 /* MoodGraphViewController.m */,
 			);

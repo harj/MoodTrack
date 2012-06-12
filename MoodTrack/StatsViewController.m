@@ -20,28 +20,16 @@
 @synthesize AverageAM;
 @synthesize AveragePM;
 
-- (void)viewDidLoad:(NSString *)text
+-(void)selectData
 {
-    [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
-
-	// Do any additional setup after loading the view.
-}
-
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
-    
     PFUser *currentuser = [PFUser currentUser];
     NSMutableArray *data = [[NSMutableArray alloc] init];
     
     // Finding average mood
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    query.cachePolicy = kPFCachePolicyNetworkElseCache;
+    query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     [query whereKey:@"user" equalTo:currentuser];
-
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
@@ -90,7 +78,7 @@
             }
             
             NSLog(@"%i, %i, %i, %i, %i", moodVals.count, moodVals3Days.count, moodValsWeek.count, moodValsAM.count, moodValsPM.count);
-    
+            
             //Find totals
             NSNumber *sum = [moodVals valueForKeyPath:@"@sum.self"];
             NSNumber *sum3Days = [moodVals3Days valueForKeyPath:@"@sum.self"];
@@ -119,13 +107,32 @@
                 self.AverageAM.text = @"0";
                 self.AveragePM.text = @"0";
             }
-             
+            
         } else {
             NSLog(@"parse has failed me!");
         }
-             
+        
     }];  
-           
+
+}
+
+- (void)viewDidLoad:(NSString *)text
+{
+    [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+
+	// Do any additional setup after loading the view.
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    
+    [self selectData];
+    
+        
 }
 
 - (void)swipeRight:(UISwipeGestureRecognizer *)recognizer {
