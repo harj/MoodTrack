@@ -30,7 +30,7 @@
     
     PFUser *currentuser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    query.cachePolicy = kPFCachePolicyNetworkElseCache; 
+    query.cachePolicy = kPFCachePolicyCacheOnly; 
     [query orderByDescending:@"createdAt"];
     [query whereKey:@"user" equalTo:currentuser];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -40,7 +40,7 @@
             }
             
             NSLog(@"success with parse! %d objects, %d mood objects", objects.count, _moods.count);
-            [self.tableView reloadData];
+            // [self.tableView reloadData];
         } else {
             NSLog(@"parse has failed me!");
         }
@@ -48,19 +48,52 @@
     
 }
 
+- (void)refreshMoods
+{
+    _moods = [[NSMutableArray alloc] init];
+    
+    PFUser *currentuser = [PFUser currentUser];
+    PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
+    query.cachePolicy = kPFCachePolicyNetworkElseCache; 
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"user" equalTo:currentuser];
+    
+    /* removed performing query in background as the _moods variable becomes empty
+     
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                [_moods addObject:object];
+            }
+            
+            NSLog(@"success with parse refresh! %d objects, %d mood objects", objects.count, _moods.count);
+            // [self.tableView reloadData];
+        } else {
+            NSLog(@"parse has failed me!");
+        }
+    }];
+    */
+    
+    
+    NSArray *objects = [query findObjects];
+    for (PFObject *object in objects) {
+        [_moods addObject:object];
+    }
+    
+}
+
+
+
 - (void) reloadTableData
 {
-    [self selectMoods];
-    NSLog(@"%d - reload", _moods.count);
-    
+    [self refreshMoods];    
     [self.tableView reloadData];
     [pull finishedLoading];
-    NSLog(@"refresh");
 }
 
 - (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
 {
-    [self performSelectorInBackground:@selector(reloadTableData) withObject:nil];
+    [self performSelector:@selector(reloadTableData) withObject:nil afterDelay:1.0];
 }
 
 
@@ -114,7 +147,6 @@
     [self.tableView addSubview:pull];
     
     [self selectMoods];
-    NSLog(@"%d - didLoad", _moods.count);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -150,6 +182,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"LogCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
