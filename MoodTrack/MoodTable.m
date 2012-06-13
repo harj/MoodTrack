@@ -34,7 +34,7 @@
     [query whereKey:@"user" equalTo:currentuser];
     
     if (type == 0) {
-        query.cachePolicy = kPFCachePolicyCacheOnly; 
+        query.cachePolicy = kPFCachePolicyCacheElseNetwork; 
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             for (PFObject *object in objects) {
