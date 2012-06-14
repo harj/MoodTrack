@@ -67,19 +67,11 @@
 	timeFormatter.referenceDate = refDate;
 	x.labelFormatter			= timeFormatter;
 
-    x.title = [NSString stringWithFormat:@"Days"];
-    x.titleLocation = CPTDecimalFromFloat(10.0f);
-    x.titleOffset = 30.0f;
-    
-    
 	CPTXYAxis *y = axisSet.yAxis;
 	y.majorIntervalLength		  = CPTDecimalFromString(@"0.5");
 	y.minorTicksPerInterval		  = 1;
 	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
     
-    y.title = [NSString stringWithFormat:@"Mood Score"];
-    y.titleLocation = CPTDecimalFromFloat(10.0f);
-    y.titleOffset = 30.0f;
     
 	// Create a blue plot area
 	CPTScatterPlot *boundLinePlot  = [[CPTScatterPlot alloc] init];
