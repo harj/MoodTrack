@@ -32,16 +32,16 @@
     
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
-                        initWithFrame:[[UIScreen mainScreen]bounds]];
+                        initWithFrame:CGRectMake(0, 50, 315, 385)];
     self.hostingView.collapsesLayers = NO;
     self.hostingView.hostedGraph = graph;
     
     [self.view addSubview:self.hostingView];
     
-	graph.paddingLeft	= 10.0;
-	graph.paddingTop	= 10.0;
-	graph.paddingRight	= 10.0;
-	graph.paddingBottom = 30.0;
+	graph.paddingLeft	= 15.0;
+	graph.paddingTop	= 0.0;
+	graph.paddingRight	= 0.0;
+	graph.paddingBottom = 0.0;
     
 	// Setup plot space
     // float xAxisMin = 0;
@@ -52,25 +52,34 @@
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     NSTimeInterval xLow = 0.0f;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(oneDay * 23)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(oneDay * 20)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yAxisMin) length:CPTDecimalFromFloat(yAxisMax - yAxisMin)];
     
 	// Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
 	CPTXYAxis *x		  = axisSet.xAxis;
 	x.majorIntervalLength		  = CPTDecimalFromFloat(oneDay);
-	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.5");
+	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
 	x.minorTicksPerInterval		  = 0;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	dateFormatter.dateStyle = kCFDateFormatterShortStyle;
 	CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:dateFormatter];
 	timeFormatter.referenceDate = refDate;
 	x.labelFormatter			= timeFormatter;
+
+    x.title = [NSString stringWithFormat:@"Days"];
+    x.titleLocation = CPTDecimalFromFloat(10.0f);
+    x.titleOffset = 30.0f;
+    
     
 	CPTXYAxis *y = axisSet.yAxis;
 	y.majorIntervalLength		  = CPTDecimalFromString(@"0.5");
 	y.minorTicksPerInterval		  = 1;
-	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.5");
+	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
+    
+    y.title = [NSString stringWithFormat:@"Mood Score"];
+    y.titleLocation = CPTDecimalFromFloat(10.0f);
+    y.titleOffset = 30.0f;
     
 	// Create a blue plot area
 	CPTScatterPlot *boundLinePlot  = [[CPTScatterPlot alloc] init];
@@ -97,8 +106,10 @@
 	CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
 	plotSymbol.fill			 = [CPTFill fillWithColor:[CPTColor blueColor]];
 	plotSymbol.lineStyle	 = symbolLineStyle;
-	plotSymbol.size			 = CGSizeMake(10.0, 10.0);
+	plotSymbol.size			 = CGSizeMake(7.0, 7.0);
 	boundLinePlot.plotSymbol = plotSymbol;
+    
+    
 }
 
 -(void)queryData
@@ -122,7 +133,7 @@
                 PFObject *data = [queryArray objectAtIndex:i];
                 
                 //repeated line in plot function
-                NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1987200];
+                NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1728000];
                 
                 NSTimeInterval d = [data.createdAt timeIntervalSinceDate:refDate];
                 id x = [NSDecimalNumber numberWithFloat:d];
@@ -221,6 +232,6 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 @end
