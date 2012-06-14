@@ -20,15 +20,20 @@
 @synthesize AverageAM;
 @synthesize AveragePM;
 
--(void)selectData
+-(void)selectData:(float)type
 {
     PFUser *currentuser = [PFUser currentUser];
     NSMutableArray *data = [[NSMutableArray alloc] init];
     
     // Finding average mood
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    query.cachePolicy = kPFCachePolicyCacheElseNetwork;
     [query whereKey:@"user" equalTo:currentuser];
+    
+    if (type == 1) {
+        query.cachePolicy = kPFCachePolicyNetworkElseCache;
+    } else {
+        query.cachePolicy = kPFCachePolicyCacheElseNetwork;
+    }
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -95,17 +100,17 @@
             
             //Display averages
             if (moodVals.count) {
-                self.AverageScore.text = [NSString stringWithFormat:@"%.02f", avg];
-                self.Average3Days.text = [NSString stringWithFormat:@"%.02f", avg3Days];
-                self.Average7Days.text = [NSString stringWithFormat:@"%.02f", avgWeek];
-                self.AverageAM.text = [NSString stringWithFormat:@"%.02f", avgAM];
-                self.AveragePM.text = [NSString stringWithFormat:@"%.02f", avgPM];
+                self.AverageScore.text = [NSString stringWithFormat:@"%.01f ", avg];
+                self.Average3Days.text = [NSString stringWithFormat:@"%.01f ", avg3Days];
+                self.Average7Days.text = [NSString stringWithFormat:@"%.01f ", avgWeek];
+                self.AverageAM.text = [NSString stringWithFormat:@"%.01f ", avgAM];
+                self.AveragePM.text = [NSString stringWithFormat:@"%.01f ", avgPM];
             } else {
-                self.AverageScore.text = @"0";
-                self.Average3Days.text = @"0";
-                self.Average7Days.text = @"0";
-                self.AverageAM.text = @"0";
-                self.AveragePM.text = @"0";
+                self.AverageScore.text = @"0 ";
+                self.Average3Days.text = @"0 ";
+                self.Average7Days.text = @"0 ";
+                self.AverageAM.text = @"0 ";
+                self.AveragePM.text = @"0 ";
             }
             
         } else {
@@ -130,7 +135,7 @@
     [super viewDidAppear:animated];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
     
-    [self selectData];
+    [self selectData:0];
     
         
 }
@@ -150,6 +155,10 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)Refresh:(id)sender {
+    [self selectData:1];
 }
 
 @end

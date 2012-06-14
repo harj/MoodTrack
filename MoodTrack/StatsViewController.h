@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *Average7Days;
 @property (strong, nonatomic) IBOutlet UILabel *AverageAM;
 @property (strong, nonatomic) IBOutlet UILabel *AveragePM;
+- (IBAction)Refresh:(id)sender;
 
 @end
