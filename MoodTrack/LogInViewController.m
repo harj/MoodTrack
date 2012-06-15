@@ -19,19 +19,22 @@
     [super viewDidLoad];
 	
     self.view.backgroundColor = [UIColor colorWithPatternImage:
-                                 [UIImage imageNamed:@"blu_stripes.png"]];
+                                 [UIImage imageNamed:@"blue_bg.png"]];
     
     UILabel *label = [[UILabel alloc] init];
-    label.text = @"MoodTrack";
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:50];
+    label.textColor = [UIColor whiteColor];
+    label.text = @"Mood Track";
     [label sizeToFit];
     self.logInView.logo = label;
     
-    self.logInView.usernameField.backgroundColor = [UIColor grayColor];
-    self.logInView.passwordField.backgroundColor = [UIColor grayColor];
+    self.logInView.usernameField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
+    self.logInView.passwordField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
     
-    self.logInView.usernameField.textColor = [UIColor blackColor];
-    self.logInView.passwordField.textColor = [UIColor blackColor];
-        
+    self.logInView.usernameField.textColor = [UIColor whiteColor];
+    self.logInView.passwordField.textColor = [UIColor whiteColor];
+    
 }
 
 - (void)viewDidUnload

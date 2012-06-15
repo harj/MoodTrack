@@ -32,8 +32,6 @@
 		C7B7129A15523D770052DAD3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B7129915523D770052DAD3 /* icon.png */; };
 		C7B755B3155B6A2D00B9242D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B755B2155B6A2D00B9242D /* SignUpViewController.m */; };
 		C7B755B7155B6D2E00B9242D /* bright_squares.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B755B6155B6D2E00B9242D /* bright_squares.png */; };
-		C7B755B9155B6DE200B9242D /* weave.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B755B8155B6DE200B9242D /* weave.png */; };
-		C7B755BD155B6EB100B9242D /* blu_stripes.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B755BC155B6EB100B9242D /* blu_stripes.png */; };
 		C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976A1511D1AC005C44C1 /* UIKit.framework */; };
 		C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976C1511D1AC005C44C1 /* Foundation.framework */; };
 		C7CC976F1511D1AC005C44C1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */; };
@@ -49,6 +47,7 @@
 		C7D288751589B12D00A86DB8 /* alert-gray-button.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D288731589B12D00A86DB8 /* alert-gray-button.png */; };
 		C7D288761589B12D00A86DB8 /* alert-gray-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D288741589B12D00A86DB8 /* alert-gray-button@2x.png */; };
 		C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */; };
+		C7D2888A158B2C5F00A86DB8 /* blue_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D28889158B2C5F00A86DB8 /* blue_bg.png */; };
 		C7F5A6C9158915C100B96728 /* ipad-button-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6C8158915C100B96728 /* ipad-button-blue.png */; };
 		C7F5A6CC1589164400B96728 /* ipad-text-input.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6CB1589164400B96728 /* ipad-text-input.png */; };
 		C7F5A6D3158916A900B96728 /* ipad-slider-fill.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6CD158916A900B96728 /* ipad-slider-fill.png */; };
@@ -172,8 +171,6 @@
 		C7B755B1155B6A2D00B9242D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		C7B755B2155B6A2D00B9242D /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		C7B755B6155B6D2E00B9242D /* bright_squares.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bright_squares.png; path = MoodTrack/bright_squares.png; sourceTree = "<group>"; };
-		C7B755B8155B6DE200B9242D /* weave.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weave.png; path = MoodTrack/weave.png; sourceTree = "<group>"; };
-		C7B755BC155B6EB100B9242D /* blu_stripes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blu_stripes.png; path = MoodTrack/blu_stripes.png; sourceTree = "<group>"; };
 		C7CC97661511D1AC005C44C1 /* MoodTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7CC976A1511D1AC005C44C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C7CC976C1511D1AC005C44C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -196,6 +193,7 @@
 		C7D288741589B12D00A86DB8 /* alert-gray-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-gray-button@2x.png"; sourceTree = "<group>"; };
 		C7D28878158B01D200A86DB8 /* MapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewAnnotation.h; sourceTree = "<group>"; };
 		C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewAnnotation.m; sourceTree = "<group>"; };
+		C7D28889158B2C5F00A86DB8 /* blue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_bg.png; sourceTree = "<group>"; };
 		C7F5A6C8158915C100B96728 /* ipad-button-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-blue.png"; sourceTree = "<group>"; };
 		C7F5A6CB1589164400B96728 /* ipad-text-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-text-input.png"; sourceTree = "<group>"; };
 		C7F5A6CD158916A900B96728 /* ipad-slider-fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-slider-fill.png"; sourceTree = "<group>"; };
@@ -244,6 +242,7 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7D28889158B2C5F00A86DB8 /* blue_bg.png */,
 				C7D288731589B12D00A86DB8 /* alert-gray-button.png */,
 				C7D288741589B12D00A86DB8 /* alert-gray-button@2x.png */,
 				C7F5A6CD158916A900B96728 /* ipad-slider-fill.png */,
@@ -254,8 +253,6 @@
 				C7F5A6D2158916A900B96728 /* ipad-slider-track@2x.png */,
 				C7F5A6CB1589164400B96728 /* ipad-text-input.png */,
 				C7F5A6C8158915C100B96728 /* ipad-button-blue.png */,
-				C7B755BC155B6EB100B9242D /* blu_stripes.png */,
-				C7B755B8155B6DE200B9242D /* weave.png */,
 				C7B755B6155B6D2E00B9242D /* bright_squares.png */,
 				C7913FC7155A582000C3F722 /* black_tile.png */,
 				C7B7129915523D770052DAD3 /* icon.png */,
@@ -516,8 +513,6 @@
 				C7B7129A15523D770052DAD3 /* icon.png in Resources */,
 				C7913FC8155A582000C3F722 /* black_tile.png in Resources */,
 				C7B755B7155B6D2E00B9242D /* bright_squares.png in Resources */,
-				C7B755B9155B6DE200B9242D /* weave.png in Resources */,
-				C7B755BD155B6EB100B9242D /* blu_stripes.png in Resources */,
 				C7F5A6C9158915C100B96728 /* ipad-button-blue.png in Resources */,
 				C7F5A6CC1589164400B96728 /* ipad-text-input.png in Resources */,
 				C7F5A6D3158916A900B96728 /* ipad-slider-fill.png in Resources */,
@@ -528,6 +523,7 @@
 				C7F5A6D8158916A900B96728 /* ipad-slider-track@2x.png in Resources */,
 				C7D288751589B12D00A86DB8 /* alert-gray-button.png in Resources */,
 				C7D288761589B12D00A86DB8 /* alert-gray-button@2x.png in Resources */,
+				C7D2888A158B2C5F00A86DB8 /* blue_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
