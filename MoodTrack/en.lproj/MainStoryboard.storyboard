@@ -367,12 +367,15 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Mig-nl-FrE">
                                 <rect key="frame" x="0.0" y="44" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="uql-89-I9d" id="3Op-ih-8V2"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="_mapView" destination="Mig-nl-FrE" id="CIT-qB-eq5"/>
+                        <outlet property="mapView" destination="Mig-nl-FrE" id="Xe4-EM-kEN"/>
                     </connections>
                 </viewController>
             </objects>
@@ -410,7 +413,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>
             <relationships>
                 <relationship kind="action" name="closeMoodLocation:"/>
-                <relationship kind="outlet" name="_mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="MoodTable" superclassName="UITableViewController">

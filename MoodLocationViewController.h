@@ -9,16 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MoodLocationViewController : UIViewController {
+@interface MoodLocationViewController : UIViewController <MKMapViewDelegate> {
     NSString *moodScore;
     NSString *moodTime;
     NSNumber *lat;
     NSNumber *lon;
+    MKMapView *mapview;
     
 }
 
 
-@property (strong, nonatomic) IBOutlet MKMapView *_mapView;
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) NSString *moodScore;
 @property (strong, nonatomic) NSString *moodTime;
 @property (strong, nonatomic) NSNumber *lat; 

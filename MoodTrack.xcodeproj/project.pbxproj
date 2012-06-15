@@ -48,6 +48,7 @@
 		C7D1382D1558D381002E4894 /* MoodLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1382C1558D381002E4894 /* MoodLocationViewController.m */; };
 		C7D288751589B12D00A86DB8 /* alert-gray-button.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D288731589B12D00A86DB8 /* alert-gray-button.png */; };
 		C7D288761589B12D00A86DB8 /* alert-gray-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D288741589B12D00A86DB8 /* alert-gray-button@2x.png */; };
+		C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */; };
 		C7F5A6C9158915C100B96728 /* ipad-button-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6C8158915C100B96728 /* ipad-button-blue.png */; };
 		C7F5A6CC1589164400B96728 /* ipad-text-input.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6CB1589164400B96728 /* ipad-text-input.png */; };
 		C7F5A6D3158916A900B96728 /* ipad-slider-fill.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6CD158916A900B96728 /* ipad-slider-fill.png */; };
@@ -193,6 +194,8 @@
 		C7D1382C1558D381002E4894 /* MoodLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoodLocationViewController.m; path = ../MoodLocationViewController.m; sourceTree = "<group>"; };
 		C7D288731589B12D00A86DB8 /* alert-gray-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-gray-button.png"; sourceTree = "<group>"; };
 		C7D288741589B12D00A86DB8 /* alert-gray-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-gray-button@2x.png"; sourceTree = "<group>"; };
+		C7D28878158B01D200A86DB8 /* MapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewAnnotation.h; sourceTree = "<group>"; };
+		C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewAnnotation.m; sourceTree = "<group>"; };
 		C7F5A6C8158915C100B96728 /* ipad-button-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-blue.png"; sourceTree = "<group>"; };
 		C7F5A6CB1589164400B96728 /* ipad-text-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-text-input.png"; sourceTree = "<group>"; };
 		C7F5A6CD158916A900B96728 /* ipad-slider-fill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-slider-fill.png"; sourceTree = "<group>"; };
@@ -446,6 +449,8 @@
 				C7CC97731511D1AC005C44C1 /* InfoPlist.strings */,
 				C7CC97761511D1AC005C44C1 /* main.m */,
 				C7CC97781511D1AC005C44C1 /* MoodTrack-Prefix.pch */,
+				C7D28878158B01D200A86DB8 /* MapViewAnnotation.h */,
+				C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -544,6 +549,7 @@
 				C7913FC3155A536700C3F722 /* LogInViewController.m in Sources */,
 				C7B755B3155B6A2D00B9242D /* SignUpViewController.m in Sources */,
 				C791402C15622EA900C3F722 /* MoodGraphViewController.m in Sources */,
+				C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
