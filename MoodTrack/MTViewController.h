@@ -16,6 +16,7 @@
     GradientButton *button;
 }
 
+@property (strong, nonatomic) IBOutlet UILabel *score;
 @property (strong, nonatomic) IBOutlet UISlider *slider; 
 @property (strong, nonatomic) IBOutlet GradientButton *button;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;

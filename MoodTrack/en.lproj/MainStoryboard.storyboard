@@ -16,33 +16,33 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Zgy-uu-Cpn">
-                                <rect key="frame" x="0.0" y="137" width="320" height="124"/>
+                                <rect key="frame" x="0.0" y="145" width="320" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How happy are you right now?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="J2B-hX-tyF">
-                                        <rect key="frame" x="49" y="16" width="233" height="21"/>
+                                        <rect key="frame" x="49" y="25" width="233" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Face-Sad-128.png" id="o5c-pX-Wx0">
-                                        <rect key="frame" x="6" y="48" width="42" height="42"/>
+                                        <rect key="frame" x="6" y="57" width="42" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Face-Smile-128.png" id="fIV-mr-MtK">
-                                        <rect key="frame" x="272" y="48" width="42" height="42"/>
+                                        <rect key="frame" x="272" y="57" width="42" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="4VB-7D-5Fj">
-                                <rect key="frame" x="53" y="196" width="215" height="23"/>
+                                <rect key="frame" x="53" y="211" width="215" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </slider>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="Mcy-CC-4zy">
-                                <rect key="frame" x="150" y="356" width="20" height="20"/>
+                                <rect key="frame" x="150" y="364" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.53395234876341191" green="0.65046426157255888" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -56,7 +56,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="psx-OH-Uzs">
-                                <rect key="frame" x="82" y="292" width="157" height="49"/>
+                                <rect key="frame" x="82" y="300" width="157" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
@@ -71,11 +71,19 @@
                                     <action selector="buttonPressed:" destination="2" eventType="touchUpInside" id="k2v-ZE-K38"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="P56-Uq-ani">
+                                <rect key="frame" x="55" y="108" width="211" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="20"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Track" image="pencil.png" id="rt1-Zq-Y3c"/>
                     <connections>
+                        <outlet property="score" destination="P56-Uq-ani" id="4Ma-As-4Zl"/>
                         <outlet property="slider" destination="4VB-7D-5Fj" id="CCO-Rc-AiG"/>
                         <outlet property="spinner" destination="Mcy-CC-4zy" id="Kpg-TU-8h9"/>
                     </connections>
@@ -399,6 +407,7 @@
             <relationships>
                 <relationship kind="action" name="buttonPressed:"/>
                 <relationship kind="outlet" name="button" candidateClass="GradientButton"/>
+                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
