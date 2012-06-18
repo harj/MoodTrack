@@ -19,16 +19,15 @@
 @synthesize hostingView;
 
 
--(void)plotData:(NSDate *)arefdate
+-(void)plotData:(NSDate *)arefDate
 {
-    NSDate *refDate = arefdate;
-	NSTimeInterval oneDay = 24 * 60 * 60;
+    NSTimeInterval oneday = 86400;
+    NSTimeInterval days = [arefDate timeIntervalSinceNow] * -1;
     
     // Create graph from theme
 	graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
 	CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
-	[graph applyTheme:theme];
-	
+	[graph applyTheme:theme]; 
     
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
@@ -52,19 +51,19 @@
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     NSTimeInterval xLow = 0.0f;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(oneDay * 53)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(days)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yAxisMin) length:CPTDecimalFromFloat(yAxisMax - yAxisMin)];
     
 	// Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
 	CPTXYAxis *x		  = axisSet.xAxis;
-	x.majorIntervalLength		  = CPTDecimalFromFloat(oneDay);
+	x.majorIntervalLength		  = CPTDecimalFromFloat(oneday);
 	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
 	x.minorTicksPerInterval		  = 0;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	dateFormatter.dateStyle = kCFDateFormatterShortStyle;
 	CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:dateFormatter];
-	timeFormatter.referenceDate = refDate;
+	timeFormatter.referenceDate = arefDate;
 	x.labelFormatter			= timeFormatter;
 
 	CPTXYAxis *y = axisSet.yAxis;
@@ -137,7 +136,6 @@
             
             self.dataForPlot = dataArray;
             [self plotData:last.createdAt];
-            NSLog(@"out of block - %@", dataArray);
         } else {
             NSLog(@"parse has failed me!");
         }
