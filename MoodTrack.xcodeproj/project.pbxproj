@@ -661,11 +661,11 @@
 		C7CC975B1511D1AC005C44C1 = {
 			isa = PBXGroup;
 			children = (
-				C76B5BC8158F0C6D00E09E88 /* FlurryAnalytics */,
 				C7CC97701511D1AC005C44C1 /* MoodTrack */,
 				C7913FD11562258B00C3F722 /* CorePlot */,
 				C7CC97691511D1AC005C44C1 /* Frameworks */,
 				C7CC97671511D1AC005C44C1 /* Products */,
+				C76B5BC8158F0C6D00E09E88 /* FlurryAnalytics */,
 				C76B5B12158F083600E09E88 /* CrittercismSDK */,
 			);
 			sourceTree = "<group>";
