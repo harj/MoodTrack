@@ -19,9 +19,9 @@
 @synthesize hostingView;
 
 
--(void)plotData
+-(void)plotData:(NSDate *)arefdate
 {
-    NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1987200];
+    NSDate *refDate = arefdate;
 	NSTimeInterval oneDay = 24 * 60 * 60;
     
     // Create graph from theme
@@ -52,7 +52,7 @@
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     NSTimeInterval xLow = 0.0f;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(oneDay * 20)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(oneDay * 53)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yAxisMin) length:CPTDecimalFromFloat(yAxisMax - yAxisMin)];
     
 	// Axes
@@ -120,20 +120,23 @@
                 [queryArray addObject:object];
             }
             
+            PFObject *last = [queryArray objectAtIndex:0];
             NSMutableArray *dataArray = [[NSMutableArray alloc] init];
             for ( int i = 0; i < queryArray.count; i ++) {
                 PFObject *data = [queryArray objectAtIndex:i];
                 
                 //repeated line in plot function
-                NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1728000];
+                //NSDate *refDate = [[NSDate date] dateByAddingTimeInterval: -1987200];
+                NSDate *refDate = last.createdAt;
                 
                 NSTimeInterval d = [data.createdAt timeIntervalSinceDate:refDate];
                 id x = [NSDecimalNumber numberWithFloat:d];
                 id y = [data objectForKey:@"mood_value"];
                 [dataArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys: x, @"x", y, @"y", nil]];
             }
+            
             self.dataForPlot = dataArray;
-            [self plotData];
+            [self plotData:last.createdAt];
             NSLog(@"out of block - %@", dataArray);
         } else {
             NSLog(@"parse has failed me!");
