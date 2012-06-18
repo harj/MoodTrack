@@ -41,8 +41,8 @@
     [mood setObject:user forKey:@"user"];
     [mood saveEventually];
     
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood saved"
-                                                      message:@"Your mood has been saved"
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood tracked"
+                                                      message:@"Your mood score has been tracked"
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];

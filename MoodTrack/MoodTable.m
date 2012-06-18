@@ -63,7 +63,7 @@
     // Retrieve mood value and format to two decimal places
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.numberStyle = NSNumberFormatterDecimalStyle;
-    formatter.maximumFractionDigits = 2;
+    formatter.maximumFractionDigits = 1;
     cell.textLabel.text = [formatter stringFromNumber:[object objectForKey:@"mood_value"]];
     
     // Retrieve timestamp and format

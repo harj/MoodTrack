@@ -82,6 +82,7 @@
                 
             }
             
+            
             NSLog(@"%i, %i, %i, %i, %i", moodVals.count, moodVals3Days.count, moodValsWeek.count, moodValsAM.count, moodValsPM.count);
             
             //Find totals
@@ -103,14 +104,23 @@
                 self.AverageScore.text = [NSString stringWithFormat:@"%.01f ", avg];
                 self.Average3Days.text = [NSString stringWithFormat:@"%.01f ", avg3Days];
                 self.Average7Days.text = [NSString stringWithFormat:@"%.01f ", avgWeek];
-                self.AverageAM.text = [NSString stringWithFormat:@"%.01f ", avgAM];
-                self.AveragePM.text = [NSString stringWithFormat:@"%.01f ", avgPM];
             } else {
-                self.AverageScore.text = @"0 ";
-                self.Average3Days.text = @"0 ";
-                self.Average7Days.text = @"0 ";
-                self.AverageAM.text = @"0 ";
-                self.AveragePM.text = @"0 ";
+                self.AverageScore.text = @"- ";
+                self.Average3Days.text = @"- ";
+                self.Average7Days.text = @"- ";
+            }
+            
+            //Display averages AM and PM
+            if (moodValsAM.count) {
+                self.AverageAM.text = [NSString stringWithFormat:@"%.01f ", avgAM];                
+            } else {
+                self.AverageAM.text = @"- ";
+            }
+            
+            if (moodValsPM.count) {
+                self.AveragePM.text = [NSString stringWithFormat:@"%.01f ", avgPM];                
+            } else {
+                self.AveragePM.text = @"- ";
             }
             
         } else {
