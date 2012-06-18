@@ -15,6 +15,7 @@
 
 @implementation MTViewController
 
+@synthesize score;
 @synthesize slider;
 @synthesize button;
 @synthesize locmgr;
@@ -91,6 +92,11 @@
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
+- (void)sliderChanged:(UISlider *)aslider {
+    score.text = [NSString stringWithFormat:@"Mood Score: %.1f", aslider.value];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -101,11 +107,14 @@
 
 - (void)viewDidLoad
 {
+    [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
     [button useGreenConfirmStyle];
     
+    
+
 	// Do any additional setup after loading the view, typically from a nib.
     locmgr = [[CLLocationManager alloc] init];
     locmgr.delegate = self; 
@@ -117,6 +126,7 @@
 
 - (void)viewDidUnload
 {
+    [self setScore:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

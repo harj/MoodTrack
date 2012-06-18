@@ -25,7 +25,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:50];
     label.textColor = [UIColor whiteColor];
-    label.text = @"Mood Track";
+    label.text = @"MoodTrack";
     [label sizeToFit];
     self.logInView.logo = label;
     
