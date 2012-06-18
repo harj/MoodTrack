@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PullToRefreshView.h"
 #import <Parse/Parse.h>
 
 @interface MoodTable : PFQueryTableViewController

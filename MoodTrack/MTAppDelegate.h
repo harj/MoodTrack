@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "Crittercism.h"
+#import "FlurryAnalytics.h"
 
 @interface MTAppDelegate : UIResponder <UIApplicationDelegate>
 

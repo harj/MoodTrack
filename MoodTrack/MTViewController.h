@@ -8,17 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "GradientButton.h"
 #import <Parse/Parse.h>
 
 @interface MTViewController : UIViewController <CLLocationManagerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate> 
 {
-    GradientButton *button;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *score;
 @property (strong, nonatomic) IBOutlet UISlider *slider; 
-@property (strong, nonatomic) IBOutlet GradientButton *button;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) CLLocationManager *locmgr;
 

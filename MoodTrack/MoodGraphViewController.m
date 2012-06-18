@@ -41,18 +41,12 @@
 	graph.paddingTop	= 0.0;
 	graph.paddingRight	= 0.0;
 	graph.paddingBottom = 0.0;
-    
-	// Setup plot space
-    // float xAxisMin = 0;
-    // float xAxisMax = 50;
-    float yAxisMin = 0;
-    float yAxisMax = 10;
-    
+        
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     NSTimeInterval xLow = 0.0f;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(days)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yAxisMin) length:CPTDecimalFromFloat(yAxisMax - yAxisMin)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(10.0)];
     
 	// Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
@@ -67,7 +61,7 @@
 	x.labelFormatter			= timeFormatter;
 
 	CPTXYAxis *y = axisSet.yAxis;
-	y.majorIntervalLength		  = CPTDecimalFromString(@"0.5");
+	y.majorIntervalLength		  = CPTDecimalFromString(@"1.5");
 	y.minorTicksPerInterval		  = 1;
 	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
     
@@ -76,7 +70,7 @@
 	CPTScatterPlot *boundLinePlot  = [[CPTScatterPlot alloc] init];
 	CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
 	lineStyle.miterLimit		= 1.0f;
-	lineStyle.lineWidth			= 3.0f;
+	lineStyle.lineWidth			= 1.5f;
 	lineStyle.lineColor			= [CPTColor blueColor];
 	boundLinePlot.dataLineStyle = lineStyle;
 	boundLinePlot.identifier	= @"Blue Plot";
@@ -97,7 +91,7 @@
 	CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
 	plotSymbol.fill			 = [CPTFill fillWithColor:[CPTColor blueColor]];
 	plotSymbol.lineStyle	 = symbolLineStyle;
-	plotSymbol.size			 = CGSizeMake(7.0, 7.0);
+	plotSymbol.size			 = CGSizeMake(5.0, 5.0);
 	boundLinePlot.plotSymbol = plotSymbol;
     
     

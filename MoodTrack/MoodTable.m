@@ -9,7 +9,6 @@
 #import "MoodTable.h"
 #import "MoodLocationViewController.h"
 #import <sqlite3.h>
-#import "PullToRefreshView.h"
 #import <Parse/Parse.h>
 
 @interface MoodTable ()

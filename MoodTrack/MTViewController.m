@@ -17,7 +17,6 @@
 
 @synthesize score;
 @synthesize slider;
-@synthesize button;
 @synthesize locmgr;
 @synthesize spinner;
 
@@ -50,7 +49,6 @@
     [message show];
 
     [self.spinner stopAnimating];
-    [self.button setEnabled:YES];
 }
 
 - (void) waitForGoodLocation:(NSNumber *)n {
@@ -77,7 +75,6 @@
     } else {
         
         [self.spinner startAnimating];
-        [self.button setEnabled:NO];
         
         [self performSelector:@selector(waitForGoodLocation:)
                    withObject:[NSNumber numberWithInt:[n intValue] + 1]
@@ -87,8 +84,7 @@
 }
 
 - (IBAction)buttonPressed:(id)sender
-{
-    NSLog(@"Button pressed");    
+{    
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
@@ -111,9 +107,6 @@
     
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
-    [button useGreenConfirmStyle];
-    
-    
 
 	// Do any additional setup after loading the view, typically from a nib.
     locmgr = [[CLLocationManager alloc] init];

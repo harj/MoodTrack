@@ -43,6 +43,12 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
     [Parse setApplicationId:@"pNRcpH7eSXGzWGXhejabGFeyJEAhcdBLSe0Ft7XH" 
                   clientKey:@"FIkw3oKAycqaL3MLiSw862gAEMxywhIHdoxsuuHM"];
     
+    [Crittercism initWithAppID:@"4fded01abe790e0fd9000001" 
+                        andKey:@"zoc7g0keur952jscel14abh6tpsm" 
+                     andSecret:@"a7m9nfofxt2ixmvk4wtlhoeyszjviny0" ];
+    
+    [FlurryAnalytics startSession:@"98H9TH6KQR8R5TBJRN6Z"];
+    
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
