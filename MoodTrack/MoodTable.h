@@ -8,13 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "PullToRefreshView.h"
+#import <Parse/Parse.h>
 
-@interface MoodTable : UITableViewController <PullToRefreshViewDelegate>
-
-@property (nonatomic, strong) NSMutableArray *moods;
-
-- (void) reloadTableData;
-- (void)pullToRefreshViewShouldRefresh:(PullToRefreshView *)view;
-- (void)selectMoods:(float)type;
+@interface MoodTable : PFQueryTableViewController
 
 @end

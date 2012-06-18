@@ -21,8 +21,6 @@
 @synthesize lon;
 
 - (MKAnnotationView *)mapView:(MKMapView *)MapView viewForAnnotation:(id <MKAnnotation>)annotation {
-    NSLog(@"this code running?");
-    
     static NSString *identifier = @"MapViewAnnotation";   
     if ([annotation isKindOfClass:[MapViewAnnotation class]]) {
         
