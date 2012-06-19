@@ -32,19 +32,20 @@
 - (PFQuery *)queryForTable {
     PFUser *currentuser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
-    [query orderByDescending:@"createdAt"];
     [query whereKey:@"user" equalTo:currentuser];
-    
-    return query;
     
     // If no objects are loaded in memory, we look to the cache 
     // first to fill the table and then subsequently do a query
     // against the network.
     
     if (self.objects.count == 0) {
+        NSLog(@"loaded?");
         query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     }
     
+    [query orderByDescending:@"createdAt"];
+    
+    return query;
 }
      
 
