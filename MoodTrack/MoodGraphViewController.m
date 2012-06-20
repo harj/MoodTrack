@@ -21,7 +21,7 @@
 
 -(void)plotData:(NSDate *)arefDate
 {
-    NSTimeInterval oneday = 86400;
+    
     NSTimeInterval days = [arefDate timeIntervalSinceNow] * -1;
     
     // Create graph from theme
@@ -31,16 +31,16 @@
     
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
-                        initWithFrame:CGRectMake(0, 50, 315, 385)];
+                        initWithFrame:CGRectMake(-20, 45, 360, 440)];
     self.hostingView.collapsesLayers = NO;
     self.hostingView.hostedGraph = graph;
     
     [self.view addSubview:self.hostingView];
     
-	graph.paddingLeft	= 15.0;
-	graph.paddingTop	= 0.0;
-	graph.paddingRight	= 0.0;
-	graph.paddingBottom = 0.0;
+	graph.plotAreaFrame.paddingLeft	= 50.0f;
+	graph.plotAreaFrame.paddingTop	= 20.0f;
+	graph.plotAreaFrame.paddingRight = 2.5f;
+	graph.plotAreaFrame.paddingBottom = 45.0f;
         
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
@@ -51,17 +51,21 @@
 	// Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
 	CPTXYAxis *x		  = axisSet.xAxis;
-	x.majorIntervalLength		  = CPTDecimalFromFloat(oneday);
+    x.title = @"Time (days)";
+    x.titleOffset = 10.0f;
+	x.majorIntervalLength		  = CPTDecimalFromFloat(86400.0f);
 	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
 	x.minorTicksPerInterval		  = 0;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	dateFormatter.dateStyle = kCFDateFormatterShortStyle;
 	CPTTimeFormatter *timeFormatter = [[CPTTimeFormatter alloc] initWithDateFormatter:dateFormatter];
 	timeFormatter.referenceDate = arefDate;
-	x.labelFormatter			= timeFormatter;
+	x.labelFormatter			= nil;
 
 	CPTXYAxis *y = axisSet.yAxis;
-	y.majorIntervalLength		  = CPTDecimalFromString(@"1.5");
+    y.title = @"Mood Score";
+    y.titleOffset = 30.0f;
+	y.majorIntervalLength		  = CPTDecimalFromString(@"1.0");
 	y.minorTicksPerInterval		  = 1;
 	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
     
@@ -77,12 +81,7 @@
 	boundLinePlot.dataSource	= self;
 	[graph addPlot:boundLinePlot];
     
-	// Do a blue gradient
-	CPTColor *areaColor1	   = [CPTColor colorWithComponentRed:0.3 green:0.3 blue:1.0 alpha:0.8];
-	CPTGradient *areaGradient1 = [CPTGradient gradientWithBeginningColor:areaColor1 endingColor:[CPTColor clearColor]];
-	areaGradient1.angle = -90.0f;
-	CPTFill *areaGradientFill = [CPTFill fillWithGradient:areaGradient1];
-	boundLinePlot.areaFill		= areaGradientFill;
+	
 	boundLinePlot.areaBaseValue = [[NSDecimalNumber zero] decimalValue];
     
 	// Add plot symbols
