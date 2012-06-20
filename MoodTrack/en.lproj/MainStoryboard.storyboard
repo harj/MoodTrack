@@ -19,11 +19,11 @@
                                 <rect key="frame" x="0.0" y="131" width="320" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How happy are you right now?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="J2B-hX-tyF">
-                                        <rect key="frame" x="49" y="25" width="233" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="How are you feeling?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="J2B-hX-tyF">
+                                        <rect key="frame" x="49" y="25" width="233" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.2608816964285714" green="0.2608816964285714" blue="0.2608816964285714" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Face-Sad-128.png" id="o5c-pX-Wx0">
@@ -35,7 +35,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.65593571159999997" blue="0.81986667800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.87143255739795922" green="0.87143255739795922" blue="0.87143255739795922" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" id="4VB-7D-5Fj">
                                 <rect key="frame" x="53" y="197" width="215" height="23"/>
@@ -44,7 +44,6 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="Mcy-CC-4zy">
                                 <rect key="frame" x="150" y="350" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.53395234876341191" green="0.65046426157255888" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <navigationBar alpha="0.90000000000000002" contentMode="scaleToFill" id="ud9-Et-XuR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -401,6 +400,47 @@
         <image name="ipad-button-green.png" width="159" height="51"/>
         <image name="pencil.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="MTViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MTViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonPressed:"/>
+                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="MoodGraphViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodGraphViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeMoodGraph:"/>
+            </relationships>
+        </class>
+        <class className="MoodLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeMoodLocation:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="MoodTable" superclassName="PFQueryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodTable.h"/>
+        </class>
+        <class className="PFQueryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
+        </class>
+        <class className="StatsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Refresh:"/>
+                <relationship kind="outlet" name="Average3Days" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Average7Days" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="AverageAM" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="AveragePM" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="AverageScore" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
