@@ -31,7 +31,7 @@
     
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
-                        initWithFrame:CGRectMake(-20, 45, 360, 440)];
+                        initWithFrame:CGRectMake(-18, 45, 357, 434)];
     self.hostingView.collapsesLayers = NO;
     self.hostingView.hostedGraph = graph;
     
@@ -39,7 +39,7 @@
     
 	graph.plotAreaFrame.paddingLeft	= 50.0f;
 	graph.plotAreaFrame.paddingTop	= 20.0f;
-	graph.plotAreaFrame.paddingRight = 2.5f;
+	graph.plotAreaFrame.paddingRight = 5.0f;
 	graph.plotAreaFrame.paddingBottom = 45.0f;
         
     // We modify the graph's plot space to setup the axis' min / max values.
