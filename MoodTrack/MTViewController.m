@@ -23,12 +23,11 @@
 
 - (void)saveThought:(NSString *)thought
 {
-    moodThought = thought;
-    NSLog(@"THOUGHT: %@", moodThought);
+    self.moodThought = thought;
+    NSLog(@"THOUGHT: %@", self.moodThought);
 }
 
 - (void) saveMood:(CLLocation *)l
-
 {
     double lat = l.coordinate.latitude;
     double lon = l.coordinate.longitude;
@@ -37,15 +36,21 @@
     double accuracy = sqrt(h*h+v*v);
     double mood_value = slider.value;
     NSLog(@"Slider value: %f", slider.value);
-    NSLog(@"thoughtsave: %@", moodThought);
+    NSLog(@"savemood: %@", self.moodThought);
     
     PFUser *user = [PFUser currentUser];
+    NSString *thought = self.moodThought;
     PFObject *mood = [PFObject objectWithClassName:@"Mood"];
     [mood setObject:[NSNumber numberWithDouble:mood_value] forKey:@"mood_value"];
     [mood setObject:[NSNumber numberWithDouble:lat] forKey:@"lat"];
     [mood setObject:[NSNumber numberWithDouble:lon] forKey:@"lon"];
     [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
     [mood setObject:user forKey:@"user"];
+    
+    if (thought) {
+          [mood setObject:thought forKey:@"thought"];
+    }
+    
     [mood saveEventually];
     
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood tracked"
@@ -104,6 +109,7 @@
 
 - (IBAction)buttonPressed:(id)sender
 {    
+    NSLog(@"Button: %@", self.moodThought);
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
@@ -135,8 +141,6 @@
     locmgr.distanceFilter = kCLDistanceFilterNone; 
     [locmgr startUpdatingLocation];
     
-    NSLog(@"thoughtload: %@", moodThought);
-    
 }
 
 - (void)viewDidUnload
@@ -156,7 +160,6 @@
 {
     [super viewDidAppear:animated];    
     PFUser *currentuser = [PFUser currentUser];
-    NSLog(@"%@", currentuser);
     
     if (!currentuser) {
         LogInViewController *logInController = [[LogInViewController alloc] init];
