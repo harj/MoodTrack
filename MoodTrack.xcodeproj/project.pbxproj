@@ -12,6 +12,11 @@
 		C71F3DC41547CB7A001F9B62 /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C71F3DC31547CB7A001F9B62 /* StatsViewController.m */; };
 		C73010A0158C1FE700F0C565 /* white_blue_fade.png in Resources */ = {isa = PBXBuildFile; fileRef = C730109F158C1FE700F0C565 /* white_blue_fade.png */; };
 		C73F3F4415291DCE00AAC3F9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */; };
+		C744A2F71596ADDD00468F42 /* ipad-button-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = C744A2F51596ADDD00468F42 /* ipad-button-grey.png */; };
+		C744A2F81596ADDD00468F42 /* ipad-button-grey@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C744A2F61596ADDD00468F42 /* ipad-button-grey@2x.png */; };
+		C744A3001596AEF000468F42 /* ipad-text-input.png in Resources */ = {isa = PBXBuildFile; fileRef = C744A2FE1596AEF000468F42 /* ipad-text-input.png */; };
+		C744A3011596AEF000468F42 /* ipad-text-input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C744A2FF1596AEF000468F42 /* ipad-text-input@2x.png */; };
+		C744A3071596BA1A00468F42 /* MoodThoughtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C744A3061596BA1A00468F42 /* MoodThoughtViewController.m */; };
 		C75F00781518806C00C034FD /* Face-Smile-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00771518806C00C034FD /* Face-Smile-128.png */; };
 		C75F007A1518807A00C034FD /* Face-Sad-128.png in Resources */ = {isa = PBXBuildFile; fileRef = C75F00791518807A00C034FD /* Face-Sad-128.png */; };
 		C76B5B7D158F083600E09E88 /* libCrittercism_v3_2_5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C76B5B17158F083600E09E88 /* libCrittercism_v3_2_5.a */; };
@@ -119,6 +124,12 @@
 		C7CC97811511D1AC005C44C1 /* MTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7CC97801511D1AC005C44C1 /* MTViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C7CC978C1511DA65005C44C1 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */; };
 		C7CC978E1511E51A005C44C1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CC978D1511E51A005C44C1 /* CoreLocation.framework */; };
+		C7CEA8451591C3D200D83C00 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CEA8411591C3D200D83C00 /* libTestFlight.a */; };
+		C7CEA8461591C3D200D83C00 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7CEA8421591C3D200D83C00 /* README.txt */; };
+		C7CEA8471591C3D200D83C00 /* release_notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7CEA8431591C3D200D83C00 /* release_notes.txt */; };
+		C7CEA84A1591C41D00D83C00 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CEA8491591C41D00D83C00 /* libz.dylib */; };
+		C7CEA84D1592EA1F00D83C00 /* PXComponentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CEA84B1592EA1F00D83C00 /* PXComponentKit.framework */; };
+		C7CEA84E1592EA1F00D83C00 /* PXShapeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7CEA84C1592EA1F00D83C00 /* PXShapeKit.framework */; };
 		C7D138231558BC74002E4894 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D138221558BC74002E4894 /* MapKit.framework */; };
 		C7D1382D1558D381002E4894 /* MoodLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1382C1558D381002E4894 /* MoodLocationViewController.m */; };
 		C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */; };
@@ -134,6 +145,12 @@
 		C71F3DC31547CB7A001F9B62 /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		C730109F158C1FE700F0C565 /* white_blue_fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white_blue_fade.png; sourceTree = "<group>"; };
 		C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C744A2F51596ADDD00468F42 /* ipad-button-grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-grey.png"; sourceTree = "<group>"; };
+		C744A2F61596ADDD00468F42 /* ipad-button-grey@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-grey@2x.png"; sourceTree = "<group>"; };
+		C744A2FE1596AEF000468F42 /* ipad-text-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-text-input.png"; sourceTree = "<group>"; };
+		C744A2FF1596AEF000468F42 /* ipad-text-input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-text-input@2x.png"; sourceTree = "<group>"; };
+		C744A3051596BA1A00468F42 /* MoodThoughtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodThoughtViewController.h; sourceTree = "<group>"; };
+		C744A3061596BA1A00468F42 /* MoodThoughtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodThoughtViewController.m; sourceTree = "<group>"; };
 		C7497A8F1528EDB700A30A0E /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		C75F00771518806C00C034FD /* Face-Smile-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face-Smile-128.png"; sourceTree = "<group>"; };
 		C75F00791518807A00C034FD /* Face-Sad-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Face-Sad-128.png"; sourceTree = "<group>"; };
@@ -359,6 +376,13 @@
 		C7CC97801511D1AC005C44C1 /* MTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTViewController.m; sourceTree = "<group>"; };
 		C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		C7CC978D1511E51A005C44C1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C7CEA8411591C3D200D83C00 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		C7CEA8421591C3D200D83C00 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		C7CEA8431591C3D200D83C00 /* release_notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.txt; sourceTree = "<group>"; };
+		C7CEA8441591C3D200D83C00 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		C7CEA8491591C41D00D83C00 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		C7CEA84B1592EA1F00D83C00 /* PXComponentKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PXComponentKit.framework; sourceTree = "<group>"; };
+		C7CEA84C1592EA1F00D83C00 /* PXShapeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PXShapeKit.framework; sourceTree = "<group>"; };
 		C7D138221558BC74002E4894 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C7D1382B1558D381002E4894 /* MoodLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoodLocationViewController.h; path = ../MoodLocationViewController.h; sourceTree = "<group>"; };
 		C7D1382C1558D381002E4894 /* MoodLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoodLocationViewController.m; path = ../MoodLocationViewController.m; sourceTree = "<group>"; };
@@ -373,6 +397,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7CEA84A1591C41D00D83C00 /* libz.dylib in Frameworks */,
 				C7D138231558BC74002E4894 /* MapKit.framework in Frameworks */,
 				C73F3F4415291DCE00AAC3F9 /* QuartzCore.framework in Frameworks */,
 				C79A3D411547547100AE9E1A /* Security.framework in Frameworks */,
@@ -390,6 +415,9 @@
 				C79140231562258B00C3F722 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				C76B5B7D158F083600E09E88 /* libCrittercism_v3_2_5.a in Frameworks */,
 				C76B5BCB158F0C6D00E09E88 /* libFlurryAnalytics.a in Frameworks */,
+				C7CEA8451591C3D200D83C00 /* libTestFlight.a in Frameworks */,
+				C7CEA84D1592EA1F00D83C00 /* PXComponentKit.framework in Frameworks */,
+				C7CEA84E1592EA1F00D83C00 /* PXShapeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,10 +427,14 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C744A2FE1596AEF000468F42 /* ipad-text-input.png */,
+				C744A2FF1596AEF000468F42 /* ipad-text-input@2x.png */,
 				C7F5A6C8158915C100B96728 /* ipad-button-blue.png */,
 				C79C5111158EF85100BF2A56 /* ipad-button-blue@2x.png */,
 				C79C510D158EF84100BF2A56 /* ipad-button-green.png */,
 				C79C510E158EF84100BF2A56 /* ipad-button-green@2x.png */,
+				C744A2F51596ADDD00468F42 /* ipad-button-grey.png */,
+				C744A2F61596ADDD00468F42 /* ipad-button-grey@2x.png */,
 				C730109F158C1FE700F0C565 /* white_blue_fade.png */,
 				C7D28889158B2C5F00A86DB8 /* blue_bg.png */,
 				C7B755B6155B6D2E00B9242D /* bright_squares.png */,
@@ -661,6 +693,8 @@
 		C7CC975B1511D1AC005C44C1 = {
 			isa = PBXGroup;
 			children = (
+				C7CEA8491591C41D00D83C00 /* libz.dylib */,
+				C7CEA8401591C3D200D83C00 /* TestFlightSDK1.0 */,
 				C7CC97701511D1AC005C44C1 /* MoodTrack */,
 				C7913FD11562258B00C3F722 /* CorePlot */,
 				C7CC97691511D1AC005C44C1 /* Frameworks */,
@@ -681,6 +715,8 @@
 		C7CC97691511D1AC005C44C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7CEA84B1592EA1F00D83C00 /* PXComponentKit.framework */,
+				C7CEA84C1592EA1F00D83C00 /* PXShapeKit.framework */,
 				C7D138221558BC74002E4894 /* MapKit.framework */,
 				C79A3D401547547100AE9E1A /* Security.framework */,
 				C79A3D3C1547545900AE9E1A /* MobileCoreServices.framework */,
@@ -708,17 +744,19 @@
 				C7913FC2155A536700C3F722 /* LogInViewController.m */,
 				C7B755B1155B6A2D00B9242D /* SignUpViewController.h */,
 				C7B755B2155B6A2D00B9242D /* SignUpViewController.m */,
-				C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */,
+				C7CC977F1511D1AC005C44C1 /* MTViewController.h */,
+				C7CC97801511D1AC005C44C1 /* MTViewController.m */,
+				C744A3051596BA1A00468F42 /* MoodThoughtViewController.h */,
+				C744A3061596BA1A00468F42 /* MoodThoughtViewController.m */,
 				C7187141152590A6005B936B /* MoodTable.h */,
 				C7187142152590A6005B936B /* MoodTable.m */,
 				C7D1382B1558D381002E4894 /* MoodLocationViewController.h */,
 				C7D1382C1558D381002E4894 /* MoodLocationViewController.m */,
-				C7CC977F1511D1AC005C44C1 /* MTViewController.h */,
-				C7CC97801511D1AC005C44C1 /* MTViewController.m */,
 				C71F3DC21547CB7A001F9B62 /* StatsViewController.h */,
 				C71F3DC31547CB7A001F9B62 /* StatsViewController.m */,
 				C791402A15622EA900C3F722 /* MoodGraphViewController.h */,
 				C791402B15622EA900C3F722 /* MoodGraphViewController.m */,
+				C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */,
 			);
 			path = MoodTrack;
 			sourceTree = "<group>";
@@ -736,6 +774,17 @@
 				C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C7CEA8401591C3D200D83C00 /* TestFlightSDK1.0 */ = {
+			isa = PBXGroup;
+			children = (
+				C7CEA8411591C3D200D83C00 /* libTestFlight.a */,
+				C7CEA8421591C3D200D83C00 /* README.txt */,
+				C7CEA8431591C3D200D83C00 /* release_notes.txt */,
+				C7CEA8441591C3D200D83C00 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -878,6 +927,12 @@
 				C76B5BC4158F083600E09E88 /* CrittercismGridViewController.xib in Resources */,
 				C76B5BC5158F083600E09E88 /* CrittercismRootViewController.xib in Resources */,
 				C76B5BC6158F083600E09E88 /* CrittercismViewController.xib in Resources */,
+				C7CEA8461591C3D200D83C00 /* README.txt in Resources */,
+				C7CEA8471591C3D200D83C00 /* release_notes.txt in Resources */,
+				C744A2F71596ADDD00468F42 /* ipad-button-grey.png in Resources */,
+				C744A2F81596ADDD00468F42 /* ipad-button-grey@2x.png in Resources */,
+				C744A3001596AEF000468F42 /* ipad-text-input.png in Resources */,
+				C744A3011596AEF000468F42 /* ipad-text-input@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,6 +953,7 @@
 				C7B755B3155B6A2D00B9242D /* SignUpViewController.m in Sources */,
 				C791402C15622EA900C3F722 /* MoodGraphViewController.m in Sources */,
 				C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */,
+				C744A3071596BA1A00468F42 /* MoodThoughtViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -978,6 +1034,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MoodTrack\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoodTrack/MoodTrack-Prefix.pch";
@@ -987,6 +1044,7 @@
 					"\"$(SRCROOT)/CorePlot\"",
 					"\"$(SRCROOT)/CrittercismSDK\"",
 					"\"$(SRCROOT)/FlurryAnalytics\"",
+					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",
@@ -1003,6 +1061,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MoodTrack\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MoodTrack/MoodTrack-Prefix.pch";
@@ -1012,6 +1071,7 @@
 					"\"$(SRCROOT)/CorePlot\"",
 					"\"$(SRCROOT)/CrittercismSDK\"",
 					"\"$(SRCROOT)/FlurryAnalytics\"",
+					"\"$(SRCROOT)/TestFlightSDK1.0\"",
 				);
 				OTHER_LDFLAGS = (
 					"-all_load",

@@ -19,17 +19,25 @@
 @synthesize slider;
 @synthesize locmgr;
 @synthesize spinner;
+@synthesize moodThought;
 
-- (void) saveMood:(CLLocation *)l {
-    
+- (void)saveThought:(NSString *)thought
+{
+    moodThought = thought;
+    NSLog(@"THOUGHT: %@", moodThought);
+}
+
+- (void) saveMood:(CLLocation *)l
+
+{
     double lat = l.coordinate.latitude;
     double lon = l.coordinate.longitude;
     double h = l.horizontalAccuracy;
     double v = l.verticalAccuracy;
     double accuracy = sqrt(h*h+v*v);
     double mood_value = slider.value;
-    
     NSLog(@"Slider value: %f", slider.value);
+    NSLog(@"thoughtsave: %@", moodThought);
     
     PFUser *user = [PFUser currentUser];
     PFObject *mood = [PFObject objectWithClassName:@"Mood"];
@@ -83,13 +91,25 @@
     
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"openThought"])
+    {
+        MoodThoughtViewController *thought = [segue destinationViewController];
+        thought.myDelegate = self;
+    }
+}
+
+// Actions
+
 - (IBAction)buttonPressed:(id)sender
 {    
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
+
 - (void)sliderChanged:(UISlider *)aslider {
-    score.text = [NSString stringWithFormat:@"Mood Score: %.1f", aslider.value];
+    score.text = [NSString stringWithFormat:@"Mood Score: %.0f", aslider.value];
     
 }
 
@@ -115,6 +135,8 @@
     locmgr.distanceFilter = kCLDistanceFilterNone; 
     [locmgr startUpdatingLocation];
     
+    NSLog(@"thoughtload: %@", moodThought);
+    
 }
 
 - (void)viewDidUnload
@@ -132,8 +154,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
-    
+    [super viewDidAppear:animated];    
     PFUser *currentuser = [PFUser currentUser];
     NSLog(@"%@", currentuser);
     

@@ -52,6 +52,8 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
      UIRemoteNotificationTypeAlert|
      UIRemoteNotificationTypeSound];
+    
+    [TestFlight takeOff:@"35d02c0188ea3095576b118783bc43b7_MTAxOTcxMjAxMi0wNi0yMCAwNDo0Mzo0My43OTYwMTI"];
 
     return YES;
 }

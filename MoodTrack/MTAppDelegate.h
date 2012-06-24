@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "Crittercism.h"
 #import "FlurryAnalytics.h"
+#import "TestFlight.h"
 
 @interface MTAppDelegate : UIResponder <UIApplicationDelegate>
 
