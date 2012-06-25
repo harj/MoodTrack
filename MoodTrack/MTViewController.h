@@ -22,7 +22,7 @@
 @property (strong, nonatomic) CLLocationManager *locmgr;
 @property (strong, nonatomic) NSString *moodThought;
 
-
 - (IBAction)buttonPressed:(id)sender;
+- (IBAction)moodButtonPressed:(UIButton *)sender;
 
 @end

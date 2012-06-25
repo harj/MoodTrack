@@ -21,6 +21,7 @@
 @synthesize spinner;
 @synthesize moodThought;
 @synthesize noteAdded;
+double moodScore;
 
 - (void)saveThought:(NSString *)thought
 {
@@ -35,35 +36,43 @@
     double h = l.horizontalAccuracy;
     double v = l.verticalAccuracy;
     double accuracy = sqrt(h*h+v*v);
-    double mood_value = slider.value;
-    NSLog(@"Slider value: %f", slider.value);
-
-    PFUser *user = [PFUser currentUser];
-    NSString *thought = self.moodThought;
-    PFObject *mood = [PFObject objectWithClassName:@"Mood"];
-    [mood setObject:[NSNumber numberWithDouble:mood_value] forKey:@"mood_value"];
-    [mood setObject:[NSNumber numberWithDouble:lat] forKey:@"lat"];
-    [mood setObject:[NSNumber numberWithDouble:lon] forKey:@"lon"];
-    [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
-    [mood setObject:user forKey:@"user"];
+    double mood_value = moodScore;
     
-    //Only add thought if it exists
-    if (thought) {
-          [mood setObject:thought forKey:@"thought"];
+    if (mood_value > 0) { 
+        PFUser *user = [PFUser currentUser];
+        NSString *thought = self.moodThought;
+        PFObject *mood = [PFObject objectWithClassName:@"Mood"];
+        [mood setObject:[NSNumber numberWithDouble:mood_value] forKey:@"mood_value"];
+        [mood setObject:[NSNumber numberWithDouble:lat] forKey:@"lat"];
+        [mood setObject:[NSNumber numberWithDouble:lon] forKey:@"lon"];
+        [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
+        [mood setObject:user forKey:@"user"];
+    
+        //Only add thought if it exists
+        if (thought) {
+            [mood setObject:thought forKey:@"thought"];
+        }
+    
+        [mood saveEventually];
+    
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood tracked"
+                                                          message:@"Your mood score has been tracked"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+    
+        [message show];
+
+        self.noteAdded.text = nil;
+        [self.spinner stopAnimating];
+    } else {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"You didn't select a mood score"
+                                                          message:@"So nothing was tracked"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
     }
-    
-    [mood saveEventually];
-    
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Mood tracked"
-                                                      message:@"Your mood score has been tracked"
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    
-    [message show];
-
-    self.noteAdded.text = nil;
-    [self.spinner stopAnimating];
 }
 
 - (void) waitForGoodLocation:(NSNumber *)n {
@@ -112,6 +121,12 @@
 - (IBAction)buttonPressed:(id)sender
 {    
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
+}
+
+- (IBAction)moodButtonPressed:(UIButton *)sender {
+    score.text = [NSString stringWithFormat:@"Mood Score: %@", sender.currentTitle];
+    moodScore = [sender.currentTitle doubleValue];
+    NSLog(@"double value: %f", moodScore);
 }
 
 
