@@ -105,6 +105,9 @@
         //Set co-ordinates
         mlvc.lat = [data objectForKey:@"lat"];
         mlvc.lon = [data objectForKey:@"lon"];
+        
+        //Thought
+        mlvc.moodThought = [data objectForKey:@"thought"];
 
     }
 }

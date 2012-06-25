@@ -14,8 +14,10 @@
 @end
 
 @implementation MoodLocationViewController
+@synthesize moodThoughtLabel;
 @synthesize mapView;
 @synthesize moodScore;
+@synthesize moodThought;
 @synthesize moodTime;
 @synthesize lat;
 @synthesize lon;
@@ -67,15 +69,19 @@
 - (void)viewDidLoad
 {
     mapView.delegate = self;
+    moodThoughtLabel.text = moodThought;
     [self plotMood];
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+
 }
 
 
 - (void)viewDidUnload
 {
+    [self setMoodThoughtLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
