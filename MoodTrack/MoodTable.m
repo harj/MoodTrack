@@ -73,7 +73,16 @@
     NSTimeZone *pst = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
     [dateFormat setTimeZone:pst];
     NSString *time = [dateFormat stringFromDate:dateString];
-    cell.detailTextLabel.text = time;
+    
+    //Retrieve whether there's a thought
+    NSString *thought = [[NSString alloc] init];
+    if ([object objectForKey:@"thought"] == NULL) {
+        thought = @"";
+    } else {
+        thought = @", Note added";
+    }
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@%@", time, thought];
     
     return cell;
 }
