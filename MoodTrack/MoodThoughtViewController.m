@@ -57,7 +57,6 @@
     NSString *thought = textField.text;
     [self.myDelegate saveThought:thought];
     [self dismissModalViewControllerAnimated:YES];
-   
 }
 
 @end

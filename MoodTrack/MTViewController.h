@@ -13,14 +13,15 @@
 
 @interface MTViewController : UIViewController <CLLocationManagerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, ThoughtDelegate> 
 {
-    NSString *moodThought;
 }
 
 @property (strong, nonatomic) IBOutlet UILabel *score;
+@property (strong, nonatomic) IBOutlet UILabel *noteAdded;
 @property (strong, nonatomic) IBOutlet UISlider *slider; 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) CLLocationManager *locmgr;
 @property (strong, nonatomic) NSString *moodThought;
+
 
 - (IBAction)buttonPressed:(id)sender;
 

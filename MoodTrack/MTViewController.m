@@ -20,11 +20,12 @@
 @synthesize locmgr;
 @synthesize spinner;
 @synthesize moodThought;
+@synthesize noteAdded;
 
 - (void)saveThought:(NSString *)thought
 {
     self.moodThought = thought;
-    NSLog(@"THOUGHT: %@", self.moodThought);
+    self.noteAdded.text = @"Note added";
 }
 
 - (void) saveMood:(CLLocation *)l
@@ -36,8 +37,7 @@
     double accuracy = sqrt(h*h+v*v);
     double mood_value = slider.value;
     NSLog(@"Slider value: %f", slider.value);
-    NSLog(@"savemood: %@", self.moodThought);
-    
+
     PFUser *user = [PFUser currentUser];
     NSString *thought = self.moodThought;
     PFObject *mood = [PFObject objectWithClassName:@"Mood"];
@@ -47,6 +47,7 @@
     [mood setObject:[NSNumber numberWithDouble:accuracy] forKey:@"accuracy"];
     [mood setObject:user forKey:@"user"];
     
+    //Only add thought if it exists
     if (thought) {
           [mood setObject:thought forKey:@"thought"];
     }
@@ -61,6 +62,7 @@
     
     [message show];
 
+    self.noteAdded.text = nil;
     [self.spinner stopAnimating];
 }
 
@@ -109,7 +111,6 @@
 
 - (IBAction)buttonPressed:(id)sender
 {    
-    NSLog(@"Button: %@", self.moodThought);
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
@@ -146,6 +147,7 @@
 - (void)viewDidUnload
 {
     [self setScore:nil];
+    [self setNoteAdded:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
