@@ -70,8 +70,17 @@
     NSDate *dateString = object.createdAt;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"EE d LLLL, h:mm a"];
-    NSTimeZone *pst = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
-    [dateFormat setTimeZone:pst];
+    
+    //Dealing with mood entries that don't have a timezone since I only just started recording it
+    NSString *tz = [[NSString alloc] init];
+    if ([object objectForKey:@"timezone"] == NULL) {
+        tz = @"PDT";
+    } else {
+        tz = [object objectForKey:@"timezone"];
+    }
+    
+    NSTimeZone *zone = [NSTimeZone timeZoneWithAbbreviation:tz];
+    [dateFormat setTimeZone:zone];
     NSString *time = [dateFormat stringFromDate:dateString];
     
     //Retrieve whether there's a thought
@@ -107,8 +116,17 @@
         NSDate *dateString = data.createdAt;
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"EE d LLLL, h:mm a"];
-        NSTimeZone *pst = [NSTimeZone timeZoneWithAbbreviation:@"PST"];
-        [dateFormat setTimeZone:pst];
+        
+        //Dealing with mood entries that don't have a timezone since I only just started recording it
+        NSString *tz = [[NSString alloc] init];
+        if ([data objectForKey:@"timezone"] == NULL) {
+            tz = @"PDT";
+        } else {
+            tz = [data objectForKey:@"timezone"];
+        }
+        
+        NSTimeZone *zone = [NSTimeZone timeZoneWithAbbreviation:tz];
+        [dateFormat setTimeZone:zone];
         mlvc.moodTime = [dateFormat stringFromDate:dateString];
         
         //Set co-ordinates

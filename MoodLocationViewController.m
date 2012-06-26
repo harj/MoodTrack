@@ -60,16 +60,25 @@
     // 4
     [mapView setRegion:adjustedRegion animated:YES];   
     
-    MapViewAnnotation *annotation = [[MapViewAnnotation alloc] initWithCoordinate:zoomLocation title:moodScore subtitle:moodTime];
+    MapViewAnnotation *annotation = [[MapViewAnnotation alloc] initWithCoordinate:zoomLocation title:[NSString stringWithFormat:@"Mood Score: %@", moodScore] subtitle:moodTime];
     [mapView selectAnnotation:annotation animated:YES];
     [mapView addAnnotation:annotation];
     
 }
 
 - (void)viewDidLoad
+
 {
     mapView.delegate = self;
-    moodThoughtLabel.text = moodThought;
+    
+    if (moodThought == NULL) {
+        [moodThoughtLabel setTextAlignment:UITextAlignmentCenter];
+        moodThoughtLabel.font = [UIFont fontWithName:@"MarkerFelt-Thin" size:18];
+        moodThoughtLabel.text = @"No note added";
+    } else {
+        moodThoughtLabel.text = [NSString stringWithFormat:@"NOTE:\n%@", moodThought];
+    }
+    
     [self plotMood];
     
     [super viewDidLoad];

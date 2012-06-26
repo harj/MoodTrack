@@ -17,6 +17,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSTimeZone *lo = [NSTimeZone localTimeZone];
+    NSLog(@" - current  local timezone  is  %@",lo.abbreviation);
 	
     self.view.backgroundColor = [UIColor colorWithPatternImage:
                                  [UIImage imageNamed:@"blue_bg.png"]];
@@ -29,11 +32,11 @@
     [label sizeToFit];
     self.logInView.logo = label;
     
-    self.logInView.usernameField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
-    self.logInView.passwordField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
+    self.logInView.usernameField.backgroundColor = [UIColor colorWithRed: 224.0/255.0 green: 238.0/255.0 blue:238.0/255.0 alpha: 1.0];
+    self.logInView.passwordField.backgroundColor = [UIColor colorWithRed: 224.0/255.0 green: 238.0/255.0 blue:238.0/255.0 alpha: 1.0];
     
-    self.logInView.usernameField.textColor = [UIColor whiteColor];
-    self.logInView.passwordField.textColor = [UIColor whiteColor];
+    self.logInView.usernameField.textColor = [UIColor darkGrayColor];
+    self.logInView.passwordField.textColor = [UIColor darkGrayColor];
     
 }
 

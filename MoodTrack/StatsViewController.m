@@ -59,7 +59,19 @@
                 NSDate *threeDaysAgo = [[NSDate date] dateByAddingTimeInterval: -259200.0];
                 NSDate *weekAgo = [[NSDate date] dateByAddingTimeInterval: -604800.0];
                 
-                NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:moodTime];
+                //Deal with time zones
+                NSString *tz = [[NSString alloc] init];
+                if ([object objectForKey:@"timezone"] == NULL) {
+                    tz = @"PDT";
+                } else {
+                    tz = [object objectForKey:@"timezone"];
+                }
+                
+                NSCalendar *calendar = [NSCalendar currentCalendar];
+                [calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:tz]];
+        
+                NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:moodTime];
+                NSLog(@"COMPONENTS: %@", components);
                 NSInteger hour = [components hour];
                 
                 // Get moods values past 3 days

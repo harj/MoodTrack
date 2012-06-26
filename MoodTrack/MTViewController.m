@@ -52,6 +52,11 @@ double moodScore;
         if (thought) {
             [mood setObject:thought forKey:@"thought"];
         }
+        
+        //Store timezone
+        NSTimeZone *lo = [NSTimeZone localTimeZone];
+        NSString *timezone = lo.abbreviation;
+        [mood setObject:timezone forKey:@"timezone"];
     
         [mood saveEventually];
     

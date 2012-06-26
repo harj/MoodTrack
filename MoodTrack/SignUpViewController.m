@@ -29,13 +29,13 @@
     [label sizeToFit];
     self.signUpView.logo = label;
     
-    self.signUpView.usernameField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
-    self.signUpView.passwordField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
-    self.signUpView.emailField.backgroundColor = [UIColor colorWithRed: 54.0/255.0 green: 100.0/255.0 blue:139.0/255.0 alpha: 1.0];
+    self.signUpView.usernameField.backgroundColor = [UIColor colorWithRed: 224.0/255.0 green: 238.0/255.0 blue:238.0/255.0 alpha: 1.0];
+    self.signUpView.passwordField.backgroundColor = [UIColor colorWithRed: 224.0/255.0 green: 238.0/255.0 blue:238.0/255.0 alpha: 1.0];
+    self.signUpView.emailField.backgroundColor = [UIColor colorWithRed: 224.0/255.0 green: 238.0/255.0 blue:238.0/255.0 alpha: 1.0];
     
-    self.signUpView.usernameField.textColor = [UIColor whiteColor];
-    self.signUpView.passwordField.textColor = [UIColor whiteColor];
-    self.signUpView.emailField.textColor = [UIColor whiteColor];
+    self.signUpView.usernameField.textColor = [UIColor darkGrayColor];
+    self.signUpView.passwordField.textColor = [UIColor darkGrayColor];
+    self.signUpView.emailField.textColor = [UIColor darkGrayColor];
     
 }
 

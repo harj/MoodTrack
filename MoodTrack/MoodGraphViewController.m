@@ -31,7 +31,7 @@
     
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
-                        initWithFrame:CGRectMake(-18, 45, 357, 434)];
+                        initWithFrame:CGRectMake(-29, 45, 365, 448)];
     self.hostingView.collapsesLayers = NO;
     self.hostingView.hostedGraph = graph;
     
@@ -41,20 +41,22 @@
 	graph.plotAreaFrame.paddingTop	= 20.0f;
 	graph.plotAreaFrame.paddingRight = 5.0f;
 	graph.plotAreaFrame.paddingBottom = 45.0f;
+    
+    graph.plotAreaFrame.borderLineStyle = nil;
         
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     NSTimeInterval xLow = 0.0f;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(days)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(0.0) length:CPTDecimalFromFloat(10.0)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromString(@"0") length:CPTDecimalFromString(@"10")];
     
 	// Axes
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
 	CPTXYAxis *x		  = axisSet.xAxis;
-    x.title = @"Time (days)";
+    x.title = [NSString stringWithFormat:@"Time (last %.0f days)", (days/86400)];
     x.titleOffset = 10.0f;
 	x.majorIntervalLength		  = CPTDecimalFromFloat(86400.0f);
-	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
+	x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
 	x.minorTicksPerInterval		  = 0;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	dateFormatter.dateStyle = kCFDateFormatterShortStyle;
@@ -64,10 +66,16 @@
 
 	CPTXYAxis *y = axisSet.yAxis;
     y.title = @"Mood Score";
-    y.titleOffset = 30.0f;
-	y.majorIntervalLength		  = CPTDecimalFromString(@"1.0");
+    y.titleOffset = 20.0f;
+	y.majorIntervalLength		  = CPTDecimalFromString(@"1");
 	y.minorTicksPerInterval		  = 1;
-	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0.0");
+	y.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [numberFormatter setGeneratesDecimalNumbers:NO];
+    
+    y.labelFormatter = numberFormatter;
     
     
 	// Create a blue plot area
