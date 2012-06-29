@@ -17,7 +17,6 @@
 
 @synthesize scorePicker;
 @synthesize score;
-@synthesize slider;
 @synthesize locmgr;
 @synthesize spinner;
 @synthesize moodThought;
@@ -131,18 +130,6 @@ double moodScore;
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
-- (IBAction)moodButtonPressed:(UIButton *)sender {
-    score.text = [NSString stringWithFormat:@"Mood Score: %@", sender.currentTitle];
-    moodScore = [sender.currentTitle doubleValue];
-    NSLog(@"double value: %f", moodScore);
-}
-
-
-- (void)sliderChanged:(UISlider *)aslider {
-    score.text = [NSString stringWithFormat:@"Mood Score: %.0f", aslider.value];
-    
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -153,7 +140,6 @@ double moodScore;
 
 - (void)viewDidLoad
 {
-    [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
@@ -190,25 +176,15 @@ double moodScore;
 	// add carat or other view to indicate selected element
 	UIImageView *indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator"]];
 	pickerView.selectionIndicatorView = indicator;
+    
     //	pickerView.indicatorPosition = V8HorizontalPickerIndicatorTop; // specify indicator's location
 	
 	// add gradient images to left and right of view if desired
     //UIImageView *leftFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_fade"]];
     //pickerView.leftEdgeView = leftFade;
     
-    //
     //UIImageView *rightFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right_fade"]];
     //pickerView.rightEdgeView = rightFade;
-    
-	// add image to left of scroll area
-    //	UIImageView *leftImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loopback"]];
-    //	pickerView.leftScrollEdgeView = leftImage;
-    //	[leftImage release];
-    //	pickerView.scrollEdgeViewPadding = 20.0f;
-    //
-    //	UIImageView *rightImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"airplane"]];
-    //	pickerView.rightScrollEdgeView = rightImage;
-    //	[rightImage release];
     
 	[self.view addSubview:pickerView];
     

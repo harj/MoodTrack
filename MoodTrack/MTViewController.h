@@ -20,7 +20,6 @@
 @property (strong, nonatomic) IBOutlet UIPickerView *scorePicker;
 @property (strong, nonatomic) IBOutlet UILabel *score;
 @property (strong, nonatomic) IBOutlet UILabel *noteAdded;
-@property (strong, nonatomic) IBOutlet UISlider *slider; 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) CLLocationManager *locmgr;
 @property (strong, nonatomic) NSString *moodThought;
@@ -29,6 +28,5 @@
 @property (strong, nonatomic) V8HorizontalPickerView *pickerView;
 
 - (IBAction)buttonPressed:(id)sender;
-- (IBAction)moodButtonPressed:(UIButton *)sender;
 
 @end
