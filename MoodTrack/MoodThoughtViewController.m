@@ -7,6 +7,7 @@
 //
 
 #import "MoodThoughtViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MoodThoughtViewController ()
 
@@ -31,6 +32,15 @@
 	// Do any additional setup after loading the view.
     
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    
+    [self.textField setPlaceholderText:@"Placeholder text"];
+    
+    CALayer *layer = [self.textField layer];
+    [layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
+    [layer setBorderWidth:0.75];
+    layer.cornerRadius = 5;
+    self.textField.clipsToBounds = YES;
+    
 }
 
 - (void)viewDidUnload
@@ -51,11 +61,6 @@
 
 - (IBAction)closeThoughtView:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)textViewDidBeginEditing:textField {
-    NSLog(@"started editing");
-    self.textField.text = @"";
 }
 
 

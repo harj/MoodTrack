@@ -101,6 +101,7 @@
 		C7913FC8155A582000C3F722 /* black_tile.png in Resources */ = {isa = PBXBuildFile; fileRef = C7913FC7155A582000C3F722 /* black_tile.png */; };
 		C79140231562258B00C3F722 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C79140221562258B00C3F722 /* libCorePlot-CocoaTouch.a */; };
 		C791402C15622EA900C3F722 /* MoodGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C791402B15622EA900C3F722 /* MoodGraphViewController.m */; };
+		C7988E2B159E6CFB0086A01E /* KTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7988E2A159E6CFB0086A01E /* KTTextView.m */; };
 		C79A3D341547541700AE9E1A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D331547541700AE9E1A /* Parse.framework */; };
 		C79A3D371547543C00AE9E1A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D361547543C00AE9E1A /* AudioToolbox.framework */; };
 		C79A3D391547544500AE9E1A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D381547544500AE9E1A /* CFNetwork.framework */; };
@@ -357,6 +358,8 @@
 		C79140221562258B00C3F722 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		C791402A15622EA900C3F722 /* MoodGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoodGraphViewController.h; sourceTree = "<group>"; };
 		C791402B15622EA900C3F722 /* MoodGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoodGraphViewController.m; sourceTree = "<group>"; };
+		C7988E29159E6CFB0086A01E /* KTTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KTTextView.h; sourceTree = "<group>"; };
+		C7988E2A159E6CFB0086A01E /* KTTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KTTextView.m; sourceTree = "<group>"; };
 		C79A3D331547541700AE9E1A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = MoodTrack/Parse.framework; sourceTree = "<group>"; };
 		C79A3D361547543C00AE9E1A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C79A3D381547544500AE9E1A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -797,6 +800,8 @@
 		C7CC97711511D1AC005C44C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7988E29159E6CFB0086A01E /* KTTextView.h */,
+				C7988E2A159E6CFB0086A01E /* KTTextView.m */,
 				C7E72EC7159D947200D41620 /* V8HorizontalPickerView.h */,
 				C7E72EC8159D947200D41620 /* V8HorizontalPickerView.m */,
 				C7E72EC9159D947200D41620 /* V8HorizontalPickerViewProtocol.h */,
@@ -1000,6 +1005,7 @@
 				C744A3071596BA1A00468F42 /* MoodThoughtViewController.m in Sources */,
 				C7E72EC0159D77E400D41620 /* PickerViewController.m in Sources */,
 				C7E72ECA159D947200D41620 /* V8HorizontalPickerView.m in Sources */,
+				C7988E2B159E6CFB0086A01E /* KTTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

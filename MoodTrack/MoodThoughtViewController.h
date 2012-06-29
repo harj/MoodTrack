@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KTTextView.h"
 
 @protocol ThoughtDelegate <NSObject>
 - (void)saveThought:(NSString *)thought;
@@ -19,7 +20,7 @@
 }
 
 
-@property (strong, nonatomic) IBOutlet UITextView *textField;
+@property (strong, nonatomic) IBOutlet KTTextView *textField;
 
 @property (strong, nonatomic) id<ThoughtDelegate> myDelegate;
 
