@@ -134,6 +134,16 @@
 		C7D1382D1558D381002E4894 /* MoodLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1382C1558D381002E4894 /* MoodLocationViewController.m */; };
 		C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */; };
 		C7D2888A158B2C5F00A86DB8 /* blue_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D28889158B2C5F00A86DB8 /* blue_bg.png */; };
+		C7E72EC0159D77E400D41620 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E72EBF159D77E400D41620 /* PickerViewController.m */; };
+		C7E72ECA159D947200D41620 /* V8HorizontalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E72EC8159D947200D41620 /* V8HorizontalPickerView.m */; };
+		C7E72ED3159D97C400D41620 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ECB159D97C400D41620 /* indicator.png */; };
+		C7E72ED4159D97C400D41620 /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ECC159D97C400D41620 /* indicator@2x.png */; };
+		C7E72ED5159D97C400D41620 /* left_fade.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ECD159D97C400D41620 /* left_fade.png */; };
+		C7E72ED6159D97C400D41620 /* left_fade@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ECE159D97C400D41620 /* left_fade@2x.png */; };
+		C7E72ED7159D97C400D41620 /* loopback.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ECF159D97C400D41620 /* loopback.png */; };
+		C7E72ED8159D97C400D41620 /* loopback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ED0159D97C400D41620 /* loopback@2x.png */; };
+		C7E72ED9159D97C400D41620 /* right_fade.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ED1159D97C400D41620 /* right_fade.png */; };
+		C7E72EDA159D97C400D41620 /* right_fade@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ED2159D97C400D41620 /* right_fade@2x.png */; };
 		C7F5A6C9158915C100B96728 /* ipad-button-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = C7F5A6C8158915C100B96728 /* ipad-button-blue.png */; };
 /* End PBXBuildFile section */
 
@@ -389,6 +399,19 @@
 		C7D28878158B01D200A86DB8 /* MapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewAnnotation.h; sourceTree = "<group>"; };
 		C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewAnnotation.m; sourceTree = "<group>"; };
 		C7D28889158B2C5F00A86DB8 /* blue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_bg.png; sourceTree = "<group>"; };
+		C7E72EBE159D77E400D41620 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
+		C7E72EBF159D77E400D41620 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
+		C7E72EC7159D947200D41620 /* V8HorizontalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerView.h; sourceTree = "<group>"; };
+		C7E72EC8159D947200D41620 /* V8HorizontalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V8HorizontalPickerView.m; sourceTree = "<group>"; };
+		C7E72EC9159D947200D41620 /* V8HorizontalPickerViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerViewProtocol.h; sourceTree = "<group>"; };
+		C7E72ECB159D97C400D41620 /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indicator.png; sourceTree = "<group>"; };
+		C7E72ECC159D97C400D41620 /* indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@2x.png"; sourceTree = "<group>"; };
+		C7E72ECD159D97C400D41620 /* left_fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_fade.png; sourceTree = "<group>"; };
+		C7E72ECE159D97C400D41620 /* left_fade@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_fade@2x.png"; sourceTree = "<group>"; };
+		C7E72ECF159D97C400D41620 /* loopback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loopback.png; sourceTree = "<group>"; };
+		C7E72ED0159D97C400D41620 /* loopback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loopback@2x.png"; sourceTree = "<group>"; };
+		C7E72ED1159D97C400D41620 /* right_fade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_fade.png; sourceTree = "<group>"; };
+		C7E72ED2159D97C400D41620 /* right_fade@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_fade@2x.png"; sourceTree = "<group>"; };
 		C7F5A6C8158915C100B96728 /* ipad-button-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-blue.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -427,6 +450,14 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7E72ECB159D97C400D41620 /* indicator.png */,
+				C7E72ECC159D97C400D41620 /* indicator@2x.png */,
+				C7E72ECD159D97C400D41620 /* left_fade.png */,
+				C7E72ECE159D97C400D41620 /* left_fade@2x.png */,
+				C7E72ECF159D97C400D41620 /* loopback.png */,
+				C7E72ED0159D97C400D41620 /* loopback@2x.png */,
+				C7E72ED1159D97C400D41620 /* right_fade.png */,
+				C7E72ED2159D97C400D41620 /* right_fade@2x.png */,
 				C74B7E941599AC25005DBEFC /* white_blue_fade.png */,
 				C744A2FE1596AEF000468F42 /* ipad-text-input.png */,
 				C744A2FF1596AEF000468F42 /* ipad-text-input@2x.png */,
@@ -757,6 +788,8 @@
 				C791402A15622EA900C3F722 /* MoodGraphViewController.h */,
 				C791402B15622EA900C3F722 /* MoodGraphViewController.m */,
 				C7CC977C1511D1AC005C44C1 /* MainStoryboard.storyboard */,
+				C7E72EBE159D77E400D41620 /* PickerViewController.h */,
+				C7E72EBF159D77E400D41620 /* PickerViewController.m */,
 			);
 			path = MoodTrack;
 			sourceTree = "<group>";
@@ -764,6 +797,9 @@
 		C7CC97711511D1AC005C44C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7E72EC7159D947200D41620 /* V8HorizontalPickerView.h */,
+				C7E72EC8159D947200D41620 /* V8HorizontalPickerView.m */,
+				C7E72EC9159D947200D41620 /* V8HorizontalPickerViewProtocol.h */,
 				C79A3D3E1547546900AE9E1A /* libz.1.1.3.dylib */,
 				C7CC978B1511DA65005C44C1 /* libsqlite3.0.dylib */,
 				C7CC97721511D1AC005C44C1 /* MoodTrack-Info.plist */,
@@ -933,6 +969,14 @@
 				C744A3001596AEF000468F42 /* ipad-text-input.png in Resources */,
 				C744A3011596AEF000468F42 /* ipad-text-input@2x.png in Resources */,
 				C74B7E951599AC25005DBEFC /* white_blue_fade.png in Resources */,
+				C7E72ED3159D97C400D41620 /* indicator.png in Resources */,
+				C7E72ED4159D97C400D41620 /* indicator@2x.png in Resources */,
+				C7E72ED5159D97C400D41620 /* left_fade.png in Resources */,
+				C7E72ED6159D97C400D41620 /* left_fade@2x.png in Resources */,
+				C7E72ED7159D97C400D41620 /* loopback.png in Resources */,
+				C7E72ED8159D97C400D41620 /* loopback@2x.png in Resources */,
+				C7E72ED9159D97C400D41620 /* right_fade.png in Resources */,
+				C7E72EDA159D97C400D41620 /* right_fade@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +998,8 @@
 				C791402C15622EA900C3F722 /* MoodGraphViewController.m in Sources */,
 				C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */,
 				C744A3071596BA1A00468F42 /* MoodThoughtViewController.m in Sources */,
+				C7E72EC0159D77E400D41620 /* PickerViewController.m in Sources */,
+				C7E72ECA159D947200D41620 /* V8HorizontalPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

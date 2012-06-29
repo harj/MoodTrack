@@ -18,8 +18,8 @@
 	NSMutableArray *dataForPlot;
 }
 
-@property (nonatomic, retain) NSMutableArray *dataForPlot;
-@property (nonatomic, retain) CPTGraphHostingView *hostingView;
+@property (strong, nonatomic) NSMutableArray *dataForPlot;
+@property (strong, nonatomic) CPTGraphHostingView *hostingView;
 
 - (IBAction)closeMoodGraph:(id)sender;
 @end
