@@ -172,12 +172,9 @@ double moodScore;
 	CGFloat width = (self.view.bounds.size.width - (margin * 2.0f));
 	CGFloat pickerHeight = 55.0f;
 	CGFloat x = margin;
-	CGFloat y = 150.0f;
+	CGFloat y = 120.0f;
 	CGRect tmpFrame = CGRectMake(x, y, width, pickerHeight);
     
-    //	CGFloat width = 200.0f;
-    //	CGFloat x = (self.view.frame.size.width - width) / 2.0f;
-    //	CGRect tmpFrame = CGRectMake(x, 150.0f, width, 40.0f);
     
 	pickerView = [[V8HorizontalPickerView alloc] initWithFrame:tmpFrame];
 	pickerView.backgroundColor   = [UIColor lightGrayColor];
