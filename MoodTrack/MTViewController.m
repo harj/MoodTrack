@@ -168,7 +168,7 @@ double moodScore;
     self.moodScoreValues = [[NSArray alloc] initWithObjects:@"1", @"2", @"3", @"4",
                             @"5", @"6", @"7", @"8", @"9", @"10", nil];
     
-    CGFloat margin = 40.0f;
+    CGFloat margin = 20.0f;
 	CGFloat width = (self.view.bounds.size.width - (margin * 2.0f));
 	CGFloat pickerHeight = 40.0f;
 	CGFloat x = margin;
@@ -181,12 +181,14 @@ double moodScore;
     
 	pickerView = [[V8HorizontalPickerView alloc] initWithFrame:tmpFrame];
 	pickerView.backgroundColor   = [UIColor lightGrayColor];
-	pickerView.selectedTextColor = [UIColor blackColor];
+	pickerView.selectedTextColor = [UIColor whiteColor];
 	pickerView.textColor   = [UIColor grayColor];
 	pickerView.delegate    = self;
 	pickerView.dataSource  = self;
 	pickerView.elementFont = [UIFont boldSystemFontOfSize:20.0f];
-	pickerView.selectionPoint = CGPointMake(120, 0);
+	pickerView.selectionPoint = CGPointMake(140, 0);
+    
+    [pickerView scrollToElement:4 animated:NO];
     
 	// add carat or other view to indicate selected element
 	UIImageView *indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator"]];
