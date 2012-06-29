@@ -33,7 +33,7 @@
     
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
     
-    [self.textField setPlaceholderText:@"Placeholder text"];
+    [self.textField setPlaceholderText:@"Click to add a note"];
     
     CALayer *layer = [self.textField layer];
     [layer setBorderColor:[[[UIColor grayColor] colorWithAlphaComponent:0.5] CGColor]];
@@ -50,6 +50,28 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     
+}
+
+//Hiding keyboard when not focused on textview anymore
+
+- (BOOL)textView:(UITextView *)textView
+shouldChangeTextInRange:(NSRange)range
+ replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+    }
+    return YES;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.textField isFirstResponder] && [touch view] != self.textField) {
+        [self.textField resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
 }
 
 

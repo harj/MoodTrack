@@ -15,6 +15,7 @@
 
 
 @interface MoodThoughtViewController : UIViewController
+<UITextViewDelegate>
 {
     id myDelegate;
 }

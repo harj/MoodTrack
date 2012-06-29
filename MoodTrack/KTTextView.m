@@ -145,6 +145,7 @@
    
    frame.size.height = size.height;
    [_placeholder setFrame:frame];
+    [_placeholder setTextAlignment:UITextAlignmentCenter];
 }
 
 - (UIColor *)placeholderColor

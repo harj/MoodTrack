@@ -147,6 +147,9 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cko-TP-jYJ" id="jw4-Jj-RTk"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -517,7 +520,7 @@
             <relationships>
                 <relationship kind="action" name="closeThoughtView:"/>
                 <relationship kind="action" name="saveThoughtPressed:"/>
-                <relationship kind="outlet" name="textField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="textField" candidateClass="KTTextView"/>
             </relationships>
         </class>
         <class className="PFQueryTableViewController" superclassName="UITableViewController">
