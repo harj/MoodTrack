@@ -170,7 +170,7 @@ double moodScore;
     
     CGFloat margin = 20.0f;
 	CGFloat width = (self.view.bounds.size.width - (margin * 2.0f));
-	CGFloat pickerHeight = 40.0f;
+	CGFloat pickerHeight = 55.0f;
 	CGFloat x = margin;
 	CGFloat y = 150.0f;
 	CGRect tmpFrame = CGRectMake(x, y, width, pickerHeight);
