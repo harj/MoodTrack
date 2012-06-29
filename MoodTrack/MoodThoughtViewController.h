@@ -19,7 +19,8 @@
 }
 
 
-@property (strong, nonatomic) IBOutlet UITextField *textField;
+@property (strong, nonatomic) IBOutlet UITextView *textField;
+
 @property (strong, nonatomic) id<ThoughtDelegate> myDelegate;
 
 - (IBAction)closeThoughtView:(id)sender;

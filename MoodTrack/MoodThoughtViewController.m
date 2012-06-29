@@ -36,8 +36,10 @@
 - (void)viewDidUnload
 {
     [self setTextField:nil];
+    [self setTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+    
 }
 
 
@@ -49,6 +51,11 @@
 
 - (IBAction)closeThoughtView:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)textViewDidBeginEditing:textField {
+    NSLog(@"started editing");
+    self.textField.text = @"";
 }
 
 
