@@ -83,7 +83,7 @@
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"old_mathematics.png"]];
 
 }
 

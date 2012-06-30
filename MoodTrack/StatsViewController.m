@@ -71,7 +71,6 @@
                 [calendar setTimeZone:[NSTimeZone timeZoneWithAbbreviation:tz]];
         
                 NSDateComponents *components = [calendar components:NSHourCalendarUnit fromDate:moodTime];
-                NSLog(@"COMPONENTS: %@", components);
                 NSInteger hour = [components hour];
                 
                 // Get moods values past 3 days
@@ -146,7 +145,8 @@
 - (void)viewDidLoad:(NSString *)text
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
+    NSLog(@"LOADED");
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"old_mathematics.png"]];
 
 	// Do any additional setup after loading the view.
 }
@@ -155,8 +155,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"furley_bg.png"]];
-    
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"old_mathematics.png"]];
     [self selectData:0];
     
         

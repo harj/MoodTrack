@@ -54,10 +54,9 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
      UIRemoteNotificationTypeSound];
     
     [TestFlight takeOff:@"35d02c0188ea3095576b118783bc43b7_MTAxOTcxMjAxMi0wNi0yMCAwNDo0Mzo0My43OTYwMTI"];
-
+        
     return YES;
 }
-
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
