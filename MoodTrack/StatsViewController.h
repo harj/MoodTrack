@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *AverageAM;
 @property (strong, nonatomic) IBOutlet UILabel *AveragePM;
 - (IBAction)Refresh:(id)sender;
+-(NSString *)makeaverage:(double)number;
 
 @end

@@ -20,6 +20,15 @@
 @synthesize AverageAM;
 @synthesize AveragePM;
 
+-(NSString *)makeaverage:(double)number
+{
+    if (isnan(number)) {
+        return @" - ";
+    } else {
+        return [NSString stringWithFormat:@"%.01f ", number];
+    }
+}
+
 -(void)selectData:(float)type
 {
     PFUser *currentuser = [PFUser currentUser];
@@ -94,7 +103,7 @@
             }
             
             
-            NSLog(@"%i, %i, %i, %i, %i", moodVals.count, moodVals3Days.count, moodValsWeek.count, moodValsAM.count, moodValsPM.count);
+            NSLog(@"all:%i, 3d:%i, week:%i, am:%i, pm:%i", moodVals.count, moodVals3Days.count, moodValsWeek.count, moodValsAM.count, moodValsPM.count);
             
             //Find totals
             NSNumber *sum = [moodVals valueForKeyPath:@"@sum.self"];
@@ -111,28 +120,11 @@
             double avgPM = [sumPM doubleValue] / moodValsPM.count;
             
             //Display averages
-            if (moodVals.count) {
-                self.AverageScore.text = [NSString stringWithFormat:@"%.01f ", avg];
-                self.Average3Days.text = [NSString stringWithFormat:@"%.01f ", avg3Days];
-                self.Average7Days.text = [NSString stringWithFormat:@"%.01f ", avgWeek];
-            } else {
-                self.AverageScore.text = @"- ";
-                self.Average3Days.text = @"- ";
-                self.Average7Days.text = @"- ";
-            }
-            
-            //Display averages AM and PM
-            if (moodValsAM.count) {
-                self.AverageAM.text = [NSString stringWithFormat:@"%.01f ", avgAM];                
-            } else {
-                self.AverageAM.text = @"- ";
-            }
-            
-            if (moodValsPM.count) {
-                self.AveragePM.text = [NSString stringWithFormat:@"%.01f ", avgPM];                
-            } else {
-                self.AveragePM.text = @"- ";
-            }
+            self.AverageScore.text = [self makeaverage:avg];
+            self.Average3Days.text = [self makeaverage:avg3Days];
+            self.Average7Days.text = [self makeaverage:avgWeek];
+            self.AverageAM.text = [self makeaverage:avgAM];            
+            self.AveragePM.text = [self makeaverage:avgPM];              
             
         } else {
             NSLog(@"parse has failed me!");
@@ -145,8 +137,7 @@
 - (void)viewDidLoad:(NSString *)text
 {
     [super viewDidLoad];
-    NSLog(@"LOADED");
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"old_mathematics.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"whitey.png"]];
 
 	// Do any additional setup after loading the view.
 }
@@ -155,7 +146,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"old_mathematics.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"whitey.png"]];
     [self selectData:0];
     
         

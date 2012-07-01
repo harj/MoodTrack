@@ -28,7 +28,7 @@ double moodScore;
 - (void)saveThought:(NSString *)thought
 {
     self.moodThought = thought;
-    self.noteAdded.text = @"Note added";
+    self.noteAdded.text = @"note added";
 }
 
 - (void) saveMood:(CLLocation *)l
@@ -142,7 +142,7 @@ double moodScore;
 {
     
     [super viewDidLoad];
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"old_mathematics.png"]];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"whitey.png"]];
 
 	// Do any additional setup after loading the view, typically from a nib.
     locmgr = [[CLLocationManager alloc] init];
@@ -163,7 +163,7 @@ double moodScore;
     
     
 	pickerView = [[V8HorizontalPickerView alloc] initWithFrame:tmpFrame];
-	pickerView.backgroundColor   = [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0];
+	pickerView.backgroundColor   = [UIColor colorWithRed:237.0/255.0 green:237.0/255.0 blue:237.0/255.0 alpha:1.0];
 	pickerView.selectedTextColor = [UIColor colorWithRed:34.0/255.0 green:138.0/255.0 blue:255.0/255.0 alpha:1.0];
 	pickerView.textColor   = [UIColor grayColor];
 	pickerView.delegate    = self;
@@ -174,17 +174,17 @@ double moodScore;
     [pickerView scrollToElement:4 animated:NO];
     
 	// add carat or other view to indicate selected element
-	UIImageView *indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator"]];
+	UIImageView *indicator = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"indicator1"]];
 	pickerView.selectionIndicatorView = indicator;
     
-    //	pickerView.indicatorPosition = V8HorizontalPickerIndicatorTop; // specify indicator's location
+    //pickerView.indicatorPosition = V8HorizontalPickerIndicatorTop; // specify indicator's location
 	
 	// add gradient images to left and right of view if desired
-    //UIImageView *leftFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_fade_5"]];
-    //pickerView.leftEdgeView = leftFade;
+    UIImageView *leftFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left_fade_8"]];
+    pickerView.leftEdgeView = leftFade;
     
-    //UIImageView *rightFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right_fade_5"]];
-    //pickerView.rightEdgeView = rightFade;
+    UIImageView *rightFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"right_fade_8"]];
+    pickerView.rightEdgeView = rightFade;
     
 	[self.view addSubview:pickerView];
     
@@ -210,7 +210,7 @@ double moodScore;
 }
 
 - (void)horizontalPickerView:(V8HorizontalPickerView *)picker didSelectElementAtIndex:(NSInteger)index {
-	self.score.text = [NSString stringWithFormat:@"Your Mood Score: %d", index + 1];
+	self.score.text = [NSString stringWithFormat:@"I'm feeling %d out of 10", index + 1];
     moodScore = index + 1;
 }
 

@@ -26,20 +26,21 @@
     
     // Create graph from theme
 	graph = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
-	CPTTheme *theme = [CPTTheme themeNamed:kCPTPlainWhiteTheme];
+	CPTTheme *theme = [CPTTheme themeNamed:kCPTStocksTheme];
 	[graph applyTheme:theme]; 
     
     //Create host view
     self.hostingView = [[CPTGraphHostingView alloc] 
-                        initWithFrame:CGRectMake(-29, 45, 365, 448)];
+                        initWithFrame:CGRectMake(-29, 44, 385, 448)];
     self.hostingView.collapsesLayers = NO;
     self.hostingView.hostedGraph = graph;
     
     [self.view addSubview:self.hostingView];
     
+    
 	graph.plotAreaFrame.paddingLeft	= 50.0f;
 	graph.plotAreaFrame.paddingTop	= 20.0f;
-	graph.plotAreaFrame.paddingRight = 5.0f;
+	graph.plotAreaFrame.paddingRight = 25.0f;
 	graph.plotAreaFrame.paddingBottom = 45.0f;
     
     graph.plotAreaFrame.borderLineStyle = nil;
@@ -47,7 +48,7 @@
     // We modify the graph's plot space to setup the axis' min / max values.
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *)graph.defaultPlotSpace;
     NSTimeInterval xLow = 0.0f;
-    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(days)];
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xLow) length:CPTDecimalFromFloat(days * 1.025)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromString(@"0") length:CPTDecimalFromString(@"10")];
     
 	// Axes
@@ -83,7 +84,7 @@
 	CPTMutableLineStyle *lineStyle = [CPTMutableLineStyle lineStyle];
 	lineStyle.miterLimit		= 1.0f;
 	lineStyle.lineWidth			= 1.5f;
-	lineStyle.lineColor			= [CPTColor blueColor];
+	lineStyle.lineColor			= [CPTColor whiteColor];
 	boundLinePlot.dataLineStyle = lineStyle;
 	boundLinePlot.identifier	= @"Blue Plot";
 	boundLinePlot.dataSource	= self;
@@ -96,7 +97,7 @@
 	CPTMutableLineStyle *symbolLineStyle = [CPTMutableLineStyle lineStyle];
 	symbolLineStyle.lineColor = [CPTColor blackColor];
 	CPTPlotSymbol *plotSymbol = [CPTPlotSymbol ellipsePlotSymbol];
-	plotSymbol.fill			 = [CPTFill fillWithColor:[CPTColor blueColor]];
+	plotSymbol.fill			 = [CPTFill fillWithColor:[CPTColor whiteColor]];
 	plotSymbol.lineStyle	 = symbolLineStyle;
 	plotSymbol.size			 = CGSizeMake(5.0, 5.0);
 	boundLinePlot.plotSymbol = plotSymbol;
