@@ -20,12 +20,15 @@
 @synthesize AverageAM;
 @synthesize AveragePM;
 
--(NSString *)makeaverage:(double)number
+-(NSString *)makeaverage:(NSArray *)values
 {
-    if (isnan(number)) {
+    NSNumber *sum = [values valueForKeyPath:@"@sum.self"];
+    double avg = [sum doubleValue] / values.count;
+    
+    if (isnan(avg)) {
         return @" - ";
     } else {
-        return [NSString stringWithFormat:@"%.01f ", number];
+        return [NSString stringWithFormat:@"%.01f ", avg];
     }
 }
 
@@ -104,27 +107,13 @@
             
             
             NSLog(@"all:%i, 3d:%i, week:%i, am:%i, pm:%i", moodVals.count, moodVals3Days.count, moodValsWeek.count, moodValsAM.count, moodValsPM.count);
-            
-            //Find totals
-            NSNumber *sum = [moodVals valueForKeyPath:@"@sum.self"];
-            NSNumber *sum3Days = [moodVals3Days valueForKeyPath:@"@sum.self"];
-            NSNumber *sumWeek = [moodValsWeek valueForKeyPath:@"@sum.self"];
-            NSNumber *sumAM = [moodValsAM valueForKeyPath:@"@sum.self"];
-            NSNumber *sumPM = [moodValsPM valueForKeyPath:@"@sum.self"];
-            
-            //Get averages
-            double avg = [sum doubleValue] / moodVals.count;
-            double avg3Days = [sum3Days doubleValue] / moodVals3Days.count;
-            double avgWeek = [sumWeek doubleValue] / moodValsWeek.count;
-            double avgAM = [sumAM doubleValue] / moodValsAM.count;
-            double avgPM = [sumPM doubleValue] / moodValsPM.count;
-            
+                        
             //Display averages
-            self.AverageScore.text = [self makeaverage:avg];
-            self.Average3Days.text = [self makeaverage:avg3Days];
-            self.Average7Days.text = [self makeaverage:avgWeek];
-            self.AverageAM.text = [self makeaverage:avgAM];            
-            self.AveragePM.text = [self makeaverage:avgPM];              
+            self.AverageScore.text = [self makeaverage:moodVals];
+            self.Average3Days.text = [self makeaverage:moodVals3Days];
+            self.Average7Days.text = [self makeaverage:moodValsWeek];
+            self.AverageAM.text = [self makeaverage:moodValsAM];            
+            self.AveragePM.text = [self makeaverage:moodValsPM];              
             
         } else {
             NSLog(@"parse has failed me!");
