@@ -58,7 +58,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                <state key="normal" title="Track!" backgroundImage="ipad-button-green.png">
+                                <state key="normal" title="Track" backgroundImage="ipad-button-green.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.0" green="0.18039215689999999" blue="0.33725490200000002" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
                                 </state>
@@ -471,6 +471,60 @@
         <image name="ipad-button-green.png" width="159" height="51"/>
         <image name="pencil.png" width="26" height="26"/>
     </resources>
+    <classes>
+        <class className="KTTextView" superclassName="UITextView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KTTextView.h"/>
+        </class>
+        <class className="MTViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MTViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="buttonPressed:"/>
+                <relationship kind="outlet" name="noteAdded" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scorePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="MoodGraphViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodGraphViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeMoodGraph:"/>
+            </relationships>
+        </class>
+        <class className="MoodLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeMoodLocation:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="moodThoughtLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MoodTable" superclassName="PFQueryTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodTable.h"/>
+        </class>
+        <class className="MoodThoughtViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodThoughtViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeThoughtView:"/>
+                <relationship kind="action" name="saveThoughtPressed:"/>
+                <relationship kind="outlet" name="textField" candidateClass="KTTextView"/>
+            </relationships>
+        </class>
+        <class className="PFQueryTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
+        </class>
+        <class className="StatsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Refresh:"/>
+                <relationship kind="outlet" name="Average3Days" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Average7Days" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="AverageAM" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="AveragePM" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="AverageScore" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
