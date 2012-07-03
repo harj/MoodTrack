@@ -155,6 +155,7 @@
 		C7D1382D1558D381002E4894 /* MoodLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D1382C1558D381002E4894 /* MoodLocationViewController.m */; };
 		C7D2887A158B01D200A86DB8 /* MapViewAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */; };
 		C7D2888A158B2C5F00A86DB8 /* blue_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D28889158B2C5F00A86DB8 /* blue_bg.png */; };
+		C7D7544415A2C3E5006FA709 /* MoodTrack ROUND 114px.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D7544315A2C3E5006FA709 /* MoodTrack ROUND 114px.png */; };
 		C7E72EC0159D77E400D41620 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E72EBF159D77E400D41620 /* PickerViewController.m */; };
 		C7E72ECA159D947200D41620 /* V8HorizontalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7E72EC8159D947200D41620 /* V8HorizontalPickerView.m */; };
 		C7E72ED3159D97C400D41620 /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = C7E72ECB159D97C400D41620 /* indicator.png */; };
@@ -442,6 +443,7 @@
 		C7D28878158B01D200A86DB8 /* MapViewAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewAnnotation.h; sourceTree = "<group>"; };
 		C7D28879158B01D200A86DB8 /* MapViewAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewAnnotation.m; sourceTree = "<group>"; };
 		C7D28889158B2C5F00A86DB8 /* blue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue_bg.png; sourceTree = "<group>"; };
+		C7D7544315A2C3E5006FA709 /* MoodTrack ROUND 114px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MoodTrack ROUND 114px.png"; sourceTree = "<group>"; };
 		C7E72EBE159D77E400D41620 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		C7E72EBF159D77E400D41620 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		C7E72EC7159D947200D41620 /* V8HorizontalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V8HorizontalPickerView.h; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 		C75F007315187E8600C034FD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7D7544315A2C3E5006FA709 /* MoodTrack ROUND 114px.png */,
 				C71DFF5A15A17304006F678A /* launch_image.png */,
 				C71DFF5215A1371C006F678A /* 1341194115_note_add.png */,
 				C738102F159FBC590090A7AE /* indicator1.png */,
@@ -1062,6 +1065,7 @@
 				C71DFF5315A1371C006F678A /* 1341194115_note_add.png in Resources */,
 				C71DFF5715A1701B006F678A /* Default.png in Resources */,
 				C71DFF5B15A17304006F678A /* launch_image.png in Resources */,
+				C7D7544415A2C3E5006FA709 /* MoodTrack ROUND 114px.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
