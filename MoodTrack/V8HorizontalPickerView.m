@@ -77,7 +77,7 @@
 
 		[self addScrollView];
 
-		self.textColor   = [UIColor blackColor];
+		//self.textColor   = [UIColor blackColor];
 		self.elementFont = [UIFont systemFontOfSize:12.0f];
 
 		currentSelectedIndex = -1; // nothing is selected yet

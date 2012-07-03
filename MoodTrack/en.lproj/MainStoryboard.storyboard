@@ -35,16 +35,15 @@
                                 <rect key="frame" x="0.0" y="111" width="321" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
-                                <color key="textColor" red="0.13270809531399186" green="0.54311781957472505" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.12019001066951794" green="0.49188662059419308" blue="0.90567203443877553" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZaP-5K-goa">
-                                <rect key="frame" x="86" y="238" width="149" height="35"/>
+                                <rect key="frame" x="182" y="220" width="141" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.26088169639999997" green="0.26088169639999997" blue="0.26088169639999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="18"/>
-                                <state key="normal" title="Add a Note">
-                                    <color key="titleColor" red="0.92976721939999996" green="0.92976721939999996" blue="0.92976721939999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="15"/>
+                                <state key="normal" title=" add note" image="1341194115_note_add.png">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -57,9 +56,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="psx-OH-Uzs">
                                 <rect key="frame" x="81" y="295" width="159" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="25"/>
                                 <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                <state key="normal" title="Track Mood" backgroundImage="ipad-button-green.png">
+                                <state key="normal" title="Track!" backgroundImage="ipad-button-green.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.0" green="0.18039215689999999" blue="0.33725490200000002" alpha="0.67000000000000004" colorSpace="calibratedRGB"/>
                                 </state>
@@ -465,66 +464,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1341194115_note_add.png" width="25" height="25"/>
         <image name="folder.png" width="26" height="26"/>
         <image name="graph_bar_trend.png" width="26" height="26"/>
         <image name="ipad-button-blue.png" width="157" height="49"/>
         <image name="ipad-button-green.png" width="159" height="51"/>
         <image name="pencil.png" width="26" height="26"/>
     </resources>
-    <classes>
-        <class className="KTTextView" superclassName="UITextView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/KTTextView.h"/>
-        </class>
-        <class className="MTViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MTViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="buttonPressed:"/>
-                <relationship kind="outlet" name="noteAdded" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="score" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="scorePicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="MoodGraphViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodGraphViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeMoodGraph:"/>
-            </relationships>
-        </class>
-        <class className="MoodLocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodLocationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeMoodLocation:"/>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="moodThoughtLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MoodTable" superclassName="PFQueryTableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodTable.h"/>
-        </class>
-        <class className="MoodThoughtViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MoodThoughtViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeThoughtView:"/>
-                <relationship kind="action" name="saveThoughtPressed:"/>
-                <relationship kind="outlet" name="textField" candidateClass="KTTextView"/>
-            </relationships>
-        </class>
-        <class className="PFQueryTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PFQueryTableViewController.h"/>
-        </class>
-        <class className="StatsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Refresh:"/>
-                <relationship kind="outlet" name="Average3Days" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="Average7Days" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="AverageAM" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="AveragePM" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="AverageScore" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

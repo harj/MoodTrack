@@ -168,7 +168,7 @@ double moodScore;
 	pickerView.textColor   = [UIColor grayColor];
 	pickerView.delegate    = self;
 	pickerView.dataSource  = self;
-	pickerView.elementFont = [UIFont boldSystemFontOfSize:20.0f];
+	pickerView.elementFont = [UIFont fontWithName:@"TrebuchetMS" size:20.0f];
 	pickerView.selectionPoint = CGPointMake(140, 0);
     
     [pickerView scrollToElement:4 animated:NO];
