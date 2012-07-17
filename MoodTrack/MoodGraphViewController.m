@@ -112,6 +112,7 @@
     
     PFUser *currentuser = [PFUser currentUser];
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
+    query.limit = 1000;
     [query whereKey:@"user" equalTo:currentuser];
     [query orderByAscending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

@@ -28,5 +28,6 @@
 @property (strong, nonatomic) V8HorizontalPickerView *pickerView;
 
 - (IBAction)buttonPressed:(id)sender;
+- (IBAction)logout:(id)sender;
 
 @end

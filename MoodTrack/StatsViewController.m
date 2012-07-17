@@ -35,12 +35,14 @@
 -(void)selectData:(float)type
 {
     PFUser *currentuser = [PFUser currentUser];
-    NSMutableArray *data = [[NSMutableArray alloc] init];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:500];
     
     // Finding average mood
     PFQuery *query = [PFQuery queryWithClassName:@"Mood"];
     [query whereKey:@"user" equalTo:currentuser];
-    
+    query.limit = 1000;
+    NSLog(@"TOTAL OBJECTS %d", [query countObjects]);
+
     if (type == 1) {
         query.cachePolicy = kPFCachePolicyNetworkElseCache;
     } else {
@@ -52,6 +54,8 @@
             for (PFObject *object in objects) {
                 [data addObject:object];
             }
+            
+            NSLog(@"%d", [data count]);
             
             // Arrays for storing mood values from queries
             NSMutableArray *moodVals = [[NSMutableArray alloc] init];
@@ -98,7 +102,6 @@
                 //Get am and pm mood values
                 if (hour >= 0 && hour < 12) {
                     [moodValsAM addObject:mood_value];
-                    NSLog(@"%@", moodTime);
                 } else {
                     [moodValsPM addObject:mood_value];
                 }

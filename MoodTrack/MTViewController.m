@@ -12,6 +12,7 @@
 #import <Parse/Parse.h>
 #import "LogInViewController.h"
 #import "SignUpViewController.h"
+#import "MoodTable.h"
 
 @implementation MTViewController
 
@@ -130,11 +131,13 @@ double moodScore;
     [self waitForGoodLocation:[NSNumber numberWithInt:0]];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+- (IBAction)logout:(id)sender {
+    [PFQuery clearAllCachedResults];
+    [PFUser logOut];
+    [self signUpScreen];
+    
 }
+
 
 #pragma mark - View lifecycle
 
@@ -230,27 +233,41 @@ double moodScore;
     [super viewWillAppear:animated];
 }
 
+-(void)signUpScreen
+{
+    LogInViewController *logInController = [[LogInViewController alloc] init];
+    logInController.signUpController = [[SignUpViewController alloc] init];
+    
+    //Customize login screen fields
+    logInController.fields = PFLogInFieldsUsernameAndPassword 
+    | PFLogInFieldsLogInButton
+    | PFLogInFieldsSignUpButton 
+    | PFLogInFieldsPasswordForgotten;
+    
+    logInController.delegate = self;
+    logInController.signUpController.delegate = self;
+    
+    [self presentModalViewController:logInController animated:YES];
+    
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];    
     PFUser *currentuser = [PFUser currentUser];
     
-    if (!currentuser) {
-        LogInViewController *logInController = [[LogInViewController alloc] init];
-        logInController.signUpController = [[SignUpViewController alloc] init];
-    
-        //Customize login screen fields
-        logInController.fields = PFLogInFieldsUsernameAndPassword 
-        | PFLogInFieldsLogInButton
-        | PFLogInFieldsSignUpButton 
-        | PFLogInFieldsPasswordForgotten;
-        
-        logInController.delegate = self;
-        logInController.signUpController.delegate = self;
-        
-        [self presentModalViewController:logInController animated:YES];
+    if (currentuser) {
+        [super viewDidAppear:animated];    
+    } else {
+        [self signUpScreen];
     }
-    
+                                    
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewWillDisappear:(BOOL)animated

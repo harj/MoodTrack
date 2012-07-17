@@ -122,7 +122,6 @@
 		C7988E45159EA1C70086A01E /* right_fade_5.png in Resources */ = {isa = PBXBuildFile; fileRef = C7988E44159EA1C70086A01E /* right_fade_5.png */; };
 		C7988E49159EA2AE0086A01E /* left_fade_5.png in Resources */ = {isa = PBXBuildFile; fileRef = C7988E48159EA2AE0086A01E /* left_fade_5.png */; };
 		C7988E4B159FB3910086A01E /* whitey.png in Resources */ = {isa = PBXBuildFile; fileRef = C7988E4A159FB3910086A01E /* whitey.png */; };
-		C79A3D341547541700AE9E1A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D331547541700AE9E1A /* Parse.framework */; };
 		C79A3D371547543C00AE9E1A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D361547543C00AE9E1A /* AudioToolbox.framework */; };
 		C79A3D391547544500AE9E1A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D381547544500AE9E1A /* CFNetwork.framework */; };
 		C79A3D3B1547545000AE9E1A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79A3D3A1547545000AE9E1A /* SystemConfiguration.framework */; };
@@ -132,6 +131,7 @@
 		C79C510F158EF84100BF2A56 /* ipad-button-green.png in Resources */ = {isa = PBXBuildFile; fileRef = C79C510D158EF84100BF2A56 /* ipad-button-green.png */; };
 		C79C5110158EF84100BF2A56 /* ipad-button-green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C79C510E158EF84100BF2A56 /* ipad-button-green@2x.png */; };
 		C79C5112158EF85100BF2A56 /* ipad-button-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C79C5111158EF85100BF2A56 /* ipad-button-blue@2x.png */; };
+		C7AB002215B539DF00F40D79 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AB002015B5398E00F40D79 /* Parse.framework */; };
 		C7B7129A15523D770052DAD3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B7129915523D770052DAD3 /* icon.png */; };
 		C7B755B3155B6A2D00B9242D /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7B755B2155B6A2D00B9242D /* SignUpViewController.m */; };
 		C7B755B7155B6D2E00B9242D /* bright_squares.png in Resources */ = {isa = PBXBuildFile; fileRef = C7B755B6155B6D2E00B9242D /* bright_squares.png */; };
@@ -402,7 +402,6 @@
 		C7988E44159EA1C70086A01E /* right_fade_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_fade_5.png; sourceTree = "<group>"; };
 		C7988E48159EA2AE0086A01E /* left_fade_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_fade_5.png; sourceTree = "<group>"; };
 		C7988E4A159FB3910086A01E /* whitey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whitey.png; sourceTree = "<group>"; };
-		C79A3D331547541700AE9E1A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = MoodTrack/Parse.framework; sourceTree = "<group>"; };
 		C79A3D361547543C00AE9E1A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C79A3D381547544500AE9E1A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C79A3D3A1547545000AE9E1A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -412,6 +411,7 @@
 		C79C510D158EF84100BF2A56 /* ipad-button-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-green.png"; sourceTree = "<group>"; };
 		C79C510E158EF84100BF2A56 /* ipad-button-green@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-green@2x.png"; sourceTree = "<group>"; };
 		C79C5111158EF85100BF2A56 /* ipad-button-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipad-button-blue@2x.png"; sourceTree = "<group>"; };
+		C7AB002015B5398E00F40D79 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		C7B7129915523D770052DAD3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		C7B755B1155B6A2D00B9242D /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		C7B755B2155B6A2D00B9242D /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
@@ -467,8 +467,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7CEA84A1591C41D00D83C00 /* libz.dylib in Frameworks */,
-				C7D138231558BC74002E4894 /* MapKit.framework in Frameworks */,
 				C73F3F4415291DCE00AAC3F9 /* QuartzCore.framework in Frameworks */,
 				C79A3D411547547100AE9E1A /* Security.framework in Frameworks */,
 				C79A3D3F1547546900AE9E1A /* libz.1.1.3.dylib in Frameworks */,
@@ -477,14 +475,16 @@
 				C79A3D3B1547545000AE9E1A /* SystemConfiguration.framework in Frameworks */,
 				C79A3D391547544500AE9E1A /* CFNetwork.framework in Frameworks */,
 				C79A3D371547543C00AE9E1A /* AudioToolbox.framework in Frameworks */,
+				C7CEA84A1591C41D00D83C00 /* libz.dylib in Frameworks */,
+				C7D138231558BC74002E4894 /* MapKit.framework in Frameworks */,
 				C7CC978E1511E51A005C44C1 /* CoreLocation.framework in Frameworks */,
 				C7CC978C1511DA65005C44C1 /* libsqlite3.0.dylib in Frameworks */,
 				C7CC976B1511D1AC005C44C1 /* UIKit.framework in Frameworks */,
 				C7CC976D1511D1AC005C44C1 /* Foundation.framework in Frameworks */,
-				C79A3D341547541700AE9E1A /* Parse.framework in Frameworks */,
 				C79140231562258B00C3F722 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				C76B5B7D158F083600E09E88 /* libCrittercism_v3_2_5.a in Frameworks */,
 				C76B5BCB158F0C6D00E09E88 /* libFlurryAnalytics.a in Frameworks */,
+				C7AB002215B539DF00F40D79 /* Parse.framework in Frameworks */,
 				C7CEA8451591C3D200D83C00 /* libTestFlight.a in Frameworks */,
 				C7CEA84D1592EA1F00D83C00 /* PXComponentKit.framework in Frameworks */,
 				C7CEA84E1592EA1F00D83C00 /* PXShapeKit.framework in Frameworks */,
@@ -815,6 +815,7 @@
 		C7CC97691511D1AC005C44C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7AB002015B5398E00F40D79 /* Parse.framework */,
 				C7CEA84B1592EA1F00D83C00 /* PXComponentKit.framework */,
 				C7CEA84C1592EA1F00D83C00 /* PXShapeKit.framework */,
 				C7D138221558BC74002E4894 /* MapKit.framework */,
@@ -825,7 +826,6 @@
 				C79A3D361547543C00AE9E1A /* AudioToolbox.framework */,
 				C73F3F4315291DCE00AAC3F9 /* QuartzCore.framework */,
 				C7CC978D1511E51A005C44C1 /* CoreLocation.framework */,
-				C79A3D331547541700AE9E1A /* Parse.framework */,
 				C7CC976A1511D1AC005C44C1 /* UIKit.framework */,
 				C7CC976C1511D1AC005C44C1 /* Foundation.framework */,
 				C7CC976E1511D1AC005C44C1 /* CoreGraphics.framework */,
